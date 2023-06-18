@@ -1,0 +1,28 @@
+
+.Polaris-MediaCard__InfoContainer {
+    display: none; /* removes polaris given padding */
+}
+.mediaCardVideo {
+   border: 1px solid red;
+}
+.mediaCardVideo__text {
+    padding: 1.25rem;
+}
+.mediaCardVideo__text h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.1875rem;
+}
+.mediaCardVideo__text h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.0625rem;
+
+    padding: 0.25rem 0px 8px 0px;
+}
+.mediaCardVideo__text p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.0625rem;
+
+}

@@ -1,0 +1,80 @@
+/* fonts  */
+.p-font-size-75 {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+}
+
+.p-font-size-400 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+
+
+/* sidebar */
+.font-color-1 {
+    color: var(--font-color-1);
+}
+
+.font-color-2 {
+    color: var(--font-color-2);
+}
+
+.sidebar {
+    padding: 1.25rem;
+
+    /*     background: red; */
+}
+
+.sidebar__container {
+    width: 50%;
+}
+
+.sidebar__container hr {
+    margin: 1rem 0rem;
+}
+
+.sidebar__container .arrow {
+    height: 1rem;
+    width: 1rem;
+}
+
+.sidebar__container__details__flex {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.sidebar__container__buttonGroup {
+    /*   border: 1px solid red; */
+    margin: 2.5rem 0rem 0.625rem 0rem;
+
+}
+
+.sidebar__container__buttonGroup button {
+    transition: opacity .2s;
+    width: 50%;
+}
+
+.sidebar__container__buttonGroup button:hover {
+    opacity: 75%;
+}
+
+.sidebar__container__buttonGroup button:nth-child(1) {
+    background: var(--btn-color-1);
+    color: white;
+    border-radius: 4px 0px 0px 4px;
+    border-right: none;
+}
+
+.sidebar__container__buttonGroup button:nth-child(2) {
+    background: var(--btn-color-2);
+    border-radius: 0px 4px 4px 0px;
+    border-left: none;
+}
+
+.sidebar__arrow {
+    color: var(--font-color-2);
+    padding: 0rem 1rem;
+}
