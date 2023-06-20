@@ -1,1 +1,117 @@
-/* adnan write css here */
+/* Header Styling */
+.header {
+    padding: 1.5rem;
+    outline: 1px solid black;
+    height: 70px;
+}
+
+.header__container {
+    width: 90%;
+    margin-inline: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 30px;
+}
+
+.vertical-divider {
+    height: 100%;
+    width: 2px;
+    background-color: #dfdfdf;
+}
+
+.header__left__name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.header__center {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    background-color: none;
+    padding: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn {
+    width: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #e4e5e7;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease-out;
+}
+
+.menu-btn:hover {
+    background-color: hsla(220, 6%, 87%);
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 3px 0px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.hamburger__line {
+    height: 2px;
+    width: 16px;
+    background-color: #5c5f62;
+    border-radius: 20px;
+}
+
+.searchbar-container {
+    position: relative;
+}
+
+.magnifying-glass-icon {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+.magnifying-glass-icon svg {
+    translate: 0 -6%;
+}
+
+.searchbar {
+    border: none;
+    outline: none;
+    background-color: #e4e5e7;
+    padding: 0.8rem;
+    border-radius: 5px;
+    padding-left: 2rem;
+    transition: box-shadow 0.2s ease-out;
+    font-size: 1rem;
+}
+
+.searchbar:hover {
+    box-shadow: 0 0 5px 2px #d3d3d3;
+}
+
+.searchbar::placeholder {
+    color: #202223;
+    font-size: 1rem;
+}

@@ -1,20 +1,21 @@
-import '@shopify/polaris/build/esm/styles.css';
-import './styles/App.css';
-import './styles/devP.css';
-import './styles/devA.css';
+import "@shopify/polaris/build/esm/styles.css";
+import "./styles/App.css";
+import "./styles/devP.css";
+import "./styles/devA.css";
 
+import Header from "./components/Header";
 
-import Sidebar from './components/Sidebar/Sidebar';
-import MapButton from './components/MapButton/MapButton';
+import Sidebar from "./components/Sidebar/Sidebar";
+import MapButton from "./components/MapButton/MapButton";
 
 function App() {
-
-  return (
-    <>
-      <MapButton/>
-      <Sidebar />
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <MapButton />
+            <Sidebar />
+        </>
+    );
 }
 
-export default App
+export default App;
