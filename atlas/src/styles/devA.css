@@ -1,8 +1,12 @@
 /* Header Styling */
+:root {
+    --header-height: 70px;
+}
+
 .header {
     padding: 1.5rem;
     outline: 1px solid black;
-    height: 70px;
+    height: var(--header-height);
 }
 
 .header__container {
@@ -114,4 +118,62 @@
 .searchbar::placeholder {
     color: #202223;
     font-size: 1rem;
+}
+
+.main-wrapper {
+    position: relative;
+    height: calc(100% - var(--header-height));
+}
+
+.districts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.district-box {
+    height: 70px;
+    min-width: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.temp-sidebar {
+    position: absolute;
+    background-color: hsla(200, 4%, 13%, 0.9);
+    color: #dfdfdf;
+    width: 30%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transition: translate 0.3s ease-in-out;
+    translate: 100% 0;
+}
+
+.sidebar-active {
+    translate: 0 0;
+}
+
+.sidebar-container {
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    rotate: 45deg;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: inherit;
 }
