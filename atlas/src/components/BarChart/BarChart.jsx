@@ -1,61 +1,121 @@
-import { useD3 } from '../../hooks/useD3';
-import React from 'react';
-import * as d3 from 'd3';
+// import { useD3 } from '../../hooks/useD3';
+// import React from 'react';
+// import * as d3 from 'd3';
 
-function BarChart({ data }) {
-  const ref = useD3(
-    (svg) => {
+// import { useData } from '../../hooks/useData';
 
-      const projection = d3.geoEqualEarth();
-      const path = d3.geoPath(projection)
+// import * as generatedDistricts from "../../data/generated_districts.json"
+// import { features } from "../../data/bd_districts.geo.json"
 
-      svg.select(".plot-area").append("path").attr("d", path)
+// console.log(generatedDistricts, 'imported districts')
+// console.log(features, 'imported features')
 
-      // const height = 500;
-      // const width = 500;
-      // const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+// const generateMinMax = (dataset) => {
+//   let minMax = {};
+//   console.log("THIS IS DATASET", dataset)
+//   dataset.forEach((element) => {
+//       Object.keys(element.futureData).forEach((key) => {
+//           if (minMax[key] === undefined) {
+//               minMax[key] = [element.futureData[key], element.futureData[key]];
+//           } else {
+//               if (element.futureData[key] < minMax[key][0]) {
+//                   minMax[key][0] = element.futureData[key];
+//               }
 
-      // const x = d3
-      //   .scaleBand()
-      //   .domain(data.map((d) => d.year))
-      //   .rangeRound([margin.left, width - margin.right])
-      //   .padding(0.1);
+//               if (element.futureData[key] > minMax[key][1]) {
+//                   minMax[key][1] = element.futureData[key];
+//               }
+//           }
+//       });
+//   }
+//   );
+//   console.log(minMax);
+//   return minMax;
+// }
 
-      // const y1 = d3
-      //   .scaleLinear()
-      //   .domain([0, d3.max(data, (d) => d.sales)])
-      //   .rangeRound([height - margin.bottom, margin.top]);
+// const getClimateVariable = (district, variable) => {
+//   let vis = this;
 
-      // svg
-      //   .select(".plot-area")
-      //   .attr("fill", "steelblue")
-      //   .selectAll(".bar")
-      //   .data(data)
-      //   .join("rect")
-      //   .attr("class", "bar")
-      //   .attr("x", (d) => x(d.year))
-      //   .attr("width", x.bandwidth())
-      //   .attr("y", (d) => y1(d.sales))
-      //   .attr("height", (d) => y1(0) - y1(d.sales));
-    },
-    []
-  );
+//   let districtData = vis.climateData.find((element) => {
+//       return element.name === district;
+//   }
+//   );
 
-  return (
-    <svg
-      ref={ref}
-      style={{
-        height: 500,
-        width: "100%",
-        marginRight: "0px",
-        marginLeft: "0px",
-      }}
-    >
-      <g className="plot-area" />
-      <g className="x-axis" />
-      <g className="y-axis" />
-    </svg>
-  );
-}
+//   if (districtData === undefined) {
+//       return 0;
+//   }
 
-export default BarChart;
+//   return districtData.futureData[variable];
+// }
+
+// function BarChart({ data }) {
+//   const importedData = useData()
+//   console.log(importedData)
+//   const ref = useD3(
+//     (svg) => {
+
+//       // const projection = d3.geoEqualEarth();
+//       // const path = d3.geoPath(projection)
+
+//       //TEMP
+//       const selectedVariable = "temperature"
+
+//       if (importedData && importedData?.data?.features){
+//         const jsonData = importedData.data
+//         const districtData = importedData.districtData
+
+//         const minMax = generateMinMax(districts)
+
+//         const variableDomain = {
+//             temperature: minMax['meanTemperature'],
+//             ncdd: minMax['nCdd'],
+//             nhotdays: minMax['nHotDays40'],
+//         }
+  
+//         const variableDataMap = {
+//           temperature: "meanTemperature",
+//           ncdd: "nCdd",
+//           nhotdays: "nHotDays40",
+//       }
+  
+//         const projection = d3.geoMercator().fitSize([500, 500], jsonData);
+  
+//         const colorScale = d3.scaleSequential().domain(variableDomain[selectedVariable]).interpolator(d3.interpolateYlOrRd);
+  
+//         const path = d3.geoPath().projection(projection);
+  
+//         svg.attr("width", 500).attr("height", 500);
+  
+//         svg.selectAll("path")
+//           .data(jsonData.features)
+//           .join("path")
+//           .attr("d", path)
+//           .attr("stroke", "#000")
+//           .attr("stroke-width", 0.5)
+//           .attr("fill", (d) => {
+//             let value = getClimateVariable(d.properties["NAME_3"], variableDataMap[selectedVariable]);
+//             return  colorScale(value);
+//       })
+
+      
+//       }
+//     },
+//     [importedData]
+//   );
+
+//   return (
+//     importedData?.data?.features ? 
+//     <svg
+//       ref={ref}
+//       style={{
+//         height: 500,
+//         width: "100%",
+//         marginRight: "0px",
+//         marginLeft: "0px",
+//       }}
+//     >
+//     </svg>:<></>
+//   );
+// }
+
+// export default BarChart;
