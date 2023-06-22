@@ -10,8 +10,6 @@ import * as upojelaGeoData from '../../data/bd_upojelas.geo.json'
 import * as climateStories from '../../data/climate_stories.json'
 import * as generatedDistricts from '../../data/generated_districts.json'
 
-
-
 const generateMinMax = (dataset) => {
   let minMax = {};
   console.log("THIS IS DATASET", dataset)
@@ -78,7 +76,7 @@ export default function Map() {
         nhotdays: "Number of Days Above 40°C",
       }
   
-      const projection = d3.geoMercator().fitSize([500, 500], districtGeoData);
+      const projection = d3.geoMercator().fitSize([720, 720], districtGeoData);
       console.log(variableDomain)
       console.log(selectedVariable)
       console.log(variableDomain[selectedVariable])
@@ -90,7 +88,7 @@ export default function Map() {
       // .attr("height", 50);
       const path = d3.geoPath().projection(projection);
   
-      svg.attr("width", 500).attr("height", 500);
+      svg.attr("width", 1280).attr("height", 1280);
       svg.selectAll("path")
         .data(districtGeoData.features)
         .join("path")
@@ -114,26 +112,35 @@ export default function Map() {
                     </div>
                 </div>
             `);
-    })
-    .on("mouseout", (event, d) => {
-      d3.select("#tooltip").style("display", "none");
-  })
+      })
+      .on("mouseout", (event, d) => {
+        d3.select("#tooltip").style("display", "none");
+      })
+        .on("click", (event, d) => {
+          // Render out the district name to the district-info div
+          d3.select("#district-info").html(this.getContentBlock(d, vis));
+          let contentDiv = document.getElementById('district-info');
+          contentDiv.classList.add('hide');
+          setTimeout(() => {
+            contentDiv.classList.remove('hide');
+            contentDiv.classList.add('show');
+          }, 300); // transition duration
+      });
     },
     []
   );
 
   return (
     <>
-      <div class="container">
+      <div className="map-container">
         <div id="tooltip"></div>
-        <svg id="map-vis" class="map" ref={ref}
-        style={{
-        height: 500,
-        width: "100%",
-        marginRight: "0px",
-        marginLeft: "0px",
-      }}></svg>
-        <div id="district-info" class="district-content"></div>
+        <svg id="map-vis" className="map" ref={ref}
+          style={{
+            width:'800px',
+          marginRight: "0px",
+          marginLeft: "0px",
+        }}></svg>
+        <div id="district-info" className="district-content"></div>
     </div>
     </>
     

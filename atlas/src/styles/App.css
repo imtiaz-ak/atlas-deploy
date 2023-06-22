@@ -1,37 +1,44 @@
-#root {
-  max-width: 1440px;
-  margin: 0 auto;
-}
 *,
 *::after,
 *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Urbanist', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Urbanist", sans-serif;
 }
 
 html,
 body,
 #root {
-  height: 100%;
+    height: 100%;
 }
 
 :root {
-  --font-color-1: #000000;
-  --font-color-2: #00000066;
-  
-  --btn-color-1:  #FC714A;
+    --font-color-1: #000000;
+    --font-color-2: #00000066;
 
+    --btn-color-1: #fc714a;
 }
 
 .customBtn {
     --pc-button-micro-min-height: var(--p-font-line-height-2);
     --pc-button-slim-min-height: var(--p-font-line-height-4);
     --pc-button-large-min-height: 2.75rem;
-    --pc-button-vertical-padding: calc((2.25rem - var(--p-font-line-height-2) - var(--p-space-05))/2);
-    --pc-button-slim-vertical-padding: calc((var(--pc-button-slim-min-height) - var(--p-font-line-height-2) - var(--p-space-05))/2);
-    --pc-button-large-vertical-padding: calc((var(--pc-button-large-min-height) - var(--p-font-line-height-2) - var(--p-space-05))/2);
+    --pc-button-vertical-padding: calc(
+        (2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2
+    );
+    --pc-button-slim-vertical-padding: calc(
+        (
+                var(--pc-button-slim-min-height) - var(--p-font-line-height-2) -
+                    var(--p-space-05)
+            ) / 2
+    );
+    --pc-button-large-vertical-padding: calc(
+        (
+                var(--pc-button-large-min-height) - var(--p-font-line-height-2) -
+                    var(--p-space-05)
+            ) / 2
+    );
     --pc-button-spinner-size: 1.25rem;
     --pc-button-segment: 10;
     --pc-button-focused: 20;
@@ -44,7 +51,10 @@ body,
     min-height: 2.25rem;
     min-width: 2.25rem;
     margin: 0;
-    padding: calc((2.25rem - var(--p-font-line-height-2) - var(--p-space-05))/2) var(--p-space-4);
+    padding: calc(
+            (2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2
+        )
+        var(--p-space-4);
     background: var(--p-color-bg);
     box-shadow: var(--p-shadow-sm);
     border-radius: var(--p-border-radius-1);
@@ -59,5 +69,5 @@ body,
     -webkit-tap-highlight-color: transparent;
 }
 a {
-  color: inherit;
+    color: inherit;
 }
