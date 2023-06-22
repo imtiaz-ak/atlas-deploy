@@ -32,7 +32,10 @@ function App() {
                     sidebarActive={sidebarActive}
                     setSidebarActive={setSidebarActive}
                 />
-                <Map />
+                <Map 
+                  handleDistrictIdChange={handleDistrictIdChange}
+                  setSidebarActive={setSidebarActive}
+                />
             </div>
         </>
     );

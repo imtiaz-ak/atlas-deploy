@@ -46,7 +46,7 @@ const getClimateVariable = (district, variable) => {
   return districtData.futureData[variable];
 }
 
-export default function Map() {
+export default function Map({handleDistrictIdChange, setSidebarActive}) {
   const [selectedVariable, setSelectedVariable] = useState("temperature")
 
   const ref = useD3(
@@ -99,32 +99,36 @@ export default function Map() {
           let value = getClimateVariable(d.properties["NAME_3"], variableDataMap[selectedVariable]);
           return  colorScale(value);
       })
-      .on("mouseover", (event, d) => {
-        d3.select("#tooltip")
-            .style("display", "block")
-            .style("left", event.pageX + 20 + "px")
-            .style("top", event.pageY + 20 + "px").html(`
-                <div id='tooltip-title'>${d.properties["NAME_3"] + "-" + d.properties["NAME_1"]} </div>
-                <div id='tooltip-content'>
-                    <div class='tooltip-content-row'>
-                        <div class='tooltip-content-row-label'>${variableLabelMap[selectedVariable]}</div>
-                        <div class='tooltip-content-row-value'>${getClimateVariable(d.properties["NAME_3"], variableDataMap[selectedVariable])}</div>
-                    </div>
-                </div>
-            `);
-      })
-      .on("mouseout", (event, d) => {
-        d3.select("#tooltip").style("display", "none");
-      })
+      // .on("mouseover", (event, d) => {
+      //   d3.select("#tooltip")
+      //       .style("display", "block")
+      //       .style("left", event.pageX + 20 + "px")
+      //       .style("top", event.pageY + 20 + "px").html(`
+      //           <div id='tooltip-title'>${d.properties["NAME_3"] + "-" + d.properties["NAME_1"]} </div>
+      //           <div id='tooltip-content'>
+      //               <div class='tooltip-content-row'>
+      //                   <div class='tooltip-content-row-label'>${variableLabelMap[selectedVariable]}</div>
+      //                   <div class='tooltip-content-row-value'>${getClimateVariable(d.properties["NAME_3"], variableDataMap[selectedVariable])}</div>
+      //               </div>
+      //           </div>
+      //       `);
+      //   console.log(d, 'THIS IS DA D')
+      // })
+      // .on("mouseout", (event, d) => {
+      //   d3.select("#tooltip").style("display", "none");
+      // })
         .on("click", (event, d) => {
           // Render out the district name to the district-info div
-          d3.select("#district-info").html(this.getContentBlock(d, vis));
-          let contentDiv = document.getElementById('district-info');
-          contentDiv.classList.add('hide');
-          setTimeout(() => {
-            contentDiv.classList.remove('hide');
-            contentDiv.classList.add('show');
-          }, 300); // transition duration
+          console.log("CLICKIN", d)
+          generatedDistricts.districts.forEach((generatedD) => {
+            console.log(generatedD)
+            if (generatedD.name == d.properties.NAME_3){
+              console.log("UPDATING DA ID ", generatedD.id)
+              handleDistrictIdChange(generatedD.id)
+            }
+
+          })
+          setSidebarActive(true)
       });
     },
     []
