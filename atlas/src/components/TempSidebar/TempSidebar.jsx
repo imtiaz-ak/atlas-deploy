@@ -11,8 +11,15 @@ function TempSidebar({ district, sidebarActive, setSidebarActive }) {
                 <h2>{district?.name}</h2>
                 <p>Mean Temp: {district?.historicalData?.meanTemperature}</p>
                 <p>Future Mean Temp: {district?.futureData?.meanTemperature}</p>
-                <p>Change: {(district?.futureData?.meanTemperature - district?.historicalData?.meanTemperature).toFixed(2)}</p>
+                <p>
+                    Change:{" "}
+                    {(
+                        district?.futureData?.meanTemperature -
+                        district?.historicalData?.meanTemperature
+                    ).toFixed(2)}
+                </p>
                 <button
+                    tabIndex="-1"
                     className="close-sidebar"
                     onClick={() => setSidebarActive(false)}>
                     +
