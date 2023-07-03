@@ -13,22 +13,20 @@ import Map from "./components/Map/Map";
 import TempSidebar from "./components/TempSidebar";
 import { useState } from "react";
 import { DistrictProvider } from "./context/DistrictContext";
+import { SidebarProvider } from "./context/SidebarContext";
 
 function App() {
-    const [sidebarActive, setSidebarActive] = useState(false);
-
     return (
         <>
             <Header />
-            <div className="main-wrapper">
+            <SidebarProvider>
                 <DistrictProvider>
-                    <TempSidebar
-                        sidebarActive={sidebarActive}
-                        setSidebarActive={setSidebarActive}
-                    />
-                    <Map setSidebarActive={setSidebarActive} />
+                    <div className="main-wrapper">
+                        <TempSidebar />
+                        <Map />
+                    </div>
                 </DistrictProvider>
-            </div>
+            </SidebarProvider>
         </>
     );
 }

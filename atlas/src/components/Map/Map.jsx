@@ -10,6 +10,7 @@ import * as upojelaGeoData from "../../data/bd_upojelas.geo.json";
 import * as climateStories from "../../data/climate_stories.json";
 import * as generatedDistricts from "../../data/generated_districts.json";
 import DistrictContext from "../../context/DistrictContext";
+import SidebarContext from "../../context/SidebarContext";
 
 const generateMinMax = (dataset) => {
     let minMax = {};
@@ -48,10 +49,12 @@ const getClimateVariable = (district, variable) => {
     return districtData.futureData[variable];
 };
 
-export default function Map({ setSidebarActive }) {
+export default function Map() {
     const [selectedVariable, setSelectedVariable] = useState("temperature");
 
+    // reading context
     const { setDistrictId } = useContext(DistrictContext);
+    const { setSidebarActive } = useContext(SidebarContext);
 
     const handleDistrictIdChange = (id) => setDistrictId(id);
 
