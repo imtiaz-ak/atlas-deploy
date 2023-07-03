@@ -1,8 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function Nav() {
     return (
-        <nav className="nav">
+        <motion.nav
+            key="nav"
+            initial={{ opacity: 0, y: 70 }}
+            animate={{ opacity: 1, y: 80 }}
+            exit={{ opacity: 0, y: 70 }}
+            className="nav">
             <ul>
                 <li className="nav-item">
                     <a href="#">HOME</a>
@@ -26,7 +32,7 @@ function Nav() {
                     <a href="#">THE TEAM</a>
                 </li>
             </ul>
-        </nav>
+        </motion.nav>
     );
 }
 

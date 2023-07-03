@@ -51,13 +51,11 @@
 
 .nav {
     position: absolute;
-    bottom: -80px;
     left: 0px;
     background-color: #ffffff;
     border-radius: 8px;
     z-index: 1000;
     width: 100%;
-    animation: fade-in 0.2s forwards ease-in-out;
 }
 
 @keyframes fade-in {

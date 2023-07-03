@@ -10,7 +10,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import MapButton from "./components/MapButton/MapButton";
 import Districts from "./components/Districts";
-import Map from "./components/Map/Map"
+import Map from "./components/Map/Map";
 import TempSidebar from "./components/TempSidebar";
 import { useState } from "react";
 
@@ -32,9 +32,9 @@ function App() {
                     sidebarActive={sidebarActive}
                     setSidebarActive={setSidebarActive}
                 />
-                <Map 
-                  handleDistrictIdChange={handleDistrictIdChange}
-                  setSidebarActive={setSidebarActive}
+                <Map
+                    handleDistrictIdChange={handleDistrictIdChange}
+                    setSidebarActive={setSidebarActive}
                 />
             </div>
         </>

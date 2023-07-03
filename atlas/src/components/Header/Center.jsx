@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Center() {
     const [showNav, setShowNav] = useState(false);
@@ -11,7 +12,7 @@ function Center() {
 
     return (
         <div className="header__center">
-            {showNav && <Nav />}
+            <AnimatePresence>{showNav && <Nav />}</AnimatePresence>
             <div>
                 <button className="btn menu-btn" onClick={handleMenuClick}>
                     <div className="hamburger">
