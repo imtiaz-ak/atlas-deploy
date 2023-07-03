@@ -1,10 +1,13 @@
 import React from "react";
+import { useContext } from "react";
+import DistrictContext from "../../context/DistrictContext";
 
-function TempSidebar({ district, sidebarActive, setSidebarActive }) {
+function TempSidebar({ sidebarActive, setSidebarActive }) {
     const className = sidebarActive
         ? "temp-sidebar sidebar-active"
         : "temp-sidebar";
 
+    const { district } = useContext(DistrictContext);
     return (
         <div className={className}>
             <div className="sidebar-container">
