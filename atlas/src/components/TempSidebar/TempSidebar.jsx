@@ -1,9 +1,15 @@
 import React from "react";
+import { useContext } from "react";
+import DistrictContext from "../../context/DistrictContext";
+import SidebarContext from "../../context/SidebarContext";
 
-function TempSidebar({ district, sidebarActive, setSidebarActive }) {
+function TempSidebar() {
+    const { sidebarActive, toggleSidebar } = useContext(SidebarContext);
     const className = sidebarActive
         ? "temp-sidebar sidebar-active"
         : "temp-sidebar";
+
+    const { district } = useContext(DistrictContext);
 
     return (
         <div className={className}>
@@ -21,7 +27,7 @@ function TempSidebar({ district, sidebarActive, setSidebarActive }) {
                 <button
                     tabIndex="-1"
                     className="close-sidebar"
-                    onClick={() => setSidebarActive(false)}>
+                    onClick={toggleSidebar}>
                     +
                 </button>
             </div>

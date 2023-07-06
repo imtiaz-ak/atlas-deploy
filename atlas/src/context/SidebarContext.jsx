@@ -7,7 +7,7 @@ export function SidebarProvider({ children }) {
 
     const toggleSidebar = () => {
         setSidebarActive((prev) => !prev);
-        console.log("done");
+        console.log("Called toggle side bar");
     };
 
     return (

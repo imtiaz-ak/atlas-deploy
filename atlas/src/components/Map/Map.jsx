@@ -1,14 +1,16 @@
-import * as d3 from 'd3';
-import { useState } from 'react'
-import { useD3 } from '../../hooks/useD3'
+import * as d3 from "d3";
+import { useContext, useState } from "react"
+import { useD3 } from "../../hooks/useD3"
 
 import './Map.css'
 
-import * as  districtGeoData from '../../data/bd_districts.geo.json'
-import * as districtData from '../../data/bd_districts.json'
-import * as upojelaGeoData from '../../data/bd_upojelas.geo.json'
-import * as climateStories from '../../data/climate_stories.json'
-import * as generatedDistricts from '../../data/generated_districts.json'
+import * as  districtGeoData from "../../data/bd_districts.geo.json"
+import * as districtData from "../../data/bd_districts.json"
+import * as upojelaGeoData from "../../data/bd_upojelas.geo.json"
+import * as climateStories from "../../data/climate_stories.json"
+import * as generatedDistricts from "../../data/generated_districts.json"
+import DistrictContext from "../../context/DistrictContext";
+import SidebarContext from "../../context/SidebarContext";
 
 const generateMinMax = (dataset) => {
   let minMax = {};
@@ -46,8 +48,14 @@ const getClimateVariable = (district, variable) => {
   return districtData.futureData[variable];
 }
 
-export default function Map({ handleDistrictIdChange, setSidebarActive }) {
+export default function Map() {
   const [selectedVariable, setSelectedVariable] = useState("temperature")
+
+  // reading context
+  const { setDistrictId } = useContext(DistrictContext);
+  const { setSidebarActive } = useContext(SidebarContext);
+
+  const handleDistrictIdChange = (id) => setDistrictId(id);
 
   const ref = useD3(
     (svg) => {
@@ -182,9 +190,9 @@ export default function Map({ handleDistrictIdChange, setSidebarActive }) {
           // Render out the district name to the district-info div
           // console.log("CLICKIN", d)
           generatedDistricts.districts.forEach((generatedD) => {
-            console.log(generatedD)
+            // console.log(generatedD)
             if (generatedD.name == d.properties.NAME_3) {
-              // console.log("UPDATING DA ID ", generatedD.id)
+              console.log("UPDATING DA ID ", generatedD.id)
               handleDistrictIdChange(generatedD.id)
             }
 
