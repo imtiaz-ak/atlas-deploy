@@ -3,10 +3,17 @@
     --header-height: 70px;
 }
 
+html {
+    background-color: #FFFFFF;
+}
+
 .header {
+    position: relative;
+    z-index: 8;
     padding: 1.5rem;
     outline: 1px solid black;
     height: var(--header-height);
+    background-color: #FFFFFF;
 }
 
 .header__container {
@@ -54,7 +61,7 @@
     left: 0px;
     background-color: #ffffff;
     border-radius: 8px;
-    z-index: 1000;
+    z-index: 9;
     width: 100%;
 }
 
@@ -134,7 +141,7 @@ a {
     position: relative;
     flex: 1;
     max-width: 600px;
-    width: 50dvw;
+    width: 40dvw;
 }
 
 .magnifying-glass-icon {
@@ -262,4 +269,61 @@ a {
 .header__right__btn:focus {
     background-color: rgb(233, 233, 233);
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 3px 0px;
+}
+
+.invisible-overlay {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    width: 100dvw;
+    height: calc(100dvh - var(--header-height));
+    background-color: hsla(200, 4%, 13%, 0.8);
+    z-index: 7;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.overlay-wrapper * {
+    pointer-events: auto;
+}
+
+.overlay-wrapper {
+position: relative;
+height: 100%;
+width: 100%;
+pointer-events: none;
+padding-left: 1.3rem;
+}
+
+.selectors-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.dataset-selector-btn {
+    display: flex;
+    justify-content: content;
+    align-items: center;
+    padding: 1rem 1rem 1rem 10px;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.selector-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+}
+
+.selector-text p:nth-child(1) {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: #fc714a
+}
+
+.selector-text p:nth-child(2) {
+    font-size: 1rem;
 }

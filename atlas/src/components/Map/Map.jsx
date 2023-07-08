@@ -157,7 +157,7 @@ export default function Map() {
         .attr("text-align", "center")
         .text(variableLabelMap[selectedVariable]);
 
-      svg.attr("width", 1280).attr("height", 1280);
+      // svg.attr("width", 1280).attr("height", 1280);
       svg.selectAll("path")
         .data(districtGeoData.features)
         .join("path")
@@ -220,7 +220,10 @@ export default function Map() {
         </div>
         <svg id="map-vis" className="map"
           style={{
-            width: '800px',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             marginRight: "0px",
             marginLeft: "0px",
           }}>

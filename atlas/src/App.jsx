@@ -14,6 +14,7 @@ import TempSidebar from "./components/TempSidebar";
 import { useState } from "react";
 import { DistrictProvider } from "./context/DistrictContext";
 import { SidebarProvider } from "./context/SidebarContext";
+import InvisibleOverlay from "./components/InvisibleOverlay";
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
             <SidebarProvider>
                 <DistrictProvider>
                     <div className="main-wrapper">
-                        <TempSidebar />
+                        <InvisibleOverlay/>
                         <Map />
                     </div>
                 </DistrictProvider>
