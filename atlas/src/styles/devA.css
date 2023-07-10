@@ -4,7 +4,7 @@
 }
 
 html {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .header {
@@ -13,7 +13,7 @@ html {
     padding: 1.5rem;
     outline: 1px solid black;
     height: var(--header-height);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .header__container {
@@ -99,9 +99,10 @@ a {
 }
 
 .btn {
-    background-color: none;
+    background-color: transparent;
     border: none;
     cursor: pointer;
+    font-family: inherit;
 }
 
 .menu-btn {
@@ -263,11 +264,12 @@ a {
     border: 1px solid #babfc3;
     padding: 0.7rem 1rem;
     transition: background-color 0.2s ease, box-shadow 0.2s ease-out;
+    background-color: #ffffff;
 }
 
 .header__right__btn:hover,
 .header__right__btn:focus {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(241, 241, 241);
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 3px 0px;
 }
 
@@ -277,7 +279,7 @@ a {
     top: var(--header-height);
     width: 100dvw;
     height: calc(100dvh - var(--header-height));
-    background-color: hsla(200, 4%, 13%, 0.8);
+    /* background-color: hsla(200, 4%, 13%, 0.8); */
     z-index: 7;
     pointer-events: none;
     overflow: hidden;
@@ -288,11 +290,11 @@ a {
 }
 
 .overlay-wrapper {
-position: relative;
-height: 100%;
-width: 100%;
-pointer-events: none;
-padding-left: 1.3rem;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    padding-left: 1.3rem;
 }
 
 .selectors-container {
@@ -308,6 +310,7 @@ padding-left: 1.3rem;
     gap: 1rem;
     background-color: #fff;
     border-radius: 8px;
+    height: 58px;
 }
 
 .selector-text {
@@ -321,9 +324,52 @@ padding-left: 1.3rem;
 .selector-text p:nth-child(1) {
     font-size: 0.5rem;
     font-weight: 600;
-    color: #fc714a
+    color: #fc714a;
 }
 
 .selector-text p:nth-child(2) {
     font-size: 1rem;
+    color: #000000;
+}
+
+.intensity-selector {
+    display: flex;
+    justify-content: content;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 58px;
+}
+
+.intensity-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intensity-btn {
+    width: 80px;
+    height: 36px;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    color: #202223;
+    background-color: #f4f4f4;
+    font-size: 1rem;
+    transition: all 0.2s ease-in;
+}
+
+.intensity-btn:nth-child(1) {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.intensity-btn:nth-child(2) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.intensity-btn.active {
+    background-color: #fc714a;
+    color: #fff;
 }
