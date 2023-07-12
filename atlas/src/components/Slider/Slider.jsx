@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useRef } from "react";
 
 function Slider() {
+    // max value for the input range
+    const MAX = 1800;
+
     const sliderBar = useRef("");
     const [sliderValue, setSliderValue] = useState(0);
 
     const handleChange = (e) => {
         setSliderValue(e.currentTarget.value);
-        const width = (e.currentTarget.value / 1800) * 100;
+        // find the width by dividing the current value by the maximum and then
+        // finding the percentage by multipying essentially finding what % of the slider is filled
+        const width = (e.currentTarget.value / MAX) * 100;
         sliderBar.current.style.width = `${width}%`;
     };
 
@@ -21,7 +26,7 @@ function Slider() {
                     name="time"
                     className="slider-input"
                     min="0"
-                    max="1800"
+                    max={MAX}
                     value={sliderValue}
                 />
             </div>
