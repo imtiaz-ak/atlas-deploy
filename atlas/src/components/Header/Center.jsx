@@ -14,7 +14,17 @@ function Center() {
         <div className="header__center">
             <AnimatePresence>{showNav && <Nav />}</AnimatePresence>
             <div>
-                <button className="btn menu-btn" onClick={handleMenuClick}>
+                <button
+                    className="btn menu-btn"
+                    onClick={handleMenuClick}
+                    style={
+                        showNav
+                            ? {
+                                  boxShadow: "rgb(0 0 0 / 20%) 0px 2px 3px 0px",
+                                  backgroundColor: "hsla(220, 6%, 87%)",
+                              }
+                            : {}
+                    }>
                     <div className="hamburger">
                         <div className="hamburger__line"></div>
                         <div className="hamburger__line"></div>
