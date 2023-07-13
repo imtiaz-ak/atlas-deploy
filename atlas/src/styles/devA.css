@@ -121,6 +121,7 @@ a {
 
 .menu-btn:hover {
     background-color: hsla(220, 6%, 87%);
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 3px 0px;
 }
 
 .hamburger {

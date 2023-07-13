@@ -20,7 +20,8 @@ function Center() {
                     style={
                         showNav
                             ? {
-                                  boxShadow: "rgb(0 0 0 / 20%) 0px 2px 3px 0px",
+                                  boxShadow:
+                                      "inset rgb(0 0 0 / 20%) 0px 2px 3px 0px",
                                   backgroundColor: "hsla(220, 6%, 87%)",
                               }
                             : {}
