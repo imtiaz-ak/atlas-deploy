@@ -410,6 +410,7 @@ a {
     height: 4px;
     background-color: #fc714a;
     width: 0;
+    pointer-events: none;
 }
 
 .slider-input {
