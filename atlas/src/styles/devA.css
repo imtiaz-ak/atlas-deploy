@@ -278,7 +278,6 @@ a {
     top: var(--header-height);
     width: 100dvw;
     height: calc(100dvh - var(--header-height));
-    /* background-color: hsla(200, 4%, 13%, 0.8); */
     z-index: 7;
     pointer-events: none;
     overflow: hidden;
