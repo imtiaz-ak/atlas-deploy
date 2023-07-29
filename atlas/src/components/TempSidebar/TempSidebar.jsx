@@ -8,7 +8,6 @@ function TempSidebar() {
     const className = sidebarActive
         ? "temp-sidebar sidebar-active"
         : "temp-sidebar";
-    console.log(sidebarActive);
     const { district } = useContext(DistrictContext);
 
     return (

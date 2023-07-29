@@ -21,7 +21,7 @@ export default function Sidebar() {
                     </button>
                     <div className="sidebar__container__heading">
                         <h4 className="p-font-size-75 font-color-2">REGION</h4>
-                        <h2 className="p-font-size-400">{district.name}</h2>
+                        <h2 className="p-font-size-400">{district?.name}</h2>
                     </div>
                     <hr />
                     <div className="sidebar__container__details">
@@ -38,19 +38,19 @@ export default function Sidebar() {
                         <div className="sidebar__container__details__flex">
                             <div>
                                 <h4 className="p-font-size-75 font-color-2">
-                                    {district.historicalData.timeRange}
+                                    {district?.historicalData.timeRange}
                                 </h4>
                                 <h2 className="p-font-size-400">
-                                    {district.historicalData.maxTemperature}
+                                    {district?.historicalData.maxTemperature}
                                 </h2>
                             </div>
                             <span className="sidebar__arrow">&rarr;</span>
                             <div>
                                 <h4 className="p-font-size-75 font-color-2">
-                                    {district.futureData.timeRange}
+                                    {district?.futureData.timeRange}
                                 </h4>
                                 <h2 className="p-font-size-400">
-                                    {district.futureData.maxTemperature}
+                                    {district?.futureData.maxTemperature}
                                 </h2>
                             </div>
                         </div>

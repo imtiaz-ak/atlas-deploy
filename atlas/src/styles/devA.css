@@ -302,6 +302,52 @@ a {
     top: 1.3rem;
 }
 
+.dataset-selector {
+    position: relative;
+}
+
+.dataset-picker {
+    position: absolute;
+    left: 0;
+    bottom: -320px;
+    background-color: #fff;
+    color: #202223;
+    border-radius: 8px;
+}
+
+.dataset-picker__container {
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dataset-column {
+    width: 168px;
+}
+
+.dataset-column__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: rgba(252, 112, 136, 0.16);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.dataset-column__list {
+    list-style: none;
+}
+
+.dataset-column__list-item {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
 .dataset-selector-btn {
     display: flex;
     justify-content: center;

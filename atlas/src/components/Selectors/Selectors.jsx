@@ -1,52 +1,12 @@
 import React from "react";
-import arrow from "../../assets/arrow.svg";
-import { useState } from "react";
+import DatasetSelector from "./DatasetSelector";
+import IntensitySelector from "./IntensitySelector";
 
 function Selectors() {
-    const [isMore, setIsMore] = useState(false);
-
-    const handleMoreClick = () => {
-        setIsMore(true);
-    };
-
-    const handleLessClick = () => {
-        setIsMore(false);
-    };
-
     return (
         <div className="selectors-container">
-            <div className="dataset-selector selector">
-                <div className="dataset-selector-btn">
-                    <button className="btn selector-arrow">
-                        <img src={arrow} alt="arrow" />
-                    </button>
-
-                    <div className="dataset-selector-text selector-text">
-                        <p className="weather-type">HOT WEATHER</p>
-                        <p className="weather-variable">
-                            Number of Cooling degree days
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="intensity-selector selector">
-                <div className="intensity-text selector-text">
-                    <p className="emission-text">GHG EMISSION</p>
-                    <p className="climate-change-text">Climate Change</p>
-                </div>
-                <div className="intensity-buttons">
-                    <button
-                        className={`btn intensity-btn ${!isMore && "active"}`}
-                        onClick={handleLessClick}>
-                        Less
-                    </button>
-                    <button
-                        className={`btn intensity-btn ${isMore && "active"}`}
-                        onClick={handleMoreClick}>
-                        More
-                    </button>
-                </div>
-            </div>
+            <DatasetSelector />
+            <IntensitySelector />
         </div>
     );
 }
