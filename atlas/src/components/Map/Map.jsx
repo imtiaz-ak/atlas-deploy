@@ -198,13 +198,27 @@ export default function Map() {
             .on("mouseover", (event, d) => {
                 d3
                     .select("#tooltip")
-                    .style("display", "block")
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + 20 + "px").html(`
-                <div id='tooltip-title'>${
-                    d.properties["NAME_3"] + "-" + d.properties["NAME_1"]
-                } </div>
-                <div id='tooltip-content'>
+                    .style("display", "flex")
+                    .style("left", event.pageX + 0 + "px")
+                    .style("top", event.pageY + 0 + "px").html(`
+                    <div class="tooltip-row">
+                        <span class="tooltip-title">${
+                            d.properties["NAME_3"]
+                        }</span>
+                        <span class="tooltip-temp">${getClimateVariable(
+                            d.properties["NAME_3"],
+                            variableDataMap[selectedVariable]
+                        )} °C</span>
+                    </div>
+                    <div class="tooltip-row">
+                        <span class="tooltip-story-count">6 Stories</span>
+                        <span class="tooltip-period">&#x2022;</span> 
+                        <span class="tooltip-entity-count">2 Entities</span>
+                    </div>
+            `);
+
+                /* part of the previous tooltiip. keeping just in case
+            <div id='tooltip-content'>
                     <div class='tooltip-content-row'>
                         <div class='tooltip-content-row-label'>${
                             variableLabelMap[selectedVariable]
@@ -215,7 +229,8 @@ export default function Map() {
                         )}</div>
                     </div>
                 </div>
-            `);
+            */
+
                 // console.log(d, 'THIS IS DA D')
             })
             .on("mouseout", (event, d) => {
