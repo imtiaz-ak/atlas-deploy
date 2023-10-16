@@ -47,36 +47,52 @@ The [bd_districts.geojson](./bd_districts.geojson) file is the same as the one a
 
 ### Generated District Data
 
-The [generated_districts.json](./generated_districts.json) file contains generated climate variable data. For each district, I generated two keys, `historicalData` and `futureData`. For each of these keys, generated 3 sample variables to visualize. As an example:
+The [generated_districts.json](./generated_districts.json) file contains manually parsed climate variable data for 3 variables, which are annual average of daily maximum temperature, annual average of daily minimum temperature and annual number of days where minimum temperature is greater than 26 degrees. Explanation of how the data was obtained is detailed below.
 
 ```
-    {
-        "id": "6",
-        "division_id": "3",
-        "name": "Kishoreganj",
-        "bn_name": "\u0995\u09bf\u09b6\u09cb\u09b0\u0997\u099e\u09cd\u099c",
-        "lat": "24.444937",
-        "long": "90.776575",
-        "historicalData": {
-            "timeRange": "1974-2020",
-            "meanTemperature": 25.9,
-            "nCdd": 4341,
-            "nHotDays40": 25.22
-        },
-        "futureData": {
-            "timeRange": "2030-2050",
-            "meanTemperature": 26.87,
-            "nCdd": 5216,
-            "nHotDays40": 44.62
-        }
+{
+    "id": "53",
+    "division_id": "7",
+    "name": "Sunamganj",
+    "bn_name": "\u09b8\u09c1\u09a8\u09be\u09ae\u0997\u099e\u09cd\u099c",
+    "lat": "25.0658042",
+    "long": "91.3950115",
+    "historicalData": {
+        "timeRange": "1995-2014",
+        "maxTemperature": 30.05,
+        "minTemperature": 20.57,
+        "nDaysTminMoreThan26": 7.85
+    },
+    "futureData": {
+        "timeRange": "2050",
+        "maxTemperature": 31.65,
+        "minTemperature": 22.27,
+        "nDaysTminMoreThan26": 70.47
     }
+}
 ```
 
-`meanTemperature` is the average projected temperature for a year.
+The historical data for all three variables is obtained from the World Bank Climate Change Knowledge Portal API.
+It is an average of the climate variable values from the year 1971-2020. This data is available for each division, and
+is simply copied over into each district within each division
 
-`ncdd` is the number of cooling degree days in a year (defined as a sum of values of degrees for days which exceed a baseline temperature such as 18C. e.g if we have 3 days of 24, 30, 17, the ncdd would be (24 - 18) + (30 - 18) + (17 - 18) = 17).
+The future data for `maxTemperature` and `minTemperature` is obtained from the Tables from the [Risk Mapping for Climate Vulnerability (CVRM) of 487 upazilas in Bangladesh](https://drive.google.com/file/d/1Cz6oySUAugPiL0EslRzhJslD2GkSEv3f/view?usp=drive_link) , specifically Table 6.2 and 6.6.
+These are climate modelled projections with the following features:
+* They are for the year 2050
+* They use the RCP 4.5 emissions scenario
+* They only contain the delta values for the variable
+* They are on a district level precision
+* They are obtained from a NASA Earth Exchange Global Daily
+Downscaled Projections (NEX-GDDP) from the CMIP5 GCM
 
-`nHotDays40` are the number of days in a year where the maximum temperature for a day crosses 40.
+Hence the historical average value from World Bank and the delta values from the CVRM were combined to obtain the future projection values. These values are available for each district.
+
+The future data for `nDaysTminMoreThan26` was obtained from the World Bank API with the following features
+* They are for the year 2050
+* They use the SSP2-4.5 emissions scenario
+* They contain both the delta values and the original values
+* They are on a division level precision
+* They are obtained from the CMIP6 0.25-degree GCM
 
 ### List of Districts
 
