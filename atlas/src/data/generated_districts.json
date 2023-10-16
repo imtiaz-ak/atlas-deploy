@@ -590,13 +590,13 @@
             "historicalData": {
                 "timeRange": "1971-2020",
                 "maxTemperature": 31.5,
-                "minTemperature": 31.5,
+                "minTemperature": 22.4,
                 "nDaysTminMoreThan26": 7.47
             },
             "futureData": {
                 "timeRange": "2050",
                 "maxTemperature": 32.9,
-                "minTemperature": 33.1,
+                "minTemperature": 24,
                 "nDaysTminMoreThan26": 56.62
             }
         },
