@@ -58,6 +58,11 @@ export default function Map() {
 
     const handleDistrictIdChange = (id) => setDistrictId(id);
 
+    const circlesData = [
+        { district: "Dhaka", lat: 23.7115253, lon: 90.4111451, radius: 5 },
+        { district: "Satkhira", lat: 22.7185, lon: 89.0705, radius: 7 },
+    ]
+
     const ref = useD3((svg) => {
         const minMax = generateMinMax(generatedDistricts.districts);
         const variableDomain = {
@@ -248,6 +253,16 @@ export default function Map() {
                 });
                 setSidebarActive(true);
             });
+
+        svg.selectAll("circle")
+            .data(circlesData)
+            .enter()
+            .append("circle")
+            .attr("cx", (d) => projection([d.lon, d.lat])[0])
+            .attr("cy", (d) => projection([d.lon, d.lat])[1])
+            .attr("r", (d) => d.radius)
+            .attr("fill", "black") // Customize the circle's appearance
+            .attr("opacity", 0.7); // Customize the circle's opacity
 
         d3.select("#map-vis").call(
             d3.zoom().on("zoom", (e) => {
