@@ -15,7 +15,6 @@ import SidebarContext from "../../context/SidebarContext";
 
 const generateMinMax = (dataset) => {
     let minMax = {};
-    // console.log("THIS IS DATASET", dataset)
     dataset.forEach((element) => {
         Object.keys(element.futureData).forEach((key) => {
             if (minMax[key] === undefined) {
@@ -34,7 +33,6 @@ const generateMinMax = (dataset) => {
             }
         });
     });
-    console.log(minMax, '<-- in the minmax');
     return minMax;
 };
 
@@ -51,7 +49,7 @@ const getClimateVariable = (district, variable) => {
 };
 
 export default function Map() {
-    const [selectedVariable, setSelectedVariable] = useState("minTemperature");
+    const [selectedVariable, setSelectedVariable] = useState("maxTemperature");
 
     // reading context
     const { setDistrictId } = useContext(DistrictContext);
@@ -60,7 +58,6 @@ export default function Map() {
     const handleDistrictIdChange = (id) => setDistrictId(id);
 
     const districtWithStory = []
-    // console.log(typeof climateStories, '<----- CLIMATEW STORIES')
     Object.keys(climateStories).map((k) => {
         const s = climateStories[k]
         if (s.length > 0) {
@@ -70,7 +67,6 @@ export default function Map() {
 
     const circlesData = []
     districtWithStory.forEach((d) => {
-        // console.log(districtData.districts, '<--- generated districts')
         const specificDistrict = districtData.districts.filter((e) => {
             if (e.name == d) {
                 return e
@@ -91,19 +87,19 @@ export default function Map() {
         };
 
         const variableColourScheme = {
-            temperature: d3.interpolateYlOrRd,
-            ncdd: d3.interpolateBlues,
+            maxTemperature: d3.interpolateYlOrRd,
+            minTemperature: d3.interpolateBlues,
             nhotdays: d3.interpolateOrRd,
         };
 
         const variableDataMap = {
-            temperature: "maxTemperature",
+            maxTemperature: "maxTemperature",
             minTemperature: "minTemperature",
             nhotdays: "nHotDays40",
         };
 
         const variableLabelMap = {
-            temperature: "Annual Average Max Temperature (°C)",
+            maxTemperature: "Annual Average Max Temperature (°C)",
             minTemperature: "Cooling Degree Days",
             nhotdays: "Number of Days Above 40°C",
         };
@@ -113,29 +109,16 @@ export default function Map() {
          * add tooltip on hover, and onClick functionality for the districts
          */
 
-        console.log("<--- before color scale")
-
         const projection = d3
             .geoMercator()
             .fitSize([2160, 2160], districtGeoData);
 
-
-        console.log('<------> after projection.geoMercator')
-        console.log(variableDomain, '<----- new console')
-        // console.log(variableDomain)
-        // console.log(selectedVariable)
-        // console.log(variableDomain[selectedVariable])
         const colorScale = d3
             .scaleSequential()
             .domain(variableDomain[selectedVariable])
-            .interpolator(d3.interpolateBlues);
-
-        console.log('------ after only color scale')
-
+            .interpolator(variableColourScheme[selectedVariable]);
 
         const path = d3.geoPath().projection(projection);
-
-        console.log(colorScale, '<--- color scale')
 
         d3.select("#legend-svg").selectAll("*").remove();
 
@@ -252,33 +235,14 @@ export default function Map() {
                         <span class="tooltip-entity-count">${0} Entities</span>
                     </div>
             `);
-
-                /* part of the previous tooltiip. keeping just in case
-            <div id='tooltip-content'>
-                    <div class='tooltip-content-row'>
-                        <div class='tooltip-content-row-label'>${
-                            variableLabelMap[selectedVariable]
-                        }</div>
-                        <div class='tooltip-content-row-value'>${getClimateVariable(
-                            d.properties["NAME_3"],
-                            variableDataMap[selectedVariable]
-                        )}</div>
-                    </div>
-                </div>
-            */
-
-                // console.log(d, 'THIS IS DA D')
             })
             .on("mouseout", (event, d) => {
                 d3.select("#tooltip").style("display", "none");
             })
             .on("click", (event, d) => {
                 // Render out the district name to the district-info div
-                // console.log("CLICKIN", d)
                 generatedDistricts.districts.forEach((generatedD) => {
-                    // console.log(generatedD)
                     if (generatedD.name == d.properties.NAME_3) {
-                        console.log("UPDATING DA ID ", generatedD.id);
                         handleDistrictIdChange(generatedD.id);
                     }
                 });
@@ -310,8 +274,6 @@ export default function Map() {
             // })
             // .attr("fill", "red") // Triangle color
             .on("mouseover", (event, d) => {
-                console.log(event)
-                console.log(d)
                 const stories = climateStories[d.district]
                 d3
                     .select("#tooltip")
@@ -338,11 +300,8 @@ export default function Map() {
             })
             .on("click", (event, d) => {
                 // Render out the district name to the district-info div
-                // console.log("CLICKIN", d)
                 generatedDistricts.districts.forEach((generatedD) => {
-                    // console.log(generatedD)
                     if (generatedD.name == d.district) {
-                        console.log("UPDATING DA ID ", generatedD.id);
                         handleDistrictIdChange(generatedD.id);
                     }
                 });

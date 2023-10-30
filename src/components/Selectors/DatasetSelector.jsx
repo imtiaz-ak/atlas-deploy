@@ -21,7 +21,7 @@ function DatasetSelector() {
                 <div className="dataset-selector-text selector-text">
                     <p className="weather-type">HOT WEATHER</p>
                     <p className="weather-variable">
-                        Number of Cooling degree days
+                        Max Temperature
                     </p>
                 </div>
             </div>
