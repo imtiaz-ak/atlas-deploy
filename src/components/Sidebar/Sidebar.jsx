@@ -2,11 +2,14 @@ import "./Sidebar.css";
 import MediaCardVideo from "../Common/MediaCard/MediaCardVideo";
 import SidebarContext from "../../context/SidebarContext";
 import DistrictContext from "../../context/DistrictContext";
+import * as stories from "../../data/climate_stories.json";
 import { useContext } from "react";
 
 export default function Sidebar() {
     const { sidebarActive, toggleSidebar } = useContext(SidebarContext);
     const { district } = useContext(DistrictContext);
+
+    console.log(stories)
 
     const className = sidebarActive ? "sidebar sidebar-active" : "sidebar";
     return (
@@ -70,22 +73,26 @@ export default function Sidebar() {
                         </button>
                     </div>
                     <div className="stories-container">
-                        <MediaCardVideo
-                            title="Making Korail more habitable"
-                            district="District"
-                            coutnry="Bangladesh"
-                            entity="BRAC"
-                            entityUrl="http://www.brac.net/"
-                            desc="The non profit CODEC is fighting against water salinity, women inequality, deforestation and more with their Nature and Life project."
-                            thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
-                        <MediaCardVideo
-                            title="Making Korail more habitable"
-                            district="District"
-                            coutnry="Bangladesh"
-                            entity="BRAC"
-                            entityUrl="http://www.brac.net/"
-                            desc="The non profit CODEC is fighting against water salinity, women inequality, deforestation and more with their Nature and Life project."
-                            thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
+                        {(stories[district?.name]) ? (stories[district?.name]).map((e) => {
+                            return (
+                                <MediaCardVideo
+                                    title="Making Korail more habitable"
+                                    district="District"
+                                    coutnry="Bangladesh"
+                                    entity="BRAC"
+                                    entityUrl="http://www.brac.net/"
+                                    desc="The non profit CODEC is fighting against water salinity, women inequality, deforestation and more with their Nature and Life project."
+                                    thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
+                            )
+                        }) :
+                            <MediaCardVideo
+                                title="No Stories to Show"
+                                district="District"
+                                coutnry="Bangladesh"
+                                entity="Atlas"
+                                entityUrl="http://www.brac.net/"
+                                desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
+                                thumbnailUrl=""></MediaCardVideo>}
                     </div>
                 </div>
             </section>

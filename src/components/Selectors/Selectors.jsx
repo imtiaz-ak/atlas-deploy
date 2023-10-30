@@ -6,7 +6,7 @@ function Selectors() {
     return (
         <div className="selectors-container">
             <DatasetSelector />
-            <IntensitySelector />
+            {/* <IntensitySelector /> */}
         </div>
     );
 }

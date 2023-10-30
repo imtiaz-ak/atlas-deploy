@@ -23,7 +23,7 @@ function App() {
             <SidebarProvider>
                 <DistrictProvider>
                     <div className="main-wrapper">
-                        <InvisibleOverlay/>
+                        <InvisibleOverlay />
                         <Map />
                     </div>
                 </DistrictProvider>
