@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import dataset from "../../data/dataset";
 import { motion } from "framer-motion";
+import DatasetContext from "../../context/DatasetContext";
 
 function DatasetPicker() {
+    const { datasetName, setDatasetName } = useContext(DatasetContext)
+
+    const changeDataset = (name) => {
+        console.log(`changed to ${name}`)
+        setDatasetName(name)
+    }
+
     return (
         <motion.div
             key="dataset-picker"
-            initial={{ opacity: 0, y: 45 }}
-            animate={{ opacity: 1, y: 55 }}
-            exit={{ opacity: 0, y: 45 }}>
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 15 }}
+            exit={{ opacity: 0, y: 5 }}>
             <div className="dataset-picker">
                 <div className="dataset-picker__container">
                     {Object.keys(dataset).map((key) => {
@@ -25,7 +33,7 @@ function DatasetPicker() {
                                 <ul className="dataset-column__list">
                                     {dataset[key].options.map((option) => {
                                         return (
-                                            <li className="dataset-column__list-item">
+                                            <li className="dataset-column__list-item" onClick={() => { changeDataset(option) }}>
                                                 {option}
                                             </li>
                                         );

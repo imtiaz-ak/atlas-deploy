@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import arrow from "../../assets/arrow.svg";
 import DatasetPicker from "./DatasetPicker";
 import { AnimatePresence } from "framer-motion";
+import DatasetContext from "../../context/DatasetContext";
+
 
 function DatasetSelector() {
     const [showPicker, setShowPicker] = useState(false);
@@ -9,6 +11,10 @@ function DatasetSelector() {
     const togglePicker = () => {
         setShowPicker((prev) => !prev);
     };
+
+    const { datasetName } = useContext(DatasetContext)
+
+    console.log(datasetName, '<--- DATASET NAME')
 
     return (
         <div className="dataset-selector selector">
@@ -19,9 +25,9 @@ function DatasetSelector() {
                 </button>
 
                 <div className="dataset-selector-text selector-text">
-                    <p className="weather-type">HOT WEATHER</p>
+                    <p className="weather-type">TEMPERATURE</p>
                     <p className="weather-variable">
-                        Max Temperature
+                        {datasetName}
                     </p>
                 </div>
             </div>

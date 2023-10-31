@@ -11,6 +11,7 @@ import * as climateStories from "../../data/climate_stories.json";
 import * as generatedDistricts from "../../data/generated_districts.json";
 import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
+import DatasetContext from "../../context/DatasetContext";
 
 
 const generateMinMax = (dataset) => {
@@ -49,8 +50,21 @@ const getClimateVariable = (district, variable) => {
 };
 
 export default function Map() {
-    const [selectedVariable, setSelectedVariable] = useState("maxTemperature");
 
+
+    const { datasetName } = useContext(DatasetContext)
+
+    const datasetNameMap = {
+        'Average Daily Max': 'maxTemperature',
+        'Average Daily Minimum': "minTemperature",
+        'Hot Tropical Nights': 'hotTropical'
+    }
+
+    console.log(datasetName)
+    console.log(datasetNameMap[datasetName])
+    const [selectedVariable, setSelectedVariable] = useState(datasetNameMap[datasetName]);
+
+    console.log(selectedVariable, '<--- selected variable')
     // reading context
     const { setDistrictId } = useContext(DistrictContext);
     const { setSidebarActive } = useContext(SidebarContext);
@@ -83,25 +97,25 @@ export default function Map() {
         const variableDomain = {
             maxTemperature: minMax["maxTemperature"],
             minTemperature: minMax["minTemperature"],
-            nmo26: minMax["nHotDays40"],
+            hotTropical: minMax["nDaysTminMoreThan26"],
         };
 
         const variableColourScheme = {
             maxTemperature: d3.interpolateYlOrRd,
             minTemperature: d3.interpolateBlues,
-            nhotdays: d3.interpolateOrRd,
+            hotTropical: d3.interpolateOrRd,
         };
 
         const variableDataMap = {
             maxTemperature: "maxTemperature",
             minTemperature: "minTemperature",
-            nhotdays: "nHotDays40",
+            hotTropical: "nDaysTminMoreThan26",
         };
 
         const variableLabelMap = {
             maxTemperature: "Annual Average Max Temperature (°C)",
             minTemperature: "Cooling Degree Days",
-            nhotdays: "Number of Days Above 40°C",
+            hotTropical: "Number of Days Above 40°C",
         };
 
         /**
@@ -115,8 +129,8 @@ export default function Map() {
 
         const colorScale = d3
             .scaleSequential()
-            .domain(variableDomain[selectedVariable])
-            .interpolator(variableColourScheme[selectedVariable]);
+            .domain(variableDomain[datasetNameMap[datasetName]])
+            .interpolator(variableColourScheme[datasetNameMap[datasetName]]);
 
         const path = d3.geoPath().projection(projection);
 
@@ -133,7 +147,7 @@ export default function Map() {
         // Create a scale for the legend
         let legendScale = d3
             .scaleLinear()
-            .domain(variableDomain[selectedVariable])
+            .domain(variableDomain[datasetNameMap[datasetName]])
             .range([0, 200]);
 
         // Create a colour horizontal gradient for the legend
@@ -152,7 +166,7 @@ export default function Map() {
             .attr("offset", "0%")
             .attr(
                 "stop-color",
-                colorScale(variableDomain[selectedVariable][0])
+                colorScale(variableDomain[datasetNameMap[datasetName]][0])
             );
         legendGradient
             .append("stop")
@@ -160,8 +174,8 @@ export default function Map() {
             .attr(
                 "stop-color",
                 colorScale(
-                    (variableDomain[selectedVariable][0] +
-                        variableDomain[selectedVariable][1]) /
+                    (variableDomain[datasetNameMap[datasetName]][0] +
+                        variableDomain[datasetNameMap[datasetName]][1]) /
                     2
                 )
             );
@@ -170,7 +184,7 @@ export default function Map() {
             .attr("offset", "100%")
             .attr(
                 "stop-color",
-                colorScale(variableDomain[selectedVariable][1])
+                colorScale(variableDomain[datasetNameMap[datasetName]][1])
             );
 
         // Draw the gradient rect
@@ -198,7 +212,7 @@ export default function Map() {
             .attr("x", 0)
             .attr("dy", "-0.5em")
             .attr("text-align", "center")
-            .text(variableLabelMap[selectedVariable]);
+            .text(variableLabelMap[datasetNameMap[datasetName]]);
 
         // svg.attr("width", 1280).attr("height", 1280);
         svg.selectAll("path")
@@ -210,7 +224,7 @@ export default function Map() {
             .attr("fill", (d) => {
                 let value = getClimateVariable(
                     d.properties["NAME_3"],
-                    variableDataMap[selectedVariable]
+                    variableDataMap[datasetNameMap[datasetName]]
                 );
                 return colorScale(value);
             })
@@ -226,7 +240,7 @@ export default function Map() {
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
                             d.properties["NAME_3"],
-                            variableDataMap[selectedVariable]
+                            variableDataMap[datasetNameMap[datasetName]]
                         )} °C</span>
                     </div>
                     <div class="tooltip-row">
@@ -316,7 +330,8 @@ export default function Map() {
                 svg.attr("transform", e.transform);
             })
         );
-    }, []);
+        console.log('ran again!')
+    }, [datasetName]);
 
     return (
         <>
