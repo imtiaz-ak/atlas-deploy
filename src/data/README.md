@@ -94,6 +94,45 @@ The future data for `nDaysTminMoreThan26` was obtained from the World Bank API w
 * They are on a division level precision
 * They are obtained from the CMIP6 0.25-degree GCM
 
+### World Bank Data
+Data from the World Bank's API was collected for the following dimensions. The data is gathered from CMIP6 0.25 Degree models.
+
+1) Climate Variables: 14 Climate Variables which include
+* `cdd65`
+* `hd35`
+* `hd45`
+* `hd40`
+* `prpercnt`
+* `r50mm`
+* `rx1day`
+* `rx5day`
+* `sd`
+* `tasmax`
+* `tasmin`
+* `tr26`
+* `tr29`
+* `txx`
+
+2) Time Ranges: Averaged values 4 20-Year Periods within the current century
+* 2020-2039
+* 2040-2069
+* 2060-2079
+* 2080-2099
+
+3) Emissions Scenarios: 2 Scenarios for carbon emissions based on 
+* `ssp245` - SSP2-4.5
+* `ssp370` - SSP3-7.0
+
+From Wikipedia -
+> Shared Socioeconomic Pathways (SSPs) are climate change scenarios of projected socioeconomic global changes up to 2100.
+
+> SSP2 - "The world follows a path in which social, economic, and technological trends do not shift markedly from historical patterns. Development and income growth proceeds unevenly, with some countries making relatively good progress while others fall short of expectations. Global and national institutions work toward but make slow progress in achieving sustainable development goals. Environmental systems experience degradation, although there are some improvements and overall the intensity of resource and energy use declines. Global population growth is moderate and levels off in the second half of the century. Income inequality persists or improves only slowly and challenges to reducing vulnerability to societal and environmental changes remain.
+
+> SSP3 - "A resurgent nationalism, concerns about competitiveness and security, and regional conflicts push countries to increasingly focus on domestic or, at most, regional issues. Policies shift over time to become increasingly oriented toward national and regional security issues. Countries focus on achieving energy and food security goals within their own regions at the expense of broader-based development. Investments in education and technological development decline. Economic development is slow, consumption is material-intensive, and inequalities persist or worsen over time. Population growth is low in industrialized and high in developing countries. A low international priority for addressing environmental concerns leads to strong environmental degradation in some regions."
+
+
+4) Districts: 8 of them
+
 ### List of Districts
 
 The [list_of_districts.txt](./list_of_districts.txt) file lists the names of all 64 districts of Bangladesh. This is provided for convenient reference as some of the English spellings of the districts vary across text, mainly because they have changed over time (e.g Comilla to Cumilla, Chittagong to Chattogram).
