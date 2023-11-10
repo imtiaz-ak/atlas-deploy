@@ -10,7 +10,7 @@ function InvisibleOverlay() {
             <div className="overlay-wrapper">
                 <Sidebar />
                 <Selectors />
-                {/* <Slider /> */}
+                <Slider />
             </div>
         </div>
     );

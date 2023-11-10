@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import DatasetContext from "../../context/DatasetContext";
 
 function DatasetPicker() {
-    const { datasetName, setDatasetName } = useContext(DatasetContext)
+    const { changeDatasetName } = useContext(DatasetContext)
 
     const changeDataset = (name) => {
         console.log(`changed to ${name}`)
-        setDatasetName(name)
+        changeDatasetName(name)
     }
 
     return (

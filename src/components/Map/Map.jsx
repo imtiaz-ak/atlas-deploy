@@ -9,6 +9,7 @@ import * as districtData from "../../data/bd_districts.json";
 import * as upojelaGeoData from "../../data/bd_upojelas.geo.json";
 import * as climateStories from "../../data/climate_stories.json";
 import * as generatedDistricts from "../../data/generated_districts.json";
+import * as worldBankData from '../../data/world_bank_data.json'
 import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
 import DatasetContext from "../../context/DatasetContext";
@@ -38,33 +39,46 @@ const generateMinMax = (dataset) => {
 };
 
 const getClimateVariable = (district, variable) => {
-    let districtData = generatedDistricts.districts.find((element) => {
-        return element.name === district;
-    });
+    // let districtData = generatedDistricts.districts.find((element) => {
+    //     return element.name === district;
+    // });
 
-    if (districtData === undefined) {
-        return 0;
-    }
+    // if (districtData === undefined) {
+    //     return 0;
+    // }
 
-    return districtData.futureData[variable];
+    // return districtData.futureData[variable];
+
+    return worldBankData['cdd65']['climatology']['1995-2014']['historical']['Barishal']
 };
 
 export default function Map() {
 
 
-    const { datasetName } = useContext(DatasetContext)
+    const { datasetConfig } = useContext(DatasetContext)
+    const datasetName = datasetConfig['name']
+    const datasetEmission = datasetConfig['emission']
+    const datasetTimeline = datasetConfig['timeline']
 
     const datasetNameMap = {
-        'Average Daily Max': 'maxTemperature',
-        'Average Daily Minimum': "minTemperature",
-        'Hot Tropical Nights': 'hotTropical'
+        'Cooling Degree Days': 'cdd65',
+        'Hot Days Over 35°C': "hd35",
+        'Hot Days Over 40°C': 'hd40',
+        'Hot Days Over 45°C': 'hd45',
+        'Precipitation Percent Change': 'prpercnt',
+        'Above 50mm': 'r50mm',
+        'Largest 1-Day Precipitation': 'rx1day',
+        'Largest 5-Day Precipitation': 'rx5day',
+        'Summer Days': 'sd',
+        'Surface Air Maximum': 'tasmax',
+        'Surface Air Minimum': 'tasmin',
+        'Maximum Over 26°C': 'tr26',
+        'Maximum Over 29°C': 'tr29',
+        'Single Day Maximum': 'txx'
     }
 
-    console.log(datasetName)
-    console.log(datasetNameMap[datasetName])
     const [selectedVariable, setSelectedVariable] = useState(datasetNameMap[datasetName]);
 
-    console.log(selectedVariable, '<--- selected variable')
     // reading context
     const { setDistrictId } = useContext(DistrictContext);
     const { setSidebarActive } = useContext(SidebarContext);
@@ -94,28 +108,69 @@ export default function Map() {
 
     const ref = useD3((svg) => {
         const minMax = generateMinMax(generatedDistricts.districts);
+
+        // TODO: rewrite the minMax for the new data structure
         const variableDomain = {
+            // 'cdd65': minMax["cdd65"],
+            // 'hd35': minMax["hd35"],
+            // 'hd40': minMax["hd40"],
+            // 'hd45': minMax["hd45"],
+            // 'prpercnt': minMax["prpercnt"],
+            // 'r50mm': minMax["r50mm"],
+            // 'rx1day': minMax["rx1day"],
+            // 'rx5day': minMax["rx5day"],
+            // 'sd': minMax["sd"],
+            // 'tasmax': minMax["tasmax"],
+            // 'tasmin': minMax["tasmin"],
+            // 'tr26': minMax["tr26"],
+            // 'tr29': minMax["tr29"],
+            // 'txx': minMax["txx"]
             maxTemperature: minMax["maxTemperature"],
-            minTemperature: minMax["minTemperature"],
-            hotTropical: minMax["nDaysTminMoreThan26"],
+            // minTemperature: minMax["minTemperature"],
+            // hotTropical: minMax["nDaysTminMoreThan26"],
         };
 
         const variableColourScheme = {
-            maxTemperature: d3.interpolateYlOrRd,
-            minTemperature: d3.interpolateBlues,
-            hotTropical: d3.interpolateOrRd,
+            'cdd65': d3.interpolateYlOrRd,
+            'hd35': d3.interpolateYlOrRd,
+            'hd40': d3.interpolateYlOrRd,
+            'hd45': d3.interpolateYlOrRd,
+            'prpercnt': d3.interpolateYlOrRd,
+            'r50mm': d3.interpolateYlOrRd,
+            'rx1day': d3.interpolateYlOrRd,
+            'rx5day': d3.interpolateYlOrRd,
+            'sd': d3.interpolateYlOrRd,
+            'tasmax': d3.interpolateYlOrRd,
+            'tasmin': d3.interpolateYlOrRd,
+            'tr26': d3.interpolateYlOrRd,
+            'tr29': d3.interpolateYlOrRd,
+            'txx': d3.interpolateYlOrRd
+            // maxTemperature: d3.interpolateYlOrRd,
+            // minTemperature: d3.interpolateBlues,
+            // hotTropical: d3.interpolateOrRd,
         };
 
-        const variableDataMap = {
-            maxTemperature: "maxTemperature",
-            minTemperature: "minTemperature",
-            hotTropical: "nDaysTminMoreThan26",
-        };
+        // const variableDataMap = {
+        //     maxTemperature: "maxTemperature",
+        //     minTemperature: "minTemperature",
+        //     hotTropical: "nDaysTminMoreThan26",
+        // };
 
         const variableLabelMap = {
-            maxTemperature: "Annual Average Max Temperature (°C)",
-            minTemperature: "Cooling Degree Days",
-            hotTropical: "Number of Days Above 40°C",
+            'cdd65': 'Cooling Degree Days (ref-65°F)',
+            'hd35': 'Number of Hot Days (Tmax > 35°C)',
+            'hd40': 'Number of Hot Days (Tmax > 40°C)',
+            'hd45': 'Number of Hot Days (Tmax > 45°C)',
+            'prpercnt': 'Precipitation Percent Change',
+            'r50mm': 'Number of Days with Precipitation >50mm',
+            'rx1day': 'Average Largest 1-Day Precipitation',
+            'rx5day': 'Average Largest 5-Day Cumulative Precipitation',
+            'sd': 'Number of Summer Days (Tmax > 25°C)',
+            'tasmax': 'Average Maximum Surface Air Temperature',
+            'tasmin': 'Average Minimum Surface Air Temperature',
+            'tr26': 'Number of Tropical Nights (T-min > 26°C)',
+            'tr29': 'Number of Tropical Nights (T-min > 29°C)',
+            'txx': 'Maximum of Daily Max-Temperature'
         };
 
         /**
@@ -129,7 +184,7 @@ export default function Map() {
 
         const colorScale = d3
             .scaleSequential()
-            .domain(variableDomain[datasetNameMap[datasetName]])
+            .domain(variableDomain['maxTemperature'])
             .interpolator(variableColourScheme[datasetNameMap[datasetName]]);
 
         const path = d3.geoPath().projection(projection);
@@ -147,7 +202,7 @@ export default function Map() {
         // Create a scale for the legend
         let legendScale = d3
             .scaleLinear()
-            .domain(variableDomain[datasetNameMap[datasetName]])
+            .domain(variableDomain['maxTemperature'])
             .range([0, 200]);
 
         // Create a colour horizontal gradient for the legend
@@ -166,7 +221,7 @@ export default function Map() {
             .attr("offset", "0%")
             .attr(
                 "stop-color",
-                colorScale(variableDomain[datasetNameMap[datasetName]][0])
+                colorScale(variableDomain['maxTemperature'][0])
             );
         legendGradient
             .append("stop")
@@ -174,8 +229,8 @@ export default function Map() {
             .attr(
                 "stop-color",
                 colorScale(
-                    (variableDomain[datasetNameMap[datasetName]][0] +
-                        variableDomain[datasetNameMap[datasetName]][1]) /
+                    (variableDomain['maxTemperature'][0] +
+                        variableDomain['maxTemperature'][1]) /
                     2
                 )
             );
@@ -184,7 +239,7 @@ export default function Map() {
             .attr("offset", "100%")
             .attr(
                 "stop-color",
-                colorScale(variableDomain[datasetNameMap[datasetName]][1])
+                colorScale(variableDomain['maxTemperature'][1])
             );
 
         // Draw the gradient rect
@@ -224,7 +279,7 @@ export default function Map() {
             .attr("fill", (d) => {
                 let value = getClimateVariable(
                     d.properties["NAME_3"],
-                    variableDataMap[datasetNameMap[datasetName]]
+                    datasetNameMap[datasetName]
                 );
                 return colorScale(value);
             })
@@ -240,7 +295,7 @@ export default function Map() {
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
                             d.properties["NAME_3"],
-                            variableDataMap[datasetNameMap[datasetName]]
+                            datasetNameMap[datasetName]
                         )} °C</span>
                     </div>
                     <div class="tooltip-row">

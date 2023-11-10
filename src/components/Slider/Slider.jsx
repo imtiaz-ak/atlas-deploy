@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useRef } from "react";
+import DatasetContext from "../../context/DatasetContext";
 
 function Slider() {
     // max value for the input range
     const MAX = 1800;
+    const { datasetConfig, changeDatasetTimeline } = useContext(DatasetContext)
 
     const sliderBar = useRef("");
     const [sliderValue, setSliderValue] = useState(0);
+
+    const setTimeline = (width) => {
+        if (0 <= width < 20) {
+            changeDatasetTimeline('1995-2014')
+        } else if (20 <= width < 40) {
+            changeDatasetTimeline('2020-2039')
+        } else if (40 <= width < 60) {
+            changeDatasetTimeline('2040-2059')
+        } else if (60 <= width < 80) {
+            changeDatasetTimeline('2060-2079')
+        } else if (80 <= width <= 100) {
+            changeDatasetTimeline('2080-2099')
+        }
+    }
 
     const handleChange = (e) => {
         setSliderValue(e.currentTarget.value);
@@ -14,6 +30,7 @@ function Slider() {
         // finding the percentage by multipying essentially finding what % of the slider is filled
         const width = (e.currentTarget.value / MAX) * 100;
         sliderBar.current.style.width = `${width}%`;
+        setTimeline(width)
     };
 
     return (

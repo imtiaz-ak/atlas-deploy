@@ -1,15 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import DatasetContext from "../../context/DatasetContext";
 
 function IntensitySelector() {
     const [isMore, setIsMore] = useState(false);
+    const { datasetConfig, changeDatasetEmission } = useContext(DatasetContext)
 
     const handleMoreClick = () => {
         setIsMore(true);
+        changeDatasetEmission('ssp370')
     };
 
     const handleLessClick = () => {
         setIsMore(false);
+        changeDatasetEmission('ssp245')
     };
 
     return (

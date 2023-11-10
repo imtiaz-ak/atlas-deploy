@@ -12,8 +12,8 @@ function DatasetSelector() {
         setShowPicker((prev) => !prev);
     };
 
-    const { datasetName } = useContext(DatasetContext)
-
+    const { datasetConfig } = useContext(DatasetContext)
+    const datasetName = datasetConfig['name']
     console.log(datasetName, '<--- DATASET NAME')
 
     return (
