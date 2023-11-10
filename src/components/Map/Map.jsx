@@ -38,7 +38,7 @@ const generateMinMax = (dataset) => {
     return minMax;
 };
 
-const getClimateVariable = (district, variable) => {
+const getClimateVariable = (district, variable, timeline, emission) => {
     // let districtData = generatedDistricts.districts.find((element) => {
     //     return element.name === district;
     // });
@@ -49,7 +49,37 @@ const getClimateVariable = (district, variable) => {
 
     // return districtData.futureData[variable];
 
-    return worldBankData['cdd65']['climatology']['1995-2014']['historical']['Barishal']
+    // return worldBankData['cdd65']['climatology']['1995-2014']['historical']['Barishal']
+
+    // get division from district
+    // get emission level from 
+
+    let districtData = generatedDistricts.districts.find((element) => {
+        return element.name === district;
+    });
+
+    const divisionMap = [
+        'Barishal',
+        'Chattogram',
+        'Dhaka',
+        'Khulna',
+        'Rajshahi',
+        'Rangpur',
+        'Sylhet',
+        "Mymensingh"
+    ]
+
+    let emissionLevel = ''
+
+    if (timeline == '1995-2014') {
+        emissionLevel = 'historical'
+    } else {
+        emissionLevel = emission
+    }
+
+    const division = divisionMap[districtData.division_id - 1]
+
+    return worldBankData[variable]['climatology'][timeline][emissionLevel][division]
 };
 
 export default function Map() {
@@ -279,7 +309,9 @@ export default function Map() {
             .attr("fill", (d) => {
                 let value = getClimateVariable(
                     d.properties["NAME_3"],
-                    datasetNameMap[datasetName]
+                    datasetNameMap[datasetName],
+                    datasetTimeline,
+                    datasetEmission
                 );
                 return colorScale(value);
             })
@@ -295,7 +327,9 @@ export default function Map() {
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
                             d.properties["NAME_3"],
-                            datasetNameMap[datasetName]
+                            datasetNameMap[datasetName],
+                            datasetTimeline,
+                            datasetEmission
                         )} °C</span>
                     </div>
                     <div class="tooltip-row">
@@ -354,7 +388,9 @@ export default function Map() {
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
                             d.district,
-                            variableDataMap[selectedVariable]
+                            variableDataMap[selectedVariable],
+                            datasetTimeline,
+                            datasetEmission
                         )} °C</span>
                     </div>
                     <div class="tooltip-row">
