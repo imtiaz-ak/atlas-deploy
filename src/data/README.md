@@ -98,20 +98,23 @@ The future data for `nDaysTminMoreThan26` was obtained from the World Bank API w
 Data from the World Bank's API was collected for the following dimensions. The data is gathered from CMIP6 0.25 Degree models.
 
 1) Climate Variables: 14 Climate Variables which include
-* `cdd65`
-* `hd35`
-* `hd45`
-* `hd40`
-* `prpercnt`
-* `r50mm`
-* `rx1day`
-* `rx5day`
-* `sd`
-* `tasmax`
-* `tasmin`
-* `tr26`
-* `tr29`
-* `txx`
+
+| Variable Code Name | Variable Human-Readable Name | Variable Definition |
+| :---------------- | :------: | :---- |
+| `cdd65` | Cooling Degree Days (ref-65°F) | The cumulative number of degrees that the daily average temperature over a given period is above a specified threshold (here 65°F), which is a measurement designed to quantify the demand for energy needed to cool a building. |
+| `hd35` | Number of Hot Days (Tmax > 35°C) | The number of days with daily maximum temperature > 35°C that occurred during the aggregation period. |
+| `hd45` | Number of Hot Days (Tmax > 45°C) | The number of days with daily maximum temperature > 45°C that occurred during the aggregation period. |
+| `hd40` | Number of Hot Days (Tmax > 40°C) | The number of days with daily maximum temperature > 40°C that occurred during the aggregation period. |
+| `prpercnt` | 	Precipitation Percent Change | Projected percent change in total precipitation; anomaly only. |
+| `r50mm` | Number of Days with Precipitation >50mm | The number of very heavy precipitation days during the aggregation period. A very heavy precipitation day for r50mm is defined as any day in which the daily accumulated precipitation is ≥ 50 mm. |
+| `rx1day` | Average Largest 1-Day Precipitation | The average highest precipitation amount in a 1-day period during each month in the data period. |
+| `rx5day` | Average Largest 5-Day Cumulative Precipitation | The average highest precipitation amount over a consecutive 5-day period during each month in the data period. |
+| `sd` | 	Number of Summer Days (Tmax > 25°C) | The number of days where the daily maximum temperature is > 25°C in the aggregation period. A positive value indicates an increase in the number of Summer Days. |
+| `tasmax` | Average Maximum Surface Air Temperature | Average maximum temperature over the aggregation period |
+| `tasmin` | Average Minimum Surface Air Temperature | Average minimum temperature over the aggregation period |
+| `tr26` | 	Number of Tropical Nights (T-min > 26°C) | The number of days where the daily minimum temperature remained > 26°C over the aggregation period. |
+| `tr29` | Number of Tropical Nights (T-min > 29°C) | The number of days where the daily minimum temperature remained > 29°C over the aggregation period. |
+| `txx` | Maximum of Daily Max-Temperature | The single-day maximum value of the daily maximum temperatures over the aggregated data period. |
 
 2) Time Ranges: Averaged values 4 20-Year Periods within the current century
 * 2020-2039
@@ -131,7 +134,7 @@ From Wikipedia -
 > SSP3 - "A resurgent nationalism, concerns about competitiveness and security, and regional conflicts push countries to increasingly focus on domestic or, at most, regional issues. Policies shift over time to become increasingly oriented toward national and regional security issues. Countries focus on achieving energy and food security goals within their own regions at the expense of broader-based development. Investments in education and technological development decline. Economic development is slow, consumption is material-intensive, and inequalities persist or worsen over time. Population growth is low in industrialized and high in developing countries. A low international priority for addressing environmental concerns leads to strong environmental degradation in some regions."
 
 
-4) Districts: 8 of them
+4) Divisions: 8 of them
 
 ### List of Districts
 
