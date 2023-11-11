@@ -10,46 +10,40 @@ import * as upojelaGeoData from "../../data/bd_upojelas.geo.json";
 import * as climateStories from "../../data/climate_stories.json";
 import * as generatedDistricts from "../../data/generated_districts.json";
 import * as worldBankData from '../../data/world_bank_data.json'
+import * as districtToDivision from '../../data/districts_to_division.json'
+import * as minMaxData from '../../data/wb_clim_var_minmax.json'
 import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
 import DatasetContext from "../../context/DatasetContext";
 
 
-const generateMinMax = (dataset) => {
-    let minMax = {};
-    dataset.forEach((element) => {
-        Object.keys(element.futureData).forEach((key) => {
-            if (minMax[key] === undefined) {
-                minMax[key] = [
-                    element.futureData[key],
-                    element.futureData[key],
-                ];
-            } else {
-                if (element.futureData[key] < minMax[key][0]) {
-                    minMax[key][0] = element.futureData[key];
-                }
+// Old data helper function (to be removed)
+// const generateMinMax = (dataset) => {
+//     let minMax = {};
+//     dataset.forEach((climateVar) => {
+//         Object.keys(climateVar["climatology"]).forEach((key) => {
 
-                if (element.futureData[key] > minMax[key][1]) {
-                    minMax[key][1] = element.futureData[key];
-                }
-            }
-        });
-    });
-    return minMax;
-};
+//         });
+//     });
+//     return minMax;
+// };
 
-const getClimateVariable = (district, variable) => {
-    // let districtData = generatedDistricts.districts.find((element) => {
-    //     return element.name === district;
-    // });
 
-    // if (districtData === undefined) {
-    //     return 0;
-    // }
+const getClimateVariable = (district, variable, dataType, timeRange, climateChange) => {
+    /**
+     * Valid values for each:
+     * variable: cdd65, hd35, hd40, hd45, prpercnt, r50mm, rx1day, rx5day, sd, tasmax, tasmin, tr26, tr29, txx
+     * dataType: climatology, anomaly
+     * timeRange: 1995-2014, 2020-2039, 2040-2059, 2060-2079, 2080-2099
+     * climateChange: historical, ssp245, ssp370
+     */
+    // TODO make dynamic based on UI selectors
+    dataType = "climatology";
+    timeRange = "1995-2014";
+    climateChange = "historical"
+    variable = "cdd65"
 
-    // return districtData.futureData[variable];
-
-    return worldBankData['cdd65']['climatology']['1995-2014']['historical']['Barishal']
+    return worldBankData[variable][dataType][timeRange][climateChange][districtToDivision[district]]
 };
 
 export default function Map() {
@@ -107,57 +101,65 @@ export default function Map() {
     })
 
     const ref = useD3((svg) => {
-        const minMax = generateMinMax(generatedDistricts.districts);
+        // const minMax = generateMinMax(generatedDistricts.districts);
 
-        // TODO: rewrite the minMax for the new data structure
+        // TODO When UI selectors are avaiable to pick between pure climate value and anomaly value
+        // Change this to one of "climatology" or "anomaly"
+        let dataType = "climatology";
+
         const variableDomain = {
-            // 'cdd65': minMax["cdd65"],
-            // 'hd35': minMax["hd35"],
-            // 'hd40': minMax["hd40"],
-            // 'hd45': minMax["hd45"],
-            // 'prpercnt': minMax["prpercnt"],
-            // 'r50mm': minMax["r50mm"],
-            // 'rx1day': minMax["rx1day"],
-            // 'rx5day': minMax["rx5day"],
-            // 'sd': minMax["sd"],
-            // 'tasmax': minMax["tasmax"],
-            // 'tasmin': minMax["tasmin"],
-            // 'tr26': minMax["tr26"],
-            // 'tr29': minMax["tr29"],
-            // 'txx': minMax["txx"]
-            maxTemperature: minMax["maxTemperature"],
-            // minTemperature: minMax["minTemperature"],
-            // hotTropical: minMax["nDaysTminMoreThan26"],
+            "cdd65": minMaxData["cdd65"][dataType],
+            'hd35': minMaxData["hd35"][dataType],
+            'hd40': minMaxData["hd40"][dataType],
+            'hd45': minMaxData["hd45"][dataType],
+            'prpercnt': minMaxData["prpercnt"][dataType],
+            'r50mm': minMaxData["r50mm"][dataType],
+            'rx1day': minMaxData["rx1day"][dataType],
+            'rx5day': minMaxData["rx5day"][dataType],
+            'sd': minMaxData["sd"][dataType],
+            'tasmax': minMaxData["tasmax"][dataType],
+            'tasmin': minMaxData["tasmin"][dataType],
+            'tr26': minMaxData["tr26"][dataType],
+            'tr29': minMaxData["tr29"][dataType],
+            'txx': minMaxData["txx"][dataType],
+        
+            // Legacy Hybdrid Data (to be removed)
+            maxTemperature: minMaxData["tasmax"][dataType],
+            // minTemperature: "minTemperature",
+            // hotTropical: "nDaysTminMoreThan26",
         };
 
+        // TODO if we are showing anomaly instead, we should use diverging colour schemes e.g d3.interpolateRdBu
         const variableColourScheme = {
+            // Hot Weather
             'cdd65': d3.interpolateYlOrRd,
             'hd35': d3.interpolateYlOrRd,
             'hd40': d3.interpolateYlOrRd,
             'hd45': d3.interpolateYlOrRd,
+            'sd': d3.interpolateYlOrRd,
+
+            // Precipitation
             'prpercnt': d3.interpolateYlOrRd,
             'r50mm': d3.interpolateYlOrRd,
             'rx1day': d3.interpolateYlOrRd,
             'rx5day': d3.interpolateYlOrRd,
-            'sd': d3.interpolateYlOrRd,
+            
+            // Temperature
             'tasmax': d3.interpolateYlOrRd,
             'tasmin': d3.interpolateYlOrRd,
             'tr26': d3.interpolateYlOrRd,
             'tr29': d3.interpolateYlOrRd,
-            'txx': d3.interpolateYlOrRd
-            // maxTemperature: d3.interpolateYlOrRd,
+            'txx': d3.interpolateYlOrRd,
+
+            // Legacy Hybdrid Data (to be removed)
+            'maxTemperature': d3.interpolateYlOrRd,
             // minTemperature: d3.interpolateBlues,
             // hotTropical: d3.interpolateOrRd,
         };
 
-        // const variableDataMap = {
-        //     maxTemperature: "maxTemperature",
-        //     minTemperature: "minTemperature",
-        //     hotTropical: "nDaysTminMoreThan26",
-        // };
 
         const variableLabelMap = {
-            'cdd65': 'Cooling Degree Days (ref-65°F)',
+            'cdd65': 'Cooling Degree Days (ref-18°C)',
             'hd35': 'Number of Hot Days (Tmax > 35°C)',
             'hd40': 'Number of Hot Days (Tmax > 40°C)',
             'hd45': 'Number of Hot Days (Tmax > 45°C)',
@@ -173,6 +175,23 @@ export default function Map() {
             'txx': 'Maximum of Daily Max-Temperature'
         };
 
+        const unitMap = {
+            'cdd65': '°C',
+            'hd35': 'Days',
+            'hd40': 'Days',
+            'hd45': 'Days',
+            'prpercnt': '%',
+            'r50mm': 'Days',
+            'rx1day': 'mm',
+            'rx5day': 'mm',
+            'sd': 'Days',
+            'tasmax': '°C',
+            'tasmin': '°C',
+            'tr26': 'Days',
+            'tr29': 'Days',
+            'txx': '°C'
+        }
+
         /**
          * Use D3 to draw the colour legend, the variable coloured districts and
          * add tooltip on hover, and onClick functionality for the districts
@@ -184,6 +203,7 @@ export default function Map() {
 
         const colorScale = d3
             .scaleSequential()
+            // TODO Update variableDomain to be dynamic based on UI selectors
             .domain(variableDomain['maxTemperature'])
             .interpolator(variableColourScheme[datasetNameMap[datasetName]]);
 
@@ -202,6 +222,7 @@ export default function Map() {
         // Create a scale for the legend
         let legendScale = d3
             .scaleLinear()
+            // TODO Update variableDomain to be dynamic based on UI selectors
             .domain(variableDomain['maxTemperature'])
             .range([0, 200]);
 
@@ -221,6 +242,7 @@ export default function Map() {
             .attr("offset", "0%")
             .attr(
                 "stop-color",
+                // TODO Update variableDomain to be dynamic based on UI selectors
                 colorScale(variableDomain['maxTemperature'][0])
             );
         legendGradient
@@ -229,6 +251,7 @@ export default function Map() {
             .attr(
                 "stop-color",
                 colorScale(
+                    // TODO Update variableDomain to be dynamic based on UI selectors
                     (variableDomain['maxTemperature'][0] +
                         variableDomain['maxTemperature'][1]) /
                     2
@@ -239,6 +262,7 @@ export default function Map() {
             .attr("offset", "100%")
             .attr(
                 "stop-color",
+                // TODO Update variableDomain to be dynamic based on UI selectors
                 colorScale(variableDomain['maxTemperature'][1])
             );
 
@@ -279,7 +303,11 @@ export default function Map() {
             .attr("fill", (d) => {
                 let value = getClimateVariable(
                     d.properties["NAME_3"],
-                    datasetNameMap[datasetName]
+                    datasetNameMap[datasetName],
+                    // TODO Fill in UI selected values
+                    "dataType", 
+                    "timeRange",
+                    "climateChange"
                 );
                 return colorScale(value);
             })
@@ -294,9 +322,14 @@ export default function Map() {
                         <span class="tooltip-title">${d.properties["NAME_3"]
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
-                            d.properties["NAME_3"],
-                            datasetNameMap[datasetName]
-                        )} °C</span>
+                                d.properties["NAME_3"],
+                                datasetNameMap[datasetName],
+                                // TODO Fill in UI selected values
+                                "dataType", 
+                                "timeRange",
+                                "climateChange"
+                            )} ${unitMap[datasetNameMap[datasetName]]}
+                        </span>
                     </div>
                     <div class="tooltip-row">
                         <span class="tooltip-story-count">${stories.length} Stories</span>
@@ -353,9 +386,15 @@ export default function Map() {
                         <span class="tooltip-title">${d.district
                         }</span>
                         <span class="tooltip-temp">${getClimateVariable(
-                            d.district,
-                            variableDataMap[selectedVariable]
-                        )} °C</span>
+                                d.district,
+                                variableDataMap[selectedVariable],
+                                // TODO Fill in UI selected values
+                                "dataType", 
+                                "timeRange",
+                                "climateChange"
+                            )} 
+                        ${unitMap[datasetNameMap[datasetName]]}
+                        </span>
                     </div>
                     <div class="tooltip-row">
                         <span class="tooltip-story-count">${stories.length} Stories</span>
