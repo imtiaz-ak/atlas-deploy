@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import MediaCardVideo from "../Common/MediaCard/MediaCardVideo";
 import SidebarContext from "../../context/SidebarContext";
 import DistrictContext from "../../context/DistrictContext";
-import * as stories from "../../data/climate_stories.json";
+import stories from "../../data/climate_stories.json";
 import { useContext } from "react";
 
 export default function Sidebar() {

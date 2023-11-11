@@ -7,10 +7,11 @@ import "./Map.css";
 import * as districtGeoData from "../../data/bd_districts.geo.json";
 import * as districtData from "../../data/bd_districts.json";
 import * as upojelaGeoData from "../../data/bd_upojelas.geo.json";
-import * as climateStories from "../../data/climate_stories.json";
+// "* as" style import for a json file that has json keys with special characters causes that key to be skipped
+import climateStories from "../../data/climate_stories.json";
+import districtToDivision from '../../data/districts_to_division.json';
 import * as generatedDistricts from "../../data/generated_districts.json";
-import * as worldBankData from '../../data/world_bank_data.json'
-import * as districtToDivision from '../../data/districts_to_division.json'
+import * as worldBankData from '../../data/world_bank_data.json';
 import * as minMaxData from '../../data/wb_clim_var_minmax.json'
 import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
@@ -306,8 +307,6 @@ export default function Map() {
             })
             .on("mouseover", (event, d) => {
                 let stories = climateStories[d.properties["NAME_3"]]
-                // TODO A json key can't have white space and quotations inside it I think, so Cox's Bazar is failing
-                // from climate_stores.json and districts_to_division.json
                 d3
                     .select("#tooltip")
                     .style("display", "flex")
