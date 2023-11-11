@@ -38,6 +38,7 @@ const getClimateVariable = (district, variable, dataType, timeRange, climateChan
      * climateChange: historical, ssp245, ssp370
      */
     // TODO make dynamic based on UI selectors and then remove the variable below
+    // Currently climate emissions toggle doesn't work because it relies on timeRange to be a future value, so that has to be implemented first
     dataType = "climatology"
     if (timeRange == "1995-2014") {
         return worldBankData[variable][dataType][timeRange]["historical"][districtToDivision[district]]
@@ -201,7 +202,6 @@ export default function Map() {
 
         const colorScale = d3
             .scaleSequential()
-            // TODO Update variableDomain to be dynamic based on UI selectors
             .domain(variableDomain[datasetNameMap[datasetName]])
             .interpolator(variableColourScheme[datasetNameMap[datasetName]]);
 
@@ -220,7 +220,6 @@ export default function Map() {
         // Create a scale for the legend
         let legendScale = d3
             .scaleLinear()
-            // TODO Update variableDomain to be dynamic based on UI selectors
             .domain(variableDomain[datasetNameMap[datasetName]])
             .range([0, 200]);
 
@@ -240,7 +239,6 @@ export default function Map() {
             .attr("offset", "0%")
             .attr(
                 "stop-color",
-                // TODO Update variableDomain to be dynamic based on UI selectors
                 colorScale(variableDomain[datasetNameMap[datasetName]][0])
             );
         legendGradient
@@ -249,7 +247,6 @@ export default function Map() {
             .attr(
                 "stop-color",
                 colorScale(
-                    // TODO Update variableDomain to be dynamic based on UI selectors
                     (variableDomain[datasetNameMap[datasetName]][0] +
                         variableDomain[datasetNameMap[datasetName]][1]) /
                     2
@@ -260,7 +257,6 @@ export default function Map() {
             .attr("offset", "100%")
             .attr(
                 "stop-color",
-                // TODO Update variableDomain to be dynamic based on UI selectors
                 colorScale(variableDomain[datasetNameMap[datasetName]][1])
             );
 
