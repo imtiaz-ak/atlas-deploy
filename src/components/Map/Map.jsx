@@ -175,7 +175,7 @@ export default function Map() {
         };
 
         const unitMap = {
-            'cdd65': '°C',
+            'cdd65': 'Days',
             'hd35': 'Days',
             'hd40': 'Days',
             'hd45': 'Days',
@@ -305,7 +305,9 @@ export default function Map() {
                 return colorScale(value);
             })
             .on("mouseover", (event, d) => {
-                const stories = climateStories[d.properties["NAME_3"]]
+                let stories = climateStories[d.properties["NAME_3"]]
+                // TODO A json key can't have white space and quotations inside it I think, so Cox's Bazar is failing
+                // from climate_stores.json and districts_to_division.json
                 d3
                     .select("#tooltip")
                     .style("display", "flex")

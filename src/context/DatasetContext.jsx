@@ -4,7 +4,7 @@ const DatasetContext = createContext();
 
 export function DatasetProvider({ children }) {
     const [datasetConfig, setDatasetConfig] = useState({
-        name: 'Cooling Degree Days',
+        name: 'Surface Air Maximum',
         emission: 'ssp245',
         timeline: '1995-2014'
     });
