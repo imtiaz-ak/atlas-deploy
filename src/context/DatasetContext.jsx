@@ -4,9 +4,9 @@ const DatasetContext = createContext();
 
 export function DatasetProvider({ children }) {
     const [datasetConfig, setDatasetConfig] = useState({
-        name: 'Cooling Degree Days',
+        name: 'Surface Air Maximum',
         emission: 'ssp245',
-        timeline: '1995-2014'
+        timeline: '2080-2099'
     });
 
     const changeDatasetName = (newName) => {
@@ -31,6 +31,7 @@ export function DatasetProvider({ children }) {
             emission: datasetConfig['emission'],
             timeline: newTimeline
         })
+        console.log('timeline was changed')
     }
 
     return (
