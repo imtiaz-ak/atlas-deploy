@@ -11,15 +11,16 @@ function Slider() {
     const [sliderValue, setSliderValue] = useState(0);
 
     const setTimeline = (width) => {
-        if (0 <= width < 20) {
+        console.log(`changing timeline according to width ${width}`)
+        if (0 <= width && width < 20) {
             changeDatasetTimeline('1995-2014')
-        } else if (20 <= width < 40) {
+        } else if (20 <= width && width < 40) {
             changeDatasetTimeline('2020-2039')
-        } else if (40 <= width < 60) {
+        } else if (40 <= width && width < 60) {
             changeDatasetTimeline('2040-2059')
-        } else if (60 <= width < 80) {
+        } else if (60 <= width && width < 80) {
             changeDatasetTimeline('2060-2079')
-        } else if (80 <= width <= 100) {
+        } else if (80 <= width && width <= 100) {
             changeDatasetTimeline('2080-2099')
         }
     }

@@ -6,7 +6,7 @@ export function DatasetProvider({ children }) {
     const [datasetConfig, setDatasetConfig] = useState({
         name: 'Surface Air Maximum',
         emission: 'ssp245',
-        timeline: '2080-2099'
+        timeline: '1995-2014'
     });
 
     const changeDatasetName = (newName) => {
@@ -23,6 +23,7 @@ export function DatasetProvider({ children }) {
             emission: newEmission,
             timeline: datasetConfig['timeline']
         })
+        console.log(`changing emission to ${newEmission}`)
     }
 
     const changeDatasetTimeline = (newTimeline) => {
@@ -31,7 +32,6 @@ export function DatasetProvider({ children }) {
             emission: datasetConfig['emission'],
             timeline: newTimeline
         })
-        console.log('timeline was changed')
     }
 
     return (
