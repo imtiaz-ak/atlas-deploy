@@ -6,7 +6,6 @@ import "./Map.css";
 
 import * as districtGeoData from "../../data/bd_districts.geo.json";
 import * as districtData from "../../data/bd_districts.json";
-import * as upojelaGeoData from "../../data/bd_upojelas.geo.json";
 // "* as" style import for a json file that has json keys with special characters causes that key to be skipped
 import climateStories from "../../data/climate_stories.json";
 import districtToDivision from '../../data/districts_to_division.json';
