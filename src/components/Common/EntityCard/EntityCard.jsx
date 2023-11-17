@@ -6,16 +6,15 @@ import './EntityCard.css'
 
 
 
-export default function EntityCard({ title, district, country, thumbnailUrl }) {
+export default function EntityCard({ title, address, district, country }) {
     return (
 
         <MediaCard portrait className="mediaCardVideo">
-            <VideoThumbnail videoLength={80}
-                thumbnailUrl={thumbnailUrl}
-                onClick={() => console.log('clicked')} />
             <VerticalStack gap="0" className="mediaCardVideo__text">
                 <h1>{title}</h1>
-                <h2>{district}, {country}</h2>
+                <h2>Address: {address}</h2>
+                <h2>Operates in {district}</h2>
+                <h2>Based in {country}</h2>
             </VerticalStack>
         </MediaCard>
     );

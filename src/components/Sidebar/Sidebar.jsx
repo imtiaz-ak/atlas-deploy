@@ -7,6 +7,8 @@ import stories from "../../data/climate_stories.json";
 import worldBankData from "../../data/world_bank_data.json"
 import { useContext } from "react";
 import districtToDivision from '../../data/districts_to_division.json'
+import ngoList from '../../data/ngo_list.json'
+import EntityCard from "../Common/EntityCard/EntityCard";
 
 export default function Sidebar() {
     const { sidebarState, changeSidebarTab, toggleSidebar } = useContext(SidebarContext);
@@ -30,6 +32,21 @@ export default function Sidebar() {
         'Single Day Maximum': 'txx'
     }
     console.log(stories)
+
+    const ngoDataByDistrict = {};
+
+    ngoList.forEach(item => {
+        const district = item.district;
+
+        // Check if the district exists in the dataByDistrict object
+        if (!ngoDataByDistrict[district]) {
+            // If it doesn't exist, create an empty array for the district
+            ngoDataByDistrict[district] = [];
+        }
+
+        // Push the current item to the array for the corresponding district
+        ngoDataByDistrict[district].push(item);
+    });
 
     const className = sidebarState.active ? "sidebar sidebar-active" : "sidebar";
     return (
@@ -111,11 +128,11 @@ export default function Sidebar() {
                             sidebarState.currentTab == 'entities' ?
                                 <button className="customBtn sidebar__container__active_btn" onClick={() => { changeSidebarTab('entities') }}>
                                     <span>Entities</span>
-                                    <span>2</span>
+                                    <span>{ngoDataByDistrict[district?.name].length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                 </button> :
                                 <button className="customBtn sidebar__container__inactive_btn" onClick={() => { changeSidebarTab('entities') }}>
                                     <span>Entities</span>
-                                    <span>2</span>
+                                    <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                 </button>
 
                         }
@@ -123,23 +140,46 @@ export default function Sidebar() {
 
                     </div>
                     <div className="stories-container">
-                        {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
-                            return (
-                                <MediaCardVideo
-                                    title={e['headline']}
-                                    district={district?.name}
-                                    country="Bangladesh"
-                                    thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
-                            )
-                        }) :
-                            <MediaCardVideo
-                                title="No Stories to Show."
-                                district="District"
-                                coutnry="Bangladesh"
-                                entity="Atlas"
-                                entityUrl="http://www.brac.net/"
-                                desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
-                                thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>}
+                        {
+                            sidebarState.currentTab == 'stories' ? (<>
+                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
+                                    return (
+                                        <MediaCardVideo
+                                            title={e['headline']}
+                                            district={district?.name}
+                                            country="Bangladesh"
+                                            thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
+                                    )
+                                }) :
+                                    <MediaCardVideo
+                                        title="No Stories to Show."
+                                        district="District"
+                                        coutnry="Bangladesh"
+                                        entity="Atlas"
+                                        entityUrl="http://www.brac.net/"
+                                        desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
+                                        thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>}
+                            </>) : (<>
+                                {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
+                                    return (
+                                        <EntityCard
+                                            title={e['name']}
+                                            address={e.address}
+                                            district={district?.name}
+                                            country={e.country}></EntityCard>
+                                    )
+                                }) :
+                                    <EntityCard
+                                        title="No Stories to Show."
+                                        district="District"
+                                        coutnry="Bangladesh"
+                                        entity="Atlas"
+                                        entityUrl="http://www.brac.net/"
+                                        desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
+                                        thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></EntityCard>}
+                            </>)
+                        }
+
                     </div>
                 </div>
             </section>
