@@ -17,18 +17,6 @@ import SidebarContext from "../../context/SidebarContext";
 import DatasetContext from "../../context/DatasetContext";
 
 
-// Old data helper function (to be removed)
-// const generateMinMax = (dataset) => {
-//     let minMax = {};
-//     dataset.forEach((climateVar) => {
-//         Object.keys(climateVar["climatology"]).forEach((key) => {
-
-//         });
-//     });
-//     return minMax;
-// };
-
-
 const getClimateVariable = (district, variable, dataType, timeRange, climateChange) => {
     /**
      * Valid values for each:
@@ -49,7 +37,6 @@ const getClimateVariable = (district, variable, dataType, timeRange, climateChan
 };
 
 export default function Map() {
-
 
     const { datasetConfig } = useContext(DatasetContext)
     const datasetName = datasetConfig['name']
@@ -79,7 +66,7 @@ export default function Map() {
 
     // reading context
     const { setDistrictId } = useContext(DistrictContext);
-    const { setSidebarActive } = useContext(SidebarContext);
+    const { toggleSidebar, setSidebarActive } = useContext(SidebarContext);
 
     const handleDistrictIdChange = (id) => setDistrictId(id);
 
@@ -416,7 +403,7 @@ export default function Map() {
                 svg.attr("transform", e.transform);
             })
         );
-    }, [datasetName, datasetEmission, datasetTimeline]);
+    }, []); //[datasetName, datasetEmission, datasetTimeline]);
 
     return (
         <>

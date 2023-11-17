@@ -54,6 +54,7 @@
 .sidebar__container {
     padding: 1.25rem;
     position: absolute;
+    min-width: 100%;
 }
 
 .sidebar__container hr {
@@ -83,18 +84,25 @@
 }
 
 .sidebar__container__buttonGroup button:hover {
-    opacity: 75%;
+    opacity: 100%;
+}
+
+.sidebar__container__active_btn {
+    background: var(--btn-color-1);
+    color: white
+}
+
+.sidebar__container__inactive_btn {
+    background: var(--btn-color-2);
+    color: black
 }
 
 .sidebar__container__buttonGroup button:nth-child(1) {
-    background: var(--btn-color-1);
-    color: white;
     border-radius: 4px 0px 0px 4px;
     border-right: none;
 }
 
 .sidebar__container__buttonGroup button:nth-child(2) {
-    background: var(--btn-color-2);
     border-radius: 0px 4px 4px 0px;
     border-left: none;
 }

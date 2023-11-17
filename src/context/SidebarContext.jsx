@@ -3,16 +3,37 @@ import { createContext, useState } from "react";
 const SidebarContext = createContext();
 
 export function SidebarProvider({ children }) {
-    const [sidebarActive, setSidebarActive] = useState(false);
+    const [sidebarState, setSidebarState] = useState({
+        active: false,
+        currentTab: 'stories'
+    })
+
+    const setSidebarActive = () => {
+        setSidebarState({
+            active: true,
+            currentTab: sidebarState['currentTab']
+        })
+    };
 
     const toggleSidebar = () => {
-        setSidebarActive((prev) => !prev);
-        console.log("Called toggle side bar");
+        setSidebarState({
+            active: !sidebarState['active'],
+            currentTab: sidebarState['currentTab']
+        });
     };
+
+    const changeSidebarTab = (selectedTab) => {
+        setSidebarState({
+            active: sidebarState['active'],
+            currentTab: selectedTab
+        })
+        console.log(selectedTab, '<--- CURRENTLY SELECTED TAB')
+    };
+
 
     return (
         <SidebarContext.Provider
-            value={{ sidebarActive, toggleSidebar, setSidebarActive }}>
+            value={{ sidebarState, toggleSidebar, setSidebarActive, changeSidebarTab, setSidebarState }}>
             {children}
         </SidebarContext.Provider>
     );
