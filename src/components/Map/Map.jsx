@@ -419,7 +419,7 @@ export default function Map() {
                 svg.attr("transform", e.transform);
             })
         );
-    }, []); //[datasetName, datasetEmission, datasetTimeline]);
+    }, [datasetName, datasetEmission, datasetTimeline]); //[datasetName, datasetEmission, datasetTimeline]);
 
     return (
         <>
