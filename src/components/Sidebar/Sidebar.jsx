@@ -128,7 +128,7 @@ export default function Sidebar() {
                             sidebarState.currentTab == 'entities' ?
                                 <button className="customBtn sidebar__container__active_btn" onClick={() => { changeSidebarTab('entities') }}>
                                     <span>Entities</span>
-                                    <span>{ngoDataByDistrict[district?.name].length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                    <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                 </button> :
                                 <button className="customBtn sidebar__container__inactive_btn" onClick={() => { changeSidebarTab('entities') }}>
                                     <span>Entities</span>
@@ -145,20 +145,14 @@ export default function Sidebar() {
                                 {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
                                     return (
                                         <MediaCardVideo
-                                            title={e['headline']}
+                                            title={e['title']}
                                             district={district?.name}
                                             country="Bangladesh"
-                                            thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>
+                                            thumbnailUrl={e['image']}
+                                            url={e['url']}></MediaCardVideo>
                                     )
                                 }) :
-                                    <MediaCardVideo
-                                        title="No Stories to Show."
-                                        district="District"
-                                        coutnry="Bangladesh"
-                                        entity="Atlas"
-                                        entityUrl="http://www.brac.net/"
-                                        desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
-                                        thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></MediaCardVideo>}
+                                    <></>}
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
@@ -168,15 +162,7 @@ export default function Sidebar() {
                                             district={district?.name}
                                             country={e.country}></EntityCard>
                                     )
-                                }) :
-                                    <EntityCard
-                                        title="No Stories to Show."
-                                        district="District"
-                                        coutnry="Bangladesh"
-                                        entity="Atlas"
-                                        entityUrl="http://www.brac.net/"
-                                        desc="There are no more relevant stories to show. However more stories will come. Stay tuned to find out."
-                                        thumbnailUrl="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850"></EntityCard>}
+                                }) : <></>}
                             </>)
                         }
 

@@ -15,7 +15,22 @@ import * as minMaxData from '../../data/wb_clim_var_minmax.json'
 import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
 import DatasetContext from "../../context/DatasetContext";
+import ngoList from '../../data/ngo_list.json'
 
+const ngoDataByDistrict = {};
+
+ngoList.forEach(item => {
+    const district = item.district;
+
+    // Check if the district exists in the dataByDistrict object
+    if (!ngoDataByDistrict[district]) {
+        // If it doesn't exist, create an empty array for the district
+        ngoDataByDistrict[district] = [];
+    }
+
+    // Push the current item to the array for the corresponding district
+    ngoDataByDistrict[district].push(item);
+});
 
 const getClimateVariable = (district, variable, dataType, timeRange, climateChange) => {
     /**
@@ -294,6 +309,7 @@ export default function Map() {
             })
             .on("mouseover", (event, d) => {
                 let stories = climateStories[d.properties["NAME_3"]]
+                let entities = ngoDataByDistrict[d.properties["NAME_3"]]
                 d3
                     .select("#tooltip")
                     .style("display", "flex")
@@ -314,7 +330,7 @@ export default function Map() {
                     <div class="tooltip-row">
                         <span class="tooltip-story-count">${stories.length} Stories</span>
                         <span class="tooltip-period">&#x2022;</span> 
-                        <span class="tooltip-entity-count">${0} Entities</span>
+                        <span class="tooltip-entity-count">${entities.length} Entities</span>
                     </div>
             `);
             })

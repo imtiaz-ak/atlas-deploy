@@ -6,18 +6,20 @@ import './MediaCard.css'
 
 
 
-export default function MediaCardVideo({ title, district, country, thumbnailUrl }) {
+export default function MediaCardVideo({ title, district, country, thumbnailUrl, url }) {
   return (
-
-    <MediaCard portrait className="mediaCardVideo">
-      <VideoThumbnail videoLength={80}
+    <a href={url}>
+      <MediaCard portrait className="mediaCardVideo">
+        {/* <VideoThumbnail videoLength={80}
         thumbnailUrl={thumbnailUrl}
-        onClick={() => console.log('clicked')} />
-      <VerticalStack gap="0" className="mediaCardVideo__text">
-        <h1>{title}</h1>
-        <h2>{district}, {country}</h2>
-      </VerticalStack>
-    </MediaCard>
+        onClick={() => console.log('clicked')} /> */}
+        <img src={thumbnailUrl} width={'100%'} />
+        <VerticalStack gap="0" className="mediaCardVideo__text">
+          <h1>{title}</h1>
+          <h2>{district}, {country}</h2>
+        </VerticalStack>
+      </MediaCard>
+    </a>
   );
 }
 

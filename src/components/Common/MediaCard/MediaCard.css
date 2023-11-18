@@ -5,6 +5,7 @@
 
 .mediaCardVideo {
     border: 1px solid red;
+    cursor: pointer;
 }
 
 .mediaCardVideo__text {
