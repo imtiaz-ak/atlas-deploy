@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import dataset from "../../data/dataset";
 import { motion } from "framer-motion";
 import DatasetContext from "../../context/DatasetContext";
+import SingleDataSet from "./SingleDataSet";
 
 function DatasetPicker() {
     const { changeDatasetName } = useContext(DatasetContext)
@@ -33,9 +34,7 @@ function DatasetPicker() {
                                 <ul className="dataset-column__list">
                                     {dataset[key].options.map((option) => {
                                         return (
-                                            <li className="dataset-column__list-item" onClick={() => { changeDataset(option) }}>
-                                                {option}
-                                            </li>
+                                            <SingleDataSet option={option}  changeDataset={changeDataset} />
                                         );
                                     })}
                                 </ul>
