@@ -131,32 +131,30 @@ export default function Map() {
             // hotTropical: "nDaysTminMoreThan26",
         };
 
-        // TODO if we are showing anomaly instead, we should use diverging colour schemes e.g d3.interpolateRdBu
+        // Create a reversed version of the RdYlBu color scheme
+        const reversedRdYlBu = t => d3.interpolateRdYlBu(1 - t);
+        const reversedRdBu = t => d3.interpolateRdBu(1 - t);
+
         const variableColourScheme = {
             // Hot Weather
-            'cdd65': d3.interpolateYlOrBr,
-            'hd35': d3.interpolateYlOrBr,
-            'hd40': d3.interpolateYlOrRd,
-            'hd45': d3.interpolateOrRd,
-            'sd': d3.interpolateYlOrBr,
+            'cdd65': reversedRdYlBu,
+            'hd35': reversedRdYlBu,
+            'hd40': reversedRdYlBu,
+            'hd45': reversedRdYlBu,
+            'sd': reversedRdYlBu,
 
             // Precipitation
-            'prpercnt': d3.interpolateBlues,
+            'prpercnt': d3.interpolateBrBG,
             'r50mm': d3.interpolateGnBu,
             'rx1day': d3.interpolateBlues,
             'rx5day': d3.interpolateGnBu,
 
             // Temperature
-            'tasmax': d3.interpolateOrRd,
-            'tasmin': d3.interpolateYlOrBr,
-            'tr26': d3.interpolateYlOrBr,
-            'tr29': d3.interpolateYlOrRd,
-            'txx': d3.interpolateOrRd,
-
-            // Legacy Hybdrid Data (to be removed)
-            'maxTemperature': d3.interpolateYlOrRd,
-            // minTemperature: d3.interpolateBlues,
-            // hotTropical: d3.interpolateOrRd,
+            'tasmax': reversedRdBu,
+            'tasmin': reversedRdBu,
+            'tr26': reversedRdBu,
+            'tr29': reversedRdBu,
+            'txx': reversedRdBu,
         };
 
 
@@ -220,7 +218,6 @@ export default function Map() {
             .attr("width", 800)
             .attr("height", 100);
 
-        // Create a scale for the legend
         let legendScale = d3
             .scaleLinear()
             .domain(variableDomain[datasetNameMap[datasetName]])
