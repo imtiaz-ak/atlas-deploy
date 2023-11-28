@@ -310,31 +310,39 @@ export default function Map() {
             .on("mouseover", (event, d) => {
                 let stories = climateStories[d.properties["NAME_3"]]
                 let entities = ngoDataByDistrict[d.properties["NAME_3"]]
+
+                // TODO Ensure when these end up empty, it is for intended reasons (e.g no stories or entities)
+                let storiesLength = stories == "" || stories == undefined ? 0 : stories.length
+                let entitiesLength = entities == "" || entities == undefined ? 0 : entities.length
                 d3
                     .select("#tooltip")
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
                     .style("top", event.pageY + 0 + "px").html(`
-                    <div class="tooltip-row">
-                        <span class="tooltip-title">${d.properties["NAME_3"]
-                        }</span>
-                        <span class="tooltip-temp">${getClimateVariable(
-                            d.properties["NAME_3"],
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} ${unitMap[datasetNameMap[datasetName]]}
-                        </span>
-                    </div>
-                    <div class="tooltip-row">
-                        <span class="tooltip-story-count">${stories.length} Stories</span>
-                        <span class="tooltip-period">&#x2022;</span> 
-                        <span class="tooltip-entity-count">${entities.length} Entities</span>
-                    </div>
-            `);
+                        <div class="tooltip-row">
+                            <span class="tooltip-title">${d.properties["NAME_3"]
+                            }</span>
+                            <span class="tooltip-temp">${getClimateVariable(
+                                d.properties["NAME_3"],
+                                datasetNameMap[datasetName],
+                                datasetType,
+                                datasetTimeline,
+                                datasetEmission
+                            )} ${unitMap[datasetNameMap[datasetName]]}
+                            </span>
+                        </div>
+                        <div class="tooltip-row">
+                            <span class="tooltip-story-count">${storiesLength} Stories</span>
+                            <span class="tooltip-period">&#x2022;</span> 
+                            <span class="tooltip-entity-count">${entitiesLength} Entities</span>
+                        </div>
+                    `);
+            // On hover, increase the border width
+            d3.select(event.target).attr("stroke-width", "3")
             })
             .on("mouseout", (event, d) => {
+                // On mouseout, reset the border width
+                d3.select(event.target).attr("stroke-width", "0.5");
                 d3.select("#tooltip").style("display", "none");
             })
             .on("click", (event, d) => {
@@ -373,30 +381,33 @@ export default function Map() {
             // .attr("fill", "red") // Triangle color
             .on("mouseover", (event, d) => {
                 const stories = climateStories[d.district]
+
+                // TODO Ensure when this ends up empty, it is for intended reasons (e.g no stories)
+                let storiesLength = stories == "" ? 0 : stories.length
                 d3
                     .select("#tooltip")
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
                     .style("top", event.pageY + 0 + "px").html(`
-                    <div class="tooltip-row">
-                        <span class="tooltip-title">${d.district
-                        }</span>
-                        <span class="tooltip-temp">${getClimateVariable(
-                            d.district,
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} 
-                        ${unitMap[datasetNameMap[datasetName]]}
-                        </span>
-                    </div>
-                    <div class="tooltip-row">
-                        <span class="tooltip-story-count">${stories.length} Stories</span>
-                        <span class="tooltip-period">&#x2022;</span> 
-                        <span class="tooltip-entity-count">${0} Entities</span>
-                    </div>
-            `);
+                        <div class="tooltip-row">
+                            <span class="tooltip-title">${d.district
+                            }</span>
+                            <span class="tooltip-temp">${getClimateVariable(
+                                d.district,
+                                datasetNameMap[datasetName],
+                                datasetType,
+                                datasetTimeline,
+                                datasetEmission
+                            )} 
+                            ${unitMap[datasetNameMap[datasetName]]}
+                            </span>
+                        </div>
+                        <div class="tooltip-row">
+                            <span class="tooltip-story-count">${storiesLength} Stories</span>
+                            <span class="tooltip-period">&#x2022;</span> 
+                            <span class="tooltip-entity-count">${0} Entities</span>
+                        </div>
+                    `);
             })
             .on("mouseout", (event, d) => {
                 d3.select("#tooltip").style("display", "none");
