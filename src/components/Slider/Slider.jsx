@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useRef } from "react";
 import DatasetContext from "../../context/DatasetContext";
+import info from "../../assets/info.svg";
 
 function Slider() {
     // max value for the input range
@@ -36,7 +37,7 @@ function Slider() {
 
     return (
         <div className="slider-container">
-            <div className="slider-input-container">
+            {/* <div className="slider-input-container">
                 <div className="slider-bar" ref={sliderBar}></div>
                 <input
                     onChange={handleChange}
@@ -52,6 +53,35 @@ function Slider() {
                 <span className="slider-section">Recent Past</span>
                 <span className="slider-section">Immediate Future</span>
                 <span className="slider-section">Near Future</span>
+            </div> */}
+            <div className="dataset-selector-btn" style={{width:"140px",padding:"0",justifyContent:"start"}}>
+                <div className="dataset-selector-text selector-text">
+                    <p className="weather-type">TEMPERATURE</p>
+                    <p className="weather-variable">Time Period</p>
+                </div>
+                <img src={info} />
+            </div>
+            <div className="slider-sections">
+                <button className="btn intensity-btn active">
+                    <span>Recent past</span>
+                    <p>1995-2014</p>
+                </button>
+                <button className="btn intensity-btn">
+                    <span>Recent past</span>
+                    <p>1995-2014</p>
+                </button>
+                <button className="btn intensity-btn">
+                    <span>Recent past</span>
+                    <p>1995-2014</p>
+                </button>
+                <button className="btn intensity-btn">
+                    <span>mid century future</span>
+                    <p>1995-2014</p>
+                </button>
+                <button className="btn intensity-btn">
+                    <span>Recent past</span>
+                    <p>1995-2014</p>
+                </button>
             </div>
         </div>
     );

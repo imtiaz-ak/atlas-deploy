@@ -3,6 +3,7 @@ import arrow from "../../assets/arrow.svg";
 import DatasetPicker from "./DatasetPicker";
 import { AnimatePresence } from "framer-motion";
 import DatasetContext from "../../context/DatasetContext";
+import info from "../../assets/info.svg";
 
 
 function DatasetSelector() {
@@ -25,11 +26,12 @@ function DatasetSelector() {
                 </button>
 
                 <div className="dataset-selector-text selector-text">
-                    <p className="weather-type">TEMPERATURE</p>
+                    <p className="weather-type"><span>DATASET</span>TEMPERATURE</p>
                     <p className="weather-variable">
                         {datasetName}
                     </p>
                 </div>
+                <img src={info} />
             </div>
         </div>
     );

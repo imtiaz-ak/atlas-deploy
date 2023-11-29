@@ -4,10 +4,12 @@ import IntensitySelector from "./IntensitySelector";
 
 function Selectors() {
     return (
+        <>
         <div className="selectors-container">
             <DatasetSelector />
-            <IntensitySelector />
         </div>
+        <IntensitySelector />
+        </>
     );
 }
 export default Selectors;

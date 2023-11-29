@@ -318,14 +318,17 @@ export default function Map() {
                     <div class="tooltip-row">
                         <span class="tooltip-title">${d.properties["NAME_3"]
                         }</span>
-                        <span class="tooltip-temp">${getClimateVariable(
-                            d.properties["NAME_3"],
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} ${unitMap[datasetNameMap[datasetName]]}
-                        </span>
+                        <div class="tooltip-temp-div">
+                            <h4>Cooling Degree Days</h4>
+                            <span class="tooltip-temp">${getClimateVariable(
+                                d.properties["NAME_3"],
+                                datasetNameMap[datasetName],
+                                datasetType,
+                                datasetTimeline,
+                                datasetEmission
+                            )} ${unitMap[datasetNameMap[datasetName]]}
+                            </span>
+                        </div>
                     </div>
                     <div class="tooltip-row">
                         <span class="tooltip-story-count">${stories.length} Stories</span>
@@ -381,15 +384,18 @@ export default function Map() {
                     <div class="tooltip-row">
                         <span class="tooltip-title">${d.district
                         }</span>
-                        <span class="tooltip-temp">${getClimateVariable(
-                            d.district,
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} 
-                        ${unitMap[datasetNameMap[datasetName]]}
-                        </span>
+                        <div class="tooltip-temp-div">
+                            <h4>Cooling Degree Days</h4>
+                            <span class="tooltip-temp">${getClimateVariable(
+                                d.district,
+                                datasetNameMap[datasetName],
+                                datasetType,
+                                datasetTimeline,
+                                datasetEmission
+                            )} 
+                            ${unitMap[datasetNameMap[datasetName]]}
+                            </span>
+                        </div>
                     </div>
                     <div class="tooltip-row">
                         <span class="tooltip-story-count">${stories.length} Stories</span>
@@ -426,7 +432,7 @@ export default function Map() {
             <div className="map-container">
                 <div id="tooltip"></div>
                 <div id="legend">
-                    <svg id="legend-svg" width="400" height="100" style={{ "float": "right" }}></svg>
+                    <svg id="legend-svg" width="240" height="100" style={{ "float": "right" }}></svg>
                 </div>
                 <svg
                     id="map-vis"
