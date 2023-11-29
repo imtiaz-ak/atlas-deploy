@@ -336,9 +336,9 @@ export default function Map() {
                         </div>
                     </div>
                     <div class="tooltip-row">
-                        <span class="tooltip-story-count">${stories.length} Stories</span>
+                        <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
                         <span class="tooltip-period">&#x2022;</span>
-                        <span class="tooltip-entity-count">${entities.length} Entities</span>
+                        <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
                     </div>
             `);
             })
@@ -357,81 +357,7 @@ export default function Map() {
                 setSidebarActive(true);
             });
 
-        svg.selectAll("circle")
-            .data(circlesData)
-            .enter()
-            .append("circle")
-            .attr("cx", (d) => projection([d.lon, d.lat])[0])
-            .attr("cy", (d) => projection([d.lon, d.lat])[1])
-            .attr("r", (d) => 0)
-            .attr("stroke", "black") // Border color
-            .attr("fill", "white")
-            .attr("stroke-width", 2) // Border width
-            .attr("opacity", 0.7) // Customize the circle's opacity
-            // .append("polygon")
-            // .attr("points", (d) => {
-            //     return `${d.lon},${d.lat} ${d.lon},${d.lat + 0.01} ${d.lon + 0.01},${d.lat}`
-            // })
-            // .attr("fill", "yellow")
-            // .append("polygon")
-            // .attr("points", (d) => {
-            //     const x = d.lon; // x-coordinate of the center
-            //     const y = d.lat; // y-coordinate of the center
-            //     const triangleSize = 2; // Adjust the size of the triangle
-            //     return `${x - triangleSize},${y - triangleSize} ${x + triangleSize},${y} ${x - triangleSize},${y + triangleSize}`;
-            // })
-            // .attr("fill", "red") // Triangle color
-            .on("mouseover", (event, d) => {
-                const stories = climateStories[d.district]
-
-                // TODO Ensure when this ends up empty, it is for intended reasons (e.g no stories)
-                let storiesLength = stories == "" ? 0 : stories.length
-                d3
-                    .select("#tooltip")
-                    .style("display", "flex")
-                    .style("left", event.pageX + 0 + "px")
-                    .style("top", event.pageY + 0 + "px").html(`
-                    <div class="tooltip-row">
-                        <span class="tooltip-title">${d.district
-                        }</span>
-                        <ul class="tags">
-                            <li>Coastal</li>
-                            <li>Urban</li>
-                        </ul>
-                        <div class="tooltip-temp-div">
-                            <h4>Cooling Degree Days</h4>
-                            <span class="tooltip-temp">${getClimateVariable(
-                            d.district,
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} 
-                            ${unitMap[datasetNameMap[datasetName]]}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tooltip-row">
-                        <span class="tooltip-story-count">${stories.length} Stories</span>
-                        <span class="tooltip-period">&#x2022;</span> 
-                        <span class="tooltip-entity-count">${0} Entities</span>
-                    </div>
-            `);
-            })
-            .on("mouseout", (event, d) => {
-                d3.select("#tooltip").style("display", "none");
-            })
-            .on("click", (event, d) => {
-                // Render out the district name to the district-info div
-                generatedDistricts.districts.forEach((generatedD) => {
-                    if (generatedD.name == d.district) {
-                        handleDistrictIdChange(generatedD.id);
-                    }
-                });
-                setSidebarActive(true);
-            });
-
-
+        // 
         d3.select("#map-vis").call(
             d3.zoom().on("zoom", (e) => {
                 // NOTE: We select the parent #map-vis element as a reference point for the mouse
