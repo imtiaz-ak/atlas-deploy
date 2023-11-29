@@ -363,7 +363,7 @@ export default function Map() {
             .append("circle")
             .attr("cx", (d) => projection([d.lon, d.lat])[0])
             .attr("cy", (d) => projection([d.lon, d.lat])[1])
-            .attr("r", (d) => d.radius)
+            .attr("r", (d) => 0)
             .attr("stroke", "black") // Border color
             .attr("fill", "white")
             .attr("stroke-width", 2) // Border width
