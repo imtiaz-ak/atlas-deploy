@@ -318,6 +318,10 @@ export default function Map() {
                     <div class="tooltip-row">
                         <span class="tooltip-title">${d.properties["NAME_3"]
                         }</span>
+                        <ul class="tags">
+                            <li>Coastal</li>
+                            <li>Urban</li>
+                        </ul>
                         <div class="tooltip-temp-div">
                             <h4>Cooling Degree Days</h4>
                             <span class="tooltip-temp">${getClimateVariable(
@@ -384,6 +388,10 @@ export default function Map() {
                     <div class="tooltip-row">
                         <span class="tooltip-title">${d.district
                         }</span>
+                        <ul class="tags">
+                            <li>Coastal</li>
+                            <li>Urban</li>
+                        </ul>
                         <div class="tooltip-temp-div">
                             <h4>Cooling Degree Days</h4>
                             <span class="tooltip-temp">${getClimateVariable(

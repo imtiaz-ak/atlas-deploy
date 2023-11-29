@@ -24,16 +24,51 @@
 #tooltip {
     position: absolute;
     display: none;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 3px 3px 3px 0px rgb(92 92 92 / 0.5);
-    border: 1px solid #ddd;
     font-size: 1.25rem;
     font-weight: 500;
-    padding: 8px;
+    padding: 8px 10px;
     min-width: 150px;
     color: #000;
     flex-direction: column;
     gap: 0.5rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.925);
+}
+
+#tooltip .tags {
+    display: flex;
+    margin: 14px 0;
+    list-style: none;
+}
+
+#tooltip .tags li {
+    color: rgba(0, 0, 0, 0.48);
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 10px */
+    border-radius: 64px;
+    border: 1px solid rgba(252, 113, 74, 0.20);
+    background: #FFF;
+    padding: 4px 6px 5px 6px;
+    margin-right: 7px;
+}
+
+.tooltip-temp-div {
+    border-top: 1px solid rgba(0, 0, 0, 0.20);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+    padding: 12px 0;
+}
+
+.tooltip-temp-div h4 {
+    color: #FD7C37;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+     /* 10px */
+    text-transform: uppercase;
+    line-height: 100%;
 }
 
 .tooltip-row {
