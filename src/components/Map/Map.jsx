@@ -316,11 +316,6 @@ export default function Map() {
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
                     .style("top", event.pageY + 0 + "px").html(`
-<<<<<<< HEAD
-                        <div class="tooltip-row">
-                            <span class="tooltip-title">${d.properties["NAME_3"]
-                        }</span>
-=======
                     <div class="tooltip-row">
                         <span class="tooltip-title">${d.properties["NAME_3"]
                         }</span>
@@ -330,7 +325,6 @@ export default function Map() {
                         </ul>
                         <div class="tooltip-temp-div">
                             <h4>Cooling Degree Days</h4>
->>>>>>> latest
                             <span class="tooltip-temp">${getClimateVariable(
                             d.properties["NAME_3"],
                             datasetNameMap[datasetName],
