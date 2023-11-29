@@ -11,7 +11,7 @@ html {
     position: relative;
     z-index: 8;
     padding: 1.5rem;
-    outline: 1px solid black;
+    box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.15);
     height: var(--header-height);
     background-color: #ffffff;
 }
@@ -44,8 +44,9 @@ html {
 }
 
 .header__left__name {
-    font-size: 1.1rem;
+    font-size: 14px;
     font-weight: 500;
+    width: 90px;
 }
 
 .header__center {
@@ -309,7 +310,7 @@ a {
 .dataset-picker {
     position: absolute;
     left: 0;
-    bottom: -320px;
+    bottom: -345px;
     background-color: #fff;
     color: #202223;
     border-radius: 8px;
@@ -345,7 +346,14 @@ a {
     font-size: 14px;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.dataset-column__list-item.selected-dataset{
+    border-radius: 4px;
+    border: 1px solid #FC7088;
+    background: rgba(252, 112, 136, 0.08);
 }
 
 .dataset-selector-btn {
@@ -353,15 +361,14 @@ a {
     justify-content: center;
     align-items: center;
     padding: 1rem 1rem 1rem 10px;
-    gap: 1rem;
+    gap: .6rem;
     background-color: #fff;
     border-radius: 8px;
     height: 58px;
 }
 
 .selector-arrow {
-    border-right: 1px solid #e4e5e7;
-    padding-right: 8px;
+    
 }
 
 .selector-text {
@@ -370,12 +377,19 @@ a {
     justify-content: center;
     align-items: start;
     text-align: left;
+    margin-bottom: 3px;
 }
 
 .selector-text p:nth-child(1) {
-    font-size: 0.5rem;
+    font-size: 10px;
     font-weight: 600;
     color: #fc714a;
+    line-height: 15px;
+}
+
+.selector-text p:nth-child(1) span{
+    color: #B3B3B3;
+    margin-right: 6px;
 }
 
 .selector-text p:nth-child(2) {
@@ -384,33 +398,37 @@ a {
 }
 
 .intensity-selector {
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     gap: 1rem;
     background-color: #fff;
     border-radius: 8px;
-    height: 58px;
+    width: 288px;
+    position: absolute;
+    bottom: 126px;
 }
 
 .intensity-buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .intensity-btn {
-    width: 80px;
-    height: 36px;
-    padding: 0.5rem 2rem 0.5rem 1rem;
+    width: 50%;
+    padding: 8px 16px;
     color: #202223;
     background-color: #f4f4f4;
     font-size: 1rem;
     transition: all 0.2s ease-in;
+    text-align: left;
 }
 
-.intensity-btn:nth-child(1) {
+.intensity-btn:hover{
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* .intensity-btn:nth-child(1) {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -418,7 +436,7 @@ a {
 .intensity-btn:nth-child(2) {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-}
+} */
 
 .intensity-btn.active {
     background-color: #fc714a;
@@ -430,14 +448,14 @@ a {
     bottom: 1.3rem;
     left: 50%;
     translate: -50% 0;
-    width: 80%;
-    padding: 1.5rem;
+    width: 97.4%;
+    padding: 15px;
     border-radius: 8px;
     height: 92px;
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: #ffffff;
     display: flex;
-    flex-direction: column;
     gap: 2rem;
+    align-items: center;
 }
 
 .slider-input-container {
@@ -502,6 +520,7 @@ a {
     align-items: center;
     font-size: 1rem;
     font-weight: 600;
+    width: calc(100% - 140px);
 }
 
 .slider-section {
@@ -511,4 +530,22 @@ a {
 
 .slider-section:not(:last-child) {
     border-right: 2px solid rgba(32, 34, 35, 0.8);
+}
+#legend {
+    position: absolute;
+    top: 24px!important;
+    right: 24px!important;
+    background: #ffffff!important;
+    border-radius: 8px;
+}
+
+.slider-sections .intensity-btn{
+    padding-bottom: 16px;
+    /* background: #F4F4F4; */
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.slider-sections .intensity-btn span{
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
 }

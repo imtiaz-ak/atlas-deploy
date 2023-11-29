@@ -316,26 +316,33 @@ export default function Map() {
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
                     .style("top", event.pageY + 0 + "px").html(`
+<<<<<<< HEAD
                         <div class="tooltip-row">
                             <span class="tooltip-title">${d.properties["NAME_3"]
-                            }</span>
+                        }</span>
+=======
+                    <div class="tooltip-row">
+                        <span class="tooltip-title">${d.properties["NAME_3"]
+                        }</span>
+                        <div class="tooltip-temp-div">
+                            <h4>Cooling Degree Days</h4>
+>>>>>>> latest
                             <span class="tooltip-temp">${getClimateVariable(
-                                d.properties["NAME_3"],
-                                datasetNameMap[datasetName],
-                                datasetType,
-                                datasetTimeline,
-                                datasetEmission
-                            )} ${unitMap[datasetNameMap[datasetName]]}
+                            d.properties["NAME_3"],
+                            datasetNameMap[datasetName],
+                            datasetType,
+                            datasetTimeline,
+                            datasetEmission
+                        )} ${unitMap[datasetNameMap[datasetName]]}
                             </span>
                         </div>
-                        <div class="tooltip-row">
-                            <span class="tooltip-story-count">${storiesLength} Stories</span>
-                            <span class="tooltip-period">&#x2022;</span> 
-                            <span class="tooltip-entity-count">${entitiesLength} Entities</span>
-                        </div>
-                    `);
-            // On hover, increase the border width
-            d3.select(event.target).attr("stroke-width", "3")
+                    </div>
+                    <div class="tooltip-row">
+                        <span class="tooltip-story-count">${stories.length} Stories</span>
+                        <span class="tooltip-period">&#x2022;</span>
+                        <span class="tooltip-entity-count">${entities.length} Entities</span>
+                    </div>
+            `);
             })
             .on("mouseout", (event, d) => {
                 // On mouseout, reset the border width
@@ -386,25 +393,28 @@ export default function Map() {
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
                     .style("top", event.pageY + 0 + "px").html(`
-                        <div class="tooltip-row">
-                            <span class="tooltip-title">${d.district
-                            }</span>
+                    <div class="tooltip-row">
+                        <span class="tooltip-title">${d.district
+                        }</span>
+                        <div class="tooltip-temp-div">
+                            <h4>Cooling Degree Days</h4>
                             <span class="tooltip-temp">${getClimateVariable(
-                                d.district,
-                                datasetNameMap[datasetName],
-                                datasetType,
-                                datasetTimeline,
-                                datasetEmission
-                            )} 
+                            d.district,
+                            datasetNameMap[datasetName],
+                            datasetType,
+                            datasetTimeline,
+                            datasetEmission
+                        )} 
                             ${unitMap[datasetNameMap[datasetName]]}
                             </span>
                         </div>
-                        <div class="tooltip-row">
-                            <span class="tooltip-story-count">${storiesLength} Stories</span>
-                            <span class="tooltip-period">&#x2022;</span> 
-                            <span class="tooltip-entity-count">${0} Entities</span>
-                        </div>
-                    `);
+                    </div>
+                    <div class="tooltip-row">
+                        <span class="tooltip-story-count">${stories.length} Stories</span>
+                        <span class="tooltip-period">&#x2022;</span> 
+                        <span class="tooltip-entity-count">${0} Entities</span>
+                    </div>
+            `);
             })
             .on("mouseout", (event, d) => {
                 d3.select("#tooltip").style("display", "none");
@@ -434,7 +444,7 @@ export default function Map() {
             <div className="map-container">
                 <div id="tooltip"></div>
                 <div id="legend">
-                    <svg id="legend-svg" width="400" height="100" style={{ "float": "right" }}></svg>
+                    <svg id="legend-svg" width="240" height="100" style={{ "float": "right" }}></svg>
                 </div>
                 <svg
                     id="map-vis"

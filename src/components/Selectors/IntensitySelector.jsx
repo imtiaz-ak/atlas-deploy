@@ -18,7 +18,7 @@ function IntensitySelector() {
 
     return (
         <div className="intensity-selector selector">
-            <div className="intensity-text selector-text">
+            <div className="intensity-text selector-text" style={{marginBottom:"10px"}}>
                 <p className="emission-text">GHG EMISSION</p>
                 <p className="climate-change-text">Climate Change</p>
             </div>
