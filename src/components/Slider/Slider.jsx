@@ -4,6 +4,9 @@ import DatasetContext from "../../context/DatasetContext";
 import info from "../../assets/info.svg";
 
 function Slider() {
+
+    const [timelineRange, setTimelineRange] = useState('1995-2014')
+
     // max value for the input range
     const MAX = 1800;
     const { datasetConfig, changeDatasetTimeline } = useContext(DatasetContext)
@@ -54,7 +57,8 @@ function Slider() {
                 <span className="slider-section">Immediate Future</span>
                 <span className="slider-section">Near Future</span>
             </div> */}
-            <div className="dataset-selector-btn" style={{width:"140px",padding:"0",justifyContent:"start"}}>
+
+            <div className="dataset-selector-btn" style={{ width: "140px", padding: "0", justifyContent: "start" }}>
                 <div className="dataset-selector-text selector-text">
                     <p className="weather-type">TEMPERATURE</p>
                     <p className="weather-variable">Time Period</p>
@@ -62,25 +66,25 @@ function Slider() {
                 <img src={info} />
             </div>
             <div className="slider-sections">
-                <button className="btn intensity-btn active">
+                <button className={`btn intensity-btn ${'1995-2014' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('1995-2014'); setTimelineRange('1995-2014') }}>
                     <span>Recent past</span>
                     <p>1995-2014</p>
                 </button>
-                <button className="btn intensity-btn">
+                <button className={`btn intensity-btn ${'2020-2039' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2020-2039'); setTimelineRange('2020-2039') }}>
                     <span>Recent past</span>
-                    <p>1995-2014</p>
+                    <p>2020-2039</p>
                 </button>
-                <button className="btn intensity-btn">
+                <button className={`btn intensity-btn ${'2040-2059' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2040-2059'); setTimelineRange('2040-2059') }}>
                     <span>Recent past</span>
-                    <p>1995-2014</p>
+                    <p>2040-2059</p>
                 </button>
-                <button className="btn intensity-btn">
+                <button className={`btn intensity-btn ${'2060-2079' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2060-2079'); setTimelineRange('2060-2079') }}>
                     <span>mid century future</span>
-                    <p>1995-2014</p>
+                    <p>2060-2079</p>
                 </button>
-                <button className="btn intensity-btn">
+                <button className={`btn intensity-btn ${'2080-2099' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2080-2099'); setTimelineRange('2080-2099') }}>
                     <span>Recent past</span>
-                    <p>1995-2014</p>
+                    <p>2080-2099</p>
                 </button>
             </div>
         </div>

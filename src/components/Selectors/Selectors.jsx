@@ -5,10 +5,10 @@ import IntensitySelector from "./IntensitySelector";
 function Selectors() {
     return (
         <>
-        <div className="selectors-container">
-            <DatasetSelector />
-        </div>
-        <IntensitySelector />
+            <div className="selectors-container">
+                <DatasetSelector />
+            </div>
+            <IntensitySelector />
         </>
     );
 }

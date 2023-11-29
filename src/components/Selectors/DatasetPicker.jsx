@@ -5,11 +5,13 @@ import DatasetContext from "../../context/DatasetContext";
 import SingleDataSet from "./SingleDataSet";
 
 function DatasetPicker() {
-    const { changeDatasetName } = useContext(DatasetContext)
+    const { changeDatasetName, datasetConfig } = useContext(DatasetContext)
+    const [selectedDatasetName, setSelectedDatasetName] = useState(datasetConfig['name'])
 
     const changeDataset = (name) => {
         console.log(`changed to ${name}`)
         changeDatasetName(name)
+        setSelectedDatasetName(name)
     }
 
     return (
@@ -34,7 +36,7 @@ function DatasetPicker() {
                                 <ul className="dataset-column__list">
                                     {dataset[key].options.map((option) => {
                                         return (
-                                            <SingleDataSet option={option}  changeDataset={changeDataset} />
+                                            <SingleDataSet option={option} changeDataset={changeDataset} selectedDatasetName={selectedDatasetName} />
                                         );
                                     })}
                                 </ul>
