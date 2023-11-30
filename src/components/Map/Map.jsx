@@ -340,7 +340,9 @@ export default function Map() {
                         <span class="tooltip-period">&#x2022;</span>
                         <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
                     </div>
-            `);
+                `);
+                // On hover, increase the border width
+                d3.select(event.target).attr("stroke-width", "3")
             })
             .on("mouseout", (event, d) => {
                 // On mouseout, reset the border width
