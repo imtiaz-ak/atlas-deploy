@@ -53,12 +53,6 @@ export default function Sidebar() {
         <>
             <section className={className}>
                 <div className="sidebar__container">
-                    <button
-                        tabIndex="-1"
-                        className="close-sidebar"
-                        onClick={toggleSidebar}>
-                        +
-                    </button>
                     <div className="sidebar__container__heading">
                         <h4 className="p-font-size-75 font-color-2">REGION</h4>
                         <h2 className="p-font-size-400">{district?.name}</h2>

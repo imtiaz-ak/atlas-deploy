@@ -183,6 +183,13 @@ a {
 .main-wrapper {
     position: relative;
     height: calc(100% - var(--header-height));
+    display: flex;
+}
+
+.map-container-outer {
+    height: 100%;
+    width: calc(100% - 400px);
+    position: relative;
 }
 
 .districts-container {
@@ -301,6 +308,7 @@ a {
     gap: 2rem;
     position: absolute;
     top: 1.3rem;
+    left: 13px;
 }
 
 .dataset-selector {
@@ -407,6 +415,7 @@ a {
     width: 288px;
     position: absolute;
     bottom: 126px;
+    left: 13px;
 }
 
 .intensity-buttons {
@@ -534,7 +543,7 @@ a {
 #legend {
     position: absolute;
     top: 24px!important;
-    right: 24px!important;
+    right: 13px!important;
     background: #ffffff!important;
     border-radius: 8px;
 }

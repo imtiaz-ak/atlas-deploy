@@ -16,6 +16,8 @@ import { DistrictProvider } from "./context/DistrictContext";
 import { SidebarProvider } from "./context/SidebarContext";
 import { DatasetProvider } from "./context/DatasetContext";
 import InvisibleOverlay from "./components/InvisibleOverlay";
+import Selectors from "./components/Selectors/Selectors";
+import Slider from "./components/Slider";
 
 function App() {
     return (
@@ -25,8 +27,12 @@ function App() {
                 <SidebarProvider>
                     <DistrictProvider>
                         <div className="main-wrapper">
-                            <InvisibleOverlay />
-                            <Map />
+                            <div className="map-container-outer">
+                                <Selectors/>
+                                <Slider />
+                                <Map />
+                            </div>
+                            <Sidebar/>
                         </div>
                     </DistrictProvider>
                 </SidebarProvider>

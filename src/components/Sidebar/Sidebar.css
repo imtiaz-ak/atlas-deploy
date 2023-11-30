@@ -19,19 +19,13 @@
 }
 
 .sidebar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: translate 0.3s ease-in-out;
-    translate: 100% 0;
     z-index: 6;
     background-color: rgba(255, 255, 255, 0.88);
-    width: 80%;
-    max-width: 500px;
-    overflow-y: auto;
+    width: 400px;
     height: 100%;
     scrollbar-width: thin;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -53,7 +47,6 @@
 
 .sidebar__container {
     padding: 1.25rem;
-    position: absolute;
     min-width: 100%;
 }
 
