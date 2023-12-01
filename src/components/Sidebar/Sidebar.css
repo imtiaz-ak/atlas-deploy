@@ -85,6 +85,15 @@
     padding-bottom: 1rem;
 }
 
+.sidebar_container_para {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 14.4px */
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
 .sidebar__container__buttonGroup {
     /*   border: 1px solid red; */
     margin: 2.5rem 0rem 0.625rem 0rem;
@@ -150,4 +159,6 @@
 
 .stories-container {
     overflow: auto;
+    display: flex;
+    margin-top: 20px;
 }
