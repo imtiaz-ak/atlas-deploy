@@ -147,9 +147,9 @@ export default function Map() {
 
             // Precipitation
             'prpercnt': d3.interpolateBlues,
-            'r50mm': d3.interpolateGnBu,
+            'r50mm': d3.interpolateBlues,
             'rx1day': d3.interpolateBlues,
-            'rx5day': d3.interpolateGnBu,
+            'rx5day': d3.interpolateBlues,
 
             // Temperature
             'tasmax': d3.interpolateOrRd,
