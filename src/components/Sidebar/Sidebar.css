@@ -50,6 +50,25 @@
     min-width: 100%;
 }
 
+.sidebar__container__heading .tags{
+    display: flex;
+    margin: 14px 0;
+    list-style: none;
+}
+.sidebar__container__heading .tags li{
+    color: rgba(0, 0, 0, 0.48);
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 10px */
+    border-radius: 64px;
+    border: 1px solid rgba(252, 113, 74, 0.20);
+    background: #FFF;
+    padding: 4px 6px 5px 6px;
+    margin-right: 7px;
+}
+
 .sidebar__container hr {
     margin: 1rem 0rem;
 }
@@ -71,6 +90,8 @@
     margin: 2.5rem 0rem 0.625rem 0rem;
 }
 
+
+
 .sidebar__container__buttonGroup button {
     transition: opacity 0.2s;
     width: 50%;
@@ -80,13 +101,9 @@
     opacity: 100%;
 }
 
-.sidebar__container__active_btn {
-    background: var(--btn-color-1);
-    color: white
-}
 
 .sidebar__container__inactive_btn {
-    background: var(--btn-color-2);
+    background: #F4F4F4;
     color: black
 }
 
@@ -98,6 +115,32 @@
 .sidebar__container__buttonGroup button:nth-child(2) {
     border-radius: 0px 4px 4px 0px;
     border-left: none;
+}
+.sidebar__container__active_btn {
+    background: var(--btn-color-1);
+    color: white
+}
+
+.stories-heading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.stories-heading h2{}
+.stories-heading h2 img{
+    margin-left: 9px;
+}
+.stories-heading p{
+    color: #FC714A;
+    text-align: center;
+    font-family: Urbanist;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    border-radius: 64px;
+    background: rgba(252, 113, 74, 0.12);
+    padding: 6px 8px;
 }
 
 .sidebar__arrow {
