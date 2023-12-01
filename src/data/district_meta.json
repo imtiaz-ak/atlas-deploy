@@ -151,7 +151,7 @@
     "name": "Faridpur",
     "description": "Located in the central part of the country, Faridpur is characterized by its fertile plains along the Padma River. The district relies heavily on agriculture, with crops like rice and jute dominating. Flooding during the monsoon season and riverbank erosion are recurring environmental concerns.",
     "tags": [
-      ""
+      "Riverine"
     ]
   },
   "Gazipur": {
@@ -368,9 +368,9 @@
       "Flood-Managed"
     ]
   },
-  "Nawabganj": {
-    "name": "Nawabganj",
-    "description": "Nawabganj, in the northwestern region, is known for its agriculture, including rice and sugarcane cultivation. Changing weather patterns, such as unseasonal rainfall, can affect crop production and farmer incomes.",
+  "Chapainawabganj": {
+    "name": "Chapainawabganj",
+    "description": "Chapainawabganj, in the northwestern region, is known for its agriculture, including rice and sugarcane cultivation. Changing weather patterns, such as unseasonal rainfall, can affect crop production and farmer incomes.",
     "tags": [
       "Agro-based",
       "Riverine"

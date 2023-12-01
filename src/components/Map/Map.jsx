@@ -16,6 +16,7 @@ import DistrictContext from "../../context/DistrictContext";
 import SidebarContext from "../../context/SidebarContext";
 import DatasetContext from "../../context/DatasetContext";
 import ngoList from '../../data/ngo_list.json'
+import districtMetaData from '../../data/district_meta.json'
 
 const ngoDataByDistrict = {};
 
@@ -337,27 +338,29 @@ export default function Map() {
                         <span class="tooltip-title">${d.properties["NAME_3"]
                         }</span>
                         <ul class="tags">
-                            <li>Coastal</li>
-                            <li>Urban</li>
-                        </ul>
-                        <div class="tooltip-temp-div">
-                            <h4>Cooling Degree Days</h4>
-                            <span class="tooltip-temp">${getClimateVariable(
+                            ${districtMetaData[d.properties["NAME_3"]]["tags"].map((i) => {
+                            return (`<li>${i}</li>`)
+                        }).join('')
+                        }
+                        </ul >
+        <div class="tooltip-temp-div">
+            <h4>${datasetConfig['name']}</h4>
+            <span class="tooltip-temp">${getClimateVariable(
                             d.properties["NAME_3"],
                             datasetNameMap[datasetName],
                             datasetType,
                             datasetTimeline,
                             datasetEmission
                         )} ${unitMap[datasetNameMap[datasetName]]}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tooltip-row">
-                        <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
-                        <span class="tooltip-period">&#x2022;</span>
-                        <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
-                    </div>
-                `);
+            </span>
+        </div>
+                    </div >
+        <div class="tooltip-row">
+            <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
+            <span class="tooltip-period">&#x2022;</span>
+            <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
+        </div>
+    `);
                 // On hover, increase the border width
                 d3.select(event.target).attr("stroke-width", "4")
                 //d3.select(event.target).attr("stroke", "#000")
