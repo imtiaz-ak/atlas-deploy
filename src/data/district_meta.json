@@ -1,0 +1,543 @@
+{
+  "Barguna": {
+    "name": "Barguna",
+    "description": "Barguna, in the southern coastal region, relies on fishing and agriculture, including rice and betel leaf cultivation. Rising sea levels and cyclones threaten both sectors and the district's population.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Flood-Resistant"
+    ]
+  },
+  "Barisal": {
+    "name": "Barisal",
+    "description": "Barisal, situated in the southern part of Bangladesh, is a deltaic region with a focus on agriculture and fishing. Its population primarily resides in rural areas. Sea-level rise, salinity intrusion, and changing monsoon patterns threaten the district's agricultural productivity and freshwater resources.",
+    "tags": [
+      "Riverine-Agriculture",
+      "Adaptive",
+      "Eco-friendly"
+    ]
+  },
+  "Bhola": {
+    "name": "Bhola",
+    "description": "Bhola, located in the southern coastal region, is the largest island district in Bangladesh. The district's economy depends on agriculture, particularly rice and fish farming. Rising sea levels and cyclones pose significant threats to the island's population and infrastructure.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Jhalokati": {
+    "name": "Jhalokati",
+    "description": "Jhalokati, in the southern coastal region, relies on fishing and agriculture, including rice and shrimp farming. Rising sea levels and cyclones threaten both sectors and the district's population.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Flood-Resilient",
+      "Alternative-Crops"
+    ]
+  },
+  "Patuakhali": {
+    "name": "Patuakhali",
+    "description": "Patuakhali, in the southern coastal region, is vulnerable to sea-level rise, cyclones, and salinity intrusion. The district's economy is based on agriculture and fishing. Climate change-related events such as cyclones can lead to significant damage to infrastructure and disrupt the lives of coastal communities.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Pirojpur": {
+    "name": "Pirojpur",
+    "description": "Pirojpur, in the southern coastal region, relies on fishing and agriculture, including rice and shrimp farming. Rising sea levels and cyclones threaten both sectors and the district's population.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Flood-Resilient"
+    ]
+  },
+  "Bandarban": {
+    "name": "Bandarban",
+    "description": "Nestled in the southeastern Chittagong Hill Tracts, Bandarban is renowned for its scenic hills, lush forests, and diverse indigenous communities. The district's economy is largely based on agriculture, including hillside cultivation, and it faces challenges related to deforestation, landslides, and the preservation of indigenous cultures.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Biodiverse",
+      ""
+    ]
+  },
+  "Brahmanbaria": {
+    "name": "Brahmanbaria",
+    "description": "Located in eastern Bangladesh, Brahmanbaria is characterized by its flat terrain and fertile agricultural land. The district's economy is diverse, with agriculture, trade, and industries playing significant roles. Flooding during the monsoon is a recurring environmental concern, impacting both agriculture and infrastructure in the region.",
+    "tags": [
+      "Urban-Agriculture",
+      "Flood-Resistant"
+    ]
+  },
+  "Chandpur": {
+    "name": "Chandpur",
+    "description": "Situated in southeastern Bangladesh along the Meghna River, Chandpur is an agriculturally rich district facing challenges of riverbank erosion, salinity intrusion, and vulnerability to cyclones and flooding from the Bay of Bengal. The economy relies heavily on crops like rice, jute, and vegetables.",
+    "tags": [
+      "Riverine-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Chittagong": {
+    "name": "Chittagong",
+    "description": "Chittagong, in the southeastern part of Bangladesh, is the country's second-largest city and major seaport. The district boasts a diverse demographic mix and a growing industrial sector, contributing significantly to the national economy. Coastal erosion and rising sea levels threaten Chittagong's coastal areas, impacting livelihoods and infrastructure.",
+    "tags": [
+      "Coastal-Urban",
+      ""
+    ]
+  },
+  "Comilla": {
+    "name": "Comilla",
+    "description": "Comilla, in the southeastern region, is a historical and cultural center. The district's economy relies on agriculture, trade, and education. Increasing temperatures and water scarcity due to climate change can impact crop production and access to clean water.",
+    "tags": [
+      "Educational-Agriculture",
+      "Erosion-Prone"
+    ]
+  },
+  "Cox\u2019s Bazar": {
+    "name": "Cox\u2019s Bazar",
+    "description": "Located in the southeastern region, Cox's Bazar boasts the world's longest natural sea beach. It relies on tourism and fishing for its economy. Climate change poses a threat to this area through sea-level rise and extreme weather events, impacting tourism and livelihoods.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Feni": {
+    "name": "Feni",
+    "description": "Feni, in the southeastern region, is known for its salt production and border trade with India. Salinity intrusion due to rising sea levels can affect salt production and freshwater availability, impacting the local economy.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Khagrachari": {
+    "name": "Khagrachari",
+    "description": "Nestled in the Chittagong Hill Tracts of southeastern Bangladesh, Khagrachari is renowned for its picturesque landscapes, featuring hills, forests, and rivers. The district is home to diverse indigenous communities and is known for traditional agriculture, including hillside cultivation of crops such as ginger and turmeric. While the region boasts rich biodiversity, deforestation and land degradation pose environmental challenges.",
+    "tags": [
+      "Hilly-Agriculture"
+    ]
+  },
+  "Lakshmipur": {
+    "name": "Lakshmipur",
+    "description": "Lakshmipur, in the southeastern region, is known for its agriculture and aquaculture activities. The district's economy relies on rice, fish, and shrimp production. Salinity intrusion and water quality issues can affect these sectors.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Noakhali": {
+    "name": "Noakhali",
+    "description": "Situated in southeastern Bangladesh, Noakhali is known for its coastal landscape and agricultural activities, with rice and jute cultivation being prominent. The district faces environmental challenges such as cyclones and riverbank erosion, impacting the livelihoods of its residents.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Rangamati": {
+    "name": "Rangamati",
+    "description": "Rangamati, in the Chittagong Hill Tracts, is characterized by its hilly terrain and diverse indigenous population. Agriculture and tourism are essential to the district's economy. Changing rainfall patterns can affect crop yields and lead to landslides in hilly areas.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Eco-tourism"
+    ]
+  },
+  "Dhaka": {
+    "name": "Dhaka",
+    "description": "Dhaka is the capital and largest city of Bangladesh, located in the central region. It's the most populous district, with over 8 million residents. The economy is diverse, with a significant presence of manufacturing, trade, and services sectors. Dhaka is vulnerable to climate change, with recurring flooding due to its low-lying geography. Increasing temperatures and erratic rainfall patterns pose challenges to agriculture and water resources.",
+    "tags": [
+      "Urbanization",
+      "Garment Industry",
+      "Flood Resilience",
+      "Sustainable Transport"
+    ]
+  },
+  "Faridpur": {
+    "name": "Faridpur",
+    "description": "Located in the central part of the country, Faridpur is characterized by its fertile plains along the Padma River. The district relies heavily on agriculture, with crops like rice and jute dominating. Flooding during the monsoon season and riverbank erosion are recurring environmental concerns.",
+    "tags": [
+      ""
+    ]
+  },
+  "Gazipur": {
+    "name": "Gazipur",
+    "description": "Gazipur, situated near Dhaka, is an industrial and commercial hub with a growing urban population. The district's economy is driven by manufacturing and services. Urbanization-related issues and pollution are challenges it faces.",
+    "tags": [
+      "Industrial",
+      "Infrastructure",
+      "Eco-friendly",
+      "Renewable"
+    ]
+  },
+  "Gopalganj": {
+    "name": "Gopalganj",
+    "description": "Gopalganj, situated in the central region, is known for its agricultural activities, including rice and jute cultivation. The district faces challenges related to water scarcity and changing precipitation patterns, affecting crop yields.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resistant"
+    ]
+  },
+  "Kishoreganj": {
+    "name": "Kishoreganj",
+    "description": "Kishoreganj, located in the central-northern region, is known for its agricultural activities, particularly rice, jute, and fish farming. The district faces challenges related to changing precipitation patterns and water scarcity, impacting crop production.",
+    "tags": [
+      "Agro-centric",
+      "Riverine",
+      "Sustainable-Farming"
+    ]
+  },
+  "Madaripur": {
+    "name": "Madaripur",
+    "description": "Madaripur, in the central region, is primarily an agricultural district with a focus on rice and fish farming. Changing precipitation patterns and water quality issues can impact crop production and aquaculture.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Manikganj": {
+    "name": "Manikganj",
+    "description": "Manikganj, located near Dhaka, is known for its historical and cultural sites. The district's economy is linked to trade and agriculture. Flooding and water pollution are challenges that affect the environment and public health.",
+    "tags": [
+      "Agricultural",
+      "Riverine"
+    ]
+  },
+  "Munshiganj": {
+    "name": "Munshiganj",
+    "description": "Munshiganj, situated near Dhaka, is rich in cultural heritage and historical sites. The district's economy is linked to trade and agriculture. Flooding and water pollution can disrupt daily life and impact the environment in this region.",
+    "tags": [
+      "Riverfront",
+      "Flood-Resilient"
+    ]
+  },
+  "Narayanganj": {
+    "name": "Narayanganj",
+    "description": "Narayanganj, situated near Dhaka, is an industrial and commercial hub, often referred to as the \"Manchester of Bangladesh.\" The district's economy is driven by manufacturing and trade. It faces challenges related to urbanization, industrial pollution, and flooding due to its proximity to rivers and the sea.",
+    "tags": [
+      "Industrial",
+      "Riverfront"
+    ]
+  },
+  "Narsingdi": {
+    "name": "Narsingdi",
+    "description": "Narsingdi, located near Dhaka, is known for its textile and garment industry. The district has a growing urban population due to its proximity to the capital. Climate change impacts include urban heat islands and water pollution, affecting both the environment and public health.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone"
+    ]
+  },
+  "Rajbari": {
+    "name": "Rajbari",
+    "description": "Rajbari, located in the central region, is known for its cultural heritage and historical sites. The district's economy relies on agriculture and trade. Flooding and riverbank erosion are recurrent challenges that affect communities.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Flood-Managed"
+    ]
+  },
+  "Shariatpur": {
+    "name": "Shariatpur",
+    "description": "Shariatpur, in the central region, is primarily an agricultural district, with a focus on rice and fish farming. Changing precipitation patterns and water quality issues can impact crop production and aquaculture.",
+    "tags": [
+      "Agro-centric",
+      "Riverine",
+      "Flood-Resistant"
+    ]
+  },
+  "Tangail": {
+    "name": "Tangail",
+    "description": "Tangail, located in the central region, is an agricultural district with a focus on rice, jute, and mango cultivation. Changing precipitation patterns and temperature extremes can impact crop production and food security.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resistant"
+    ]
+  },
+  "Bagerhat": {
+    "name": "Bagerhat",
+    "description": "Bagerhat, in the southwestern region, is renowned for its historic mosques and the Sundarbans mangrove forest. The district's economy is linked to tourism and agriculture. Sea-level rise and cyclones threaten both cultural heritage and local communities.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Chuadanga": {
+    "name": "Chuadanga",
+    "description": "Chuadanga, in the western region, is known for its agriculture, particularly rice and jute production. The district faces challenges related to water scarcity and erratic rainfall, affecting crop yields.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Jessore": {
+    "name": "Jessore",
+    "description": "Jessore, in the southwestern part of the country, is known for its rice and jute production. The district has a mix of agricultural and small-scale industrial activities. Rising temperatures and changing rainfall patterns can affect crop yields, particularly for rice and jute, which are vital to the local economy.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Jhenaidah": {
+    "name": "Jhenaidah",
+    "description": "Jhenaidah, in the southwestern region, is an agricultural district known for rice and sugarcane production. Changing precipitation patterns can impact crop yields and the livelihoods of local communities.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Adaptive"
+    ]
+  },
+  "Khulna": {
+    "name": "Khulna",
+    "description": "Khulna, in the southwestern part of Bangladesh, is a major industrial hub and home to the Sundarbans, the world's largest mangrove forest. It plays a crucial role in the country's trade and commerce. The Sundarbans are vulnerable to rising sea levels and cyclones, impacting biodiversity and local communities.",
+    "tags": [
+      "Coastal-Urban"
+    ]
+  },
+  "Kushtia": {
+    "name": "Kushtia",
+    "description": "Kushtia, in the western region, is famous for the historic Lalon Shah shrine and jute production. The district's economy relies on agriculture and small industries. Changing rainfall patterns can affect jute cultivation, impacting the livelihoods of local communities.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Magura": {
+    "name": "Magura",
+    "description": "Magura, in the southwestern region, is primarily an agricultural district with a focus on rice, jute, and sugarcane cultivation. Changing weather patterns can impact crop yields and economic stability.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone"
+    ]
+  },
+  "Meherpur": {
+    "name": "Meherpur",
+    "description": "Meherpur, in the southwestern region, is primarily an agricultural district with a focus on rice and jute cultivation. Changing weather patterns can impact crop yields and the livelihoods of local communities.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Narail": {
+    "name": "Narail",
+    "description": "Narail, in the southwestern region, is known for its agricultural activities, particularly rice and jute production. The district faces challenges related to water scarcity and changing weather conditions.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone"
+    ]
+  },
+  "Satkhira": {
+    "name": "Satkhira",
+    "description": "Satkhira, in the southwestern coastal region, is vulnerable to cyclones and tidal surges. The district's economy revolves around agriculture and shrimp farming. Climate change-related events can disrupt shrimp farming and agriculture, affecting livelihoods.",
+    "tags": [
+      "Coastal-Agriculture",
+      "Cyclone-Resistant"
+    ]
+  },
+  "Bogra": {
+    "name": "Bogra",
+    "description": "Bogra, in the north-central region, is known for its archaeological sites and mango production. Agriculture, including rice and mango cultivation, drives the local economy. Changing weather patterns and temperature extremes can affect crop quality and yields, impacting the livelihoods of farmers.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone"
+    ]
+  },
+  "Joypurhat": {
+    "name": "Joypurhat",
+    "description": "Nestled in the northern region of Bangladesh, Joypurhat is primarily an agricultural district with a focus on rice and wheat cultivation. The district is vulnerable to occasional droughts, affecting crop yields and agricultural productivity.",
+    "tags": [
+      "Agro-based",
+      "Erosion-Prone"
+    ]
+  },
+  "Naogaon": {
+    "name": "Naogaon",
+    "description": "Positioned in the northwest, Naogaon is an agriculturally rich district known for its cultivation of crops such as rice, jute, and sugarcane. Despite its agricultural prosperity, the district faces challenges related to groundwater depletion and occasional flooding during the monsoon.",
+    "tags": [
+      "Agro-centric",
+      "Riverine",
+      "Flood-Resilient"
+    ]
+  },
+  "Natore": {
+    "name": "Natore",
+    "description": "Natore, in the northwestern region, is known for its agricultural activities, including rice and mango cultivation. The district faces challenges related to erratic weather patterns and changing precipitation, affecting crop yields.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Flood-Managed"
+    ]
+  },
+  "Nawabganj": {
+    "name": "Nawabganj",
+    "description": "Nawabganj, in the northwestern region, is known for its agriculture, including rice and sugarcane cultivation. Changing weather patterns, such as unseasonal rainfall, can affect crop production and farmer incomes.",
+    "tags": [
+      "Agro-based",
+      "Riverine"
+    ]
+  },
+  "Pabna": {
+    "name": "Pabna",
+    "description": "Pabna, in the central-northern region, is known for its historic sites and jute production. Agriculture is a significant source of income. Climate change impacts, such as waterlogging and irregular rainfall, can affect jute cultivation and livelihoods.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Sustainable-Farming"
+    ]
+  },
+  "Rajshahi": {
+    "name": "Rajshahi",
+    "description": "Located in the northwestern part of Bangladesh, Rajshahi is known as the \"Silk City\" and is a major center for silk production. The district has a predominantly agricultural economy, with mangoes being a significant export. Increasing temperatures and changing precipitation patterns affect the district's silk and fruit production, making it vulnerable to climate change impacts.",
+    "tags": [
+      "Agro-based",
+      "Erosion-Prone"
+    ]
+  },
+  "Sirajganj": {
+    "name": "Sirajganj",
+    "description": "Sirajganj, in the north-central region, is an important industrial and transportation hub. The district's economy is driven by jute and textile industries. Flooding and riverbank erosion are recurrent issues, impacting industries and communities.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Flood-Resistant"
+    ]
+  },
+  "Dinajpur": {
+    "name": "Dinajpur",
+    "description": "Dinajpur, in the northwestern region, is known for its educational institutions and potato cultivation. Agriculture is the primary occupation. Erratic weather conditions, including unseasonal rainfall, can pose risks to potato farmers and their income.",
+    "tags": [
+      "Agro-based",
+      "Educational",
+      "Erosion-Prone"
+    ]
+  },
+  "Gaibandha": {
+    "name": "Gaibandha",
+    "description": "Gaibandha, in the northwestern region, is an agricultural district with a focus on rice and jute production. Flooding during the monsoon season can impact crops and livelihoods.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Flood-Resilient"
+    ]
+  },
+  "Kurigram": {
+    "name": "Kurigram",
+    "description": "Located in the northern part of Bangladesh, Kurigram is characterized by its riverine landscape and is prone to both riverbank erosion and flooding. Agriculture, including the cultivation of jute and rice, plays a vital role in the district's economy.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resistant"
+    ]
+  },
+  "Lalmonirhat": {
+    "name": "Lalmonirhat",
+    "description": "Lalmonirhat, in the northwestern region, is primarily an agricultural district, with a focus on rice and potato cultivation. Changing weather conditions, such as unseasonal rainfall, can impact crop production and farmer incomes.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone",
+      "Flood-Resilient"
+    ]
+  },
+  "Nilphamari": {
+    "name": "Nilphamari",
+    "description": "Situated in the northwestern region, Nilphamari is an agricultural district with a focus on crops like rice, wheat, and sugarcane. Riverbank erosion, exacerbated by changing river patterns, poses a threat to both agricultural land and settlements in the district.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resilient"
+    ]
+  },
+  "Panchagarh": {
+    "name": "Panchagarh",
+    "description": "Positioned in the extreme northwest, Panchagarh is known for its hilly terrain and agricultural activities such as potato cultivation. The district faces challenges related to soil erosion in hilly areas and occasional flooding in the plains.",
+    "tags": [
+      "Agro-centric",
+      "Hilly"
+    ]
+  },
+  "Rangpur": {
+    "name": "Rangpur",
+    "description": "Rangpur, in the northwest, is an important agricultural region known for rice, jute, and fruit production. Its economy is largely agrarian. Changing precipitation patterns due to climate change affect crop yields, while increasing temperatures pose risks to food security in this district.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resilient"
+    ]
+  },
+  "Thakurgaon": {
+    "name": "Thakurgaon",
+    "description": "Thakurgaon, in the northwestern region, is known for its agriculture, particularly potato farming. The district faces challenges related to changing weather patterns, which can affect potato yields and livelihoods.",
+    "tags": [
+      "Agro-centric",
+      "Hilly",
+      "Adaptive"
+    ]
+  },
+  "Habiganj": {
+    "name": "Habiganj",
+    "description": "Located in northeastern Bangladesh, Habiganj features a diverse landscape including hills and plains. Tea cultivation is a significant economic activity, but the district is susceptible to landslides in hilly areas and flooding in low-lying regions.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Erosion-Prone"
+    ]
+  },
+  "Moulvibazar": {
+    "name": "Moulvibazar",
+    "description": "Moulvibazar, in the northeastern region, is renowned for its scenic tea gardens. The district's economy relies on tea cultivation and tourism. Climate change can affect tea quality and disrupt tourism due to unpredictable weather.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Tea-Gardens",
+      "Biodiverse"
+    ]
+  },
+  "Sunamganj": {
+    "name": "Sunamganj",
+    "description": "Sunamganj, in the northeastern region, is known for its wetlands and haor ecosystems. The district's economy relies on agriculture, particularly rice cultivation. Erratic weather conditions, such as flash floods, can affect crop yields and food security.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Haor-Region"
+    ]
+  },
+  "Sylhet": {
+    "name": "Sylhet",
+    "description": "Located in the northeastern region, Sylhet is known for its lush tea gardens and picturesque landscapes. The district's economy heavily relies on agriculture, particularly tea and betel leaf cultivation. Sylhet is susceptible to landslides and flash floods, making its population vulnerable to climate-induced disasters.",
+    "tags": [
+      "Hilly-Agriculture",
+      "Tea-Gardens",
+      "Biodiverse"
+    ]
+  },
+  "Jamalpur": {
+    "name": "Jamalpur",
+    "description": "Jamalpur, in the central-northern region, is known for its agricultural activities, particularly rice and jute cultivation. Changing weather conditions, such as unseasonal rainfall, can affect crop production and farmer incomes.",
+    "tags": [
+      "Agro-based",
+      "Erosion-Prone"
+    ]
+  },
+  "Mymensingh": {
+    "name": "Mymensingh",
+    "description": "Mymensingh, in the central-northern region, is home to Bangladesh Agricultural University and is often called the \"City of Education.\" The district's economy revolves around agriculture and education. Erratic rainfall patterns can disrupt agricultural activities, affecting the livelihoods of many in the region.",
+    "tags": [
+      "Agricultural",
+      "Erosion-Prone"
+    ]
+  },
+  "Netrokona": {
+    "name": "Netrokona",
+    "description": "In the northern part of the country, Netrokona is characterized by its diverse topography, including plains, hills, and rivers. Agriculture, particularly the cultivation of rice and pulses, is a key economic activity. The district faces challenges related to soil erosion and occasional flooding.",
+    "tags": [
+      "Agro-based",
+      "Riverine",
+      "Flood-Resilient"
+    ]
+  },
+  "Sherpur": {
+    "name": "Sherpur",
+    "description": "Sherpur, in the north-central region, is an agricultural district with a focus on rice and jute production. The district faces challenges related to water scarcity and erratic rainfall, impacting crop yields.",
+    "tags": [
+      "Agro-centric",
+      "Erosion-Prone"
+    ]
+  }
+}

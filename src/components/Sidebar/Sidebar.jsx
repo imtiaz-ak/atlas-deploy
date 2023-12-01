@@ -5,6 +5,7 @@ import DistrictContext from "../../context/DistrictContext";
 import DatasetContext from "../../context/DatasetContext";
 import stories from "../../data/climate_stories.json";
 import worldBankData from "../../data/world_bank_data.json"
+import districtMetaData from "../../data/district_meta.json"
 import { useContext, useState } from "react";
 import districtToDivision from '../../data/districts_to_division.json'
 import ngoList from '../../data/ngo_list.json'
@@ -61,10 +62,15 @@ export default function Sidebar() {
                     <div className="sidebar__container__heading">
                         <h4 className="p-font-size-75 font-color-2">DISTRICT</h4>
                         <h2 className="p-font-size-400">{district?.name}</h2>
-                        <p className="sidebar_container_para">Chittagong, in the southeastern part of Bangladesh, is the country's second-largest city and major seaport. The district boasts a diverse demographic mix and a growing industrial sector, contributing significantly to the national economy. Coastal erosion and rising sea levels threaten Chittagong's coastal areas, impacting livelihoods and infrastructure.</p>
+                        <p className="sidebar_container_para">{districtMetaData[district?.name]?.description}</p>
                         <ul class="tags">
-                            <li>Coastal</li>
-                            <li>Urban</li>
+                            {
+                                districtMetaData[district?.name]?.tags.map((e) => {
+                                    return (
+                                        <><li>{e}</li></>
+                                    )
+                                })
+                            }
                         </ul>
                     </div>
                     <hr />
@@ -193,11 +199,11 @@ export default function Sidebar() {
                                 entityTab == 'organisations' ?
                                     <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setEntityTab('organisations') }}>
                                         <span>Organisations</span>
-                                        <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button> :
                                     <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setEntityTab('organisations') }}>
                                         <span>Organisations</span>
-                                        <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button>
                             }
 
@@ -205,11 +211,11 @@ export default function Sidebar() {
                                 entityTab == 'initiatives' ?
                                     <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setEntityTab('initiatives') }}>
                                         <span>Initiatives</span>
-                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                        <span>{0}</span>
                                     </button> :
                                     <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setEntityTab('initiatives') }}>
                                         <span>Initiatives</span>
-                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                        <span>{0}</span>
                                     </button>
 
                             }
@@ -220,19 +226,25 @@ export default function Sidebar() {
                     <div className="stories-container">
                         {
                             entityTab == 'organisations' ? (<>
-                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
+                                {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <Card2 />
+                                        <Card2
+                                            title={e['title']}
+                                            district={district?.name}
+                                            country="Bangladesh"
+                                            thumbnailUrl={e['image']}
+                                            url={e['url']}
+                                        />
 
                                     )
                                 }) : <></>}
                             </>) : (<>
-                                {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
+                                {/* {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
                                     return (
                                         <Card2 />
 
                                     )
-                                }) : <></>}
+                                }) : <></>} */}
                             </>)
                         }
 
