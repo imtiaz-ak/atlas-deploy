@@ -67,23 +67,23 @@ function Slider() {
             </div>
             <div className="slider-sections">
                 <button className={`btn intensity-btn ${'1995-2014' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('1995-2014'); setTimelineRange('1995-2014') }}>
-                    <span>Recent past</span>
+                    <span>RECENT PAST</span>
                     <p>1995-2014</p>
                 </button>
                 <button className={`btn intensity-btn ${'2020-2039' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2020-2039'); setTimelineRange('2020-2039') }}>
-                    <span>Recent past</span>
+                    <span>IMMEDIATE FUTURE</span>
                     <p>2020-2039</p>
                 </button>
                 <button className={`btn intensity-btn ${'2040-2059' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2040-2059'); setTimelineRange('2040-2059') }}>
-                    <span>Recent past</span>
+                    <span>NEAR FUTURE</span>
                     <p>2040-2059</p>
                 </button>
                 <button className={`btn intensity-btn ${'2060-2079' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2060-2079'); setTimelineRange('2060-2079') }}>
-                    <span>mid century future</span>
+                    <span>MID CENTURE FUTURE</span>
                     <p>2060-2079</p>
                 </button>
                 <button className={`btn intensity-btn ${'2080-2099' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('2080-2099'); setTimelineRange('2080-2099') }}>
-                    <span>Recent past</span>
+                    <span>LATE CENTURY FUTURE</span>
                     <p>2080-2099</p>
                 </button>
             </div>

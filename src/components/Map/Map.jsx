@@ -53,6 +53,8 @@ const getClimateVariable = (district, variable, dataType, timeRange, climateChan
 
 export default function Map() {
 
+    const [selectedDistrict, setSelectedDistrict] = useState(null)
+
     const { datasetConfig } = useContext(DatasetContext)
     const datasetName = datasetConfig['name']
     const datasetEmission = datasetConfig['emission']
@@ -137,24 +139,24 @@ export default function Map() {
 
         const variableColourScheme = {
             // Hot Weather
-            'cdd65': reversedRdYlBu,
-            'hd35': reversedRdYlBu,
-            'hd40': reversedRdYlBu,
-            'hd45': reversedRdYlBu,
-            'sd': reversedRdYlBu,
+            'cdd65': d3.interpolateYlOrBr,
+            'hd35': d3.interpolateYlOrBr,
+            'hd40': d3.interpolateYlOrRd,
+            'hd45': d3.interpolateOrRd,
+            'sd': d3.interpolateYlOrBr,
 
             // Precipitation
-            'prpercnt': d3.interpolateBrBG,
+            'prpercnt': d3.interpolateBlues,
             'r50mm': d3.interpolateGnBu,
             'rx1day': d3.interpolateBlues,
             'rx5day': d3.interpolateGnBu,
 
             // Temperature
-            'tasmax': reversedRdBu,
-            'tasmin': reversedRdBu,
-            'tr26': reversedRdBu,
-            'tr29': reversedRdBu,
-            'txx': reversedRdBu,
+            'tasmax': d3.interpolateOrRd,
+            'tasmin': d3.interpolateYlOrBr,
+            'tr26': d3.interpolateYlOrBr,
+            'tr29': d3.interpolateYlOrRd,
+            'txx': d3.interpolateOrRd,
         };
 
 
@@ -292,8 +294,23 @@ export default function Map() {
             .data(districtGeoData.features)
             .join("path")
             .attr("d", path)
-            .attr("stroke", "#000")
-            .attr("stroke-width", 0.5)
+            .attr("stroke", (d) => {
+                // Set a specific stroke color for a specific district
+                if (d.properties["NAME_3"] === selectedDistrict) {
+                    return "#000"; // Set the desired stroke color
+                } else {
+                    return "#fff"; // Default stroke color for other districts
+                }
+            })
+            .attr("stroke-width", (d) => {
+                // Set a specific stroke color for a specific district
+                if (d.properties["NAME_3"] === selectedDistrict) {
+                    return "4"; // Set the desired stroke color
+                } else {
+                    return "0.5"; // Default stroke color for other districts
+                }
+            })
+            // .attr("id", districtGeoData.features.)
             .attr("fill", (d) => {
                 let value = getClimateVariable(
                     d.properties["NAME_3"],
@@ -342,18 +359,26 @@ export default function Map() {
                     </div>
                 `);
                 // On hover, increase the border width
-                d3.select(event.target).attr("stroke-width", "3")
+                d3.select(event.target).attr("stroke-width", "4")
+                //d3.select(event.target).attr("stroke", "#000")
             })
             .on("mouseout", (event, d) => {
                 // On mouseout, reset the border width
-                d3.select(event.target).attr("stroke-width", "0.5");
+                if (d.properties["NAME_3"] !== selectedDistrict) {
+                    d3.select(event.target).attr("stroke-width", "0.5");
+                }
+                //d3.select(event.target).attr("stroke-width", "0.5");
+                //d3.select(event.target).attr("stroke", "#fff")
                 d3.select("#tooltip").style("display", "none");
             })
             .on("click", (event, d) => {
                 // Render out the district name to the district-info div
+                d3.select(event.target).attr("stroke", "#000")
+                d3.select(event.target).attr("stroke-width", "4")
                 generatedDistricts.districts.forEach((generatedD) => {
                     if (generatedD.name == d.properties.NAME_3) {
                         handleDistrictIdChange(generatedD.id);
+                        setSelectedDistrict(generatedD.name)
                     }
                 });
                 setSidebarActive(true);
@@ -367,7 +392,7 @@ export default function Map() {
                 svg.attr("transform", e.transform);
             })
         );
-    }, [datasetName, datasetEmission, datasetTimeline]); //[datasetName, datasetEmission, datasetTimeline]);
+    }, [datasetName, datasetEmission, datasetTimeline, selectedDistrict]); //[datasetName, datasetEmission, datasetTimeline]);
 
     return (
         <>
