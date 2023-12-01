@@ -15,6 +15,7 @@ import { useState } from "react";
 import { DistrictProvider } from "./context/DistrictContext";
 import { SidebarProvider } from "./context/SidebarContext";
 import { DatasetProvider } from "./context/DatasetContext";
+import { HelpProvider } from "./context/HelpContext";
 import InvisibleOverlay from "./components/InvisibleOverlay";
 import Selectors from "./components/Selectors/Selectors";
 import Slider from "./components/Slider";
@@ -24,17 +25,18 @@ function App() {
     return (
         <>
             <Header />
+
             <DatasetProvider>
                 <SidebarProvider>
                     <DistrictProvider>
                         <div className="main-wrapper">
                             <div className="map-container-outer">
-                                <Selectors/>
+                                <Selectors />
                                 <Slider />
                                 <Map />
-                                {/* <Modal/> */}
+                                {/* <Modal /> */}
                             </div>
-                            <Sidebar/>
+                            <Sidebar />
                         </div>
                     </DistrictProvider>
                 </SidebarProvider>

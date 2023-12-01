@@ -5,7 +5,7 @@ import DistrictContext from "../../context/DistrictContext";
 import DatasetContext from "../../context/DatasetContext";
 import stories from "../../data/climate_stories.json";
 import worldBankData from "../../data/world_bank_data.json"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import districtToDivision from '../../data/districts_to_division.json'
 import ngoList from '../../data/ngo_list.json'
 import EntityCard from "../Common/EntityCard/EntityCard";
@@ -14,6 +14,8 @@ import Card from "../Common/Card";
 import Card2 from "../Common/Card2";
 
 export default function Sidebar() {
+    const [entityTab, setEntityTab] = useState('organisations')
+
     const { sidebarState, changeSidebarTab, toggleSidebar } = useContext(SidebarContext);
     const { district } = useContext(DistrictContext);
     const { datasetConfig } = useContext(DatasetContext)
@@ -151,15 +153,15 @@ export default function Sidebar() {
                     <div className="stories-container">
                         {
                             sidebarState.currentTab == 'stories' ? (<>
-                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e,index) => {
+                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e, index) => {
                                     console.log(e['image']);
                                     return (
-                                        <Card 
-                                            // title={e['title']}
-                                            // district={district?.name}
-                                            // country="Bangladesh"
-                                            // thumbnailUrl={e['image']}
-                                            // url={e['url']}
+                                        <Card
+                                        // title={e['title']}
+                                        // district={district?.name}
+                                        // country="Bangladesh"
+                                        // thumbnailUrl={e['image']}
+                                        // url={e['url']}
                                         />
                                     )
                                 }) :
@@ -167,12 +169,12 @@ export default function Sidebar() {
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <Card 
-                                            // title={e['title']}
-                                            // district={district?.name}
-                                            // country="Bangladesh"
-                                            // thumbnailUrl={e['image']}
-                                            // url={e['url']}
+                                        <Card
+                                        // title={e['title']}
+                                        // district={district?.name}
+                                        // country="Bangladesh"
+                                        // thumbnailUrl={e['image']}
+                                        // url={e['url']}
                                         />
                                     )
                                 }) : <></>}
@@ -188,25 +190,25 @@ export default function Sidebar() {
                         </div>
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
-                                sidebarState.currentTab == 'stories' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
-                                        <span>Reslience</span>
+                                entityTab == 'organisations' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setEntityTab('organisations') }}>
+                                        <span>Organisations</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
-                                        <span>Reslience</span>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setEntityTab('organisations') }}>
+                                        <span>Organisations</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button>
                             }
 
                             {
-                                sidebarState.currentTab == 'entities' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
-                                        <span>Impact</span>
+                                entityTab == 'initiatives' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setEntityTab('initiatives') }}>
+                                        <span>Initiatives</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
-                                        <span>Impact</span>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setEntityTab('initiatives') }}>
+                                        <span>Initiatives</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button>
 
@@ -217,18 +219,18 @@ export default function Sidebar() {
                     </div>
                     <div className="stories-container">
                         {
-                            sidebarState.currentTab == 'stories' ? (<>
+                            entityTab == 'organisations' ? (<>
                                 {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
                                     return (
-                                        <Card2/>
-                                       
+                                        <Card2 />
+
                                     )
                                 }) : <></>}
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <Card2/>
-                                        
+                                        <Card2 />
+
                                     )
                                 }) : <></>}
                             </>)
