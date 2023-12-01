@@ -64,10 +64,10 @@ export default function Sidebar() {
                     </div>
                     <hr />
                     <div className="sidebar__container__details">
-                        <h4 className="p-font-size-75 font-color-2" style={{fontWeight:"600",marginBottom:"2px"}}>
+                        <h4 className="p-font-size-75 font-color-2" style={{ fontWeight: "600", marginBottom: "2px" }}>
                             PROJECTED CHANGE IN
                         </h4>
-                        <h2 className="p-font-size-400" style={{color:"#FC714A"}}>{datasetConfig?.name}</h2>
+                        <h2 className="p-font-size-400" style={{ color: "#FC714A" }}>{datasetConfig?.name}</h2>
                         <div className="sidebar__container__details__flex">
                             {
                                 datasetConfig.emission == 'ssp245' ? (
@@ -88,16 +88,16 @@ export default function Sidebar() {
 
                         <div className="sidebar__container__details__flex">
                             <div>
-                                <h4 className="p-font-size-75 font-color-2" style={{fontWeight:"600",marginBottom:"2px"}}>
+                                <h4 className="p-font-size-75 font-color-2" style={{ fontWeight: "600", marginBottom: "2px" }}>
                                     1995-2014
                                 </h4>
                                 <h2 className="p-font-size-400">
                                     {worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]}
                                 </h2>
                             </div>
-                            <span className="sidebar__arrow" style={{fontSize:"38px"}}>&rarr;</span>
+                            <span className="sidebar__arrow" style={{ fontSize: "38px" }}>&rarr;</span>
                             <div>
-                                <h4 className="p-font-size-75 font-color-2" style={{fontWeight:"600",marginBottom:"2px"}}>
+                                <h4 className="p-font-size-75 font-color-2" style={{ fontWeight: "600", marginBottom: "2px" }}>
                                     {datasetConfig.timeline}
                                 </h4>
                                 <h2 className="p-font-size-400">
@@ -110,20 +110,20 @@ export default function Sidebar() {
                             <h2 className="p-font-size-400">{(worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]] - worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]).toFixed(2)}</h2>
                         </div>
                     </div>
-                    <hr/>
-                    <div className="sidebar__container__buttonGroup" style={{marginTop:"28px"}}>
+                    <hr />
+                    <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
                         <div className="stories-heading">
                             <h2 className="p-font-size-400">Stories <img src={info} /></h2>
                             <p>SUBMIT STORY</p>
                         </div>
-                        <div className="btn-group-inner" style={{border:"1px solid rgb(0 0 0 / 12%)",borderRadius:"4px"}}>
+                        <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
                                 sidebarState.currentTab == 'stories' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{borderRadius:"4px 0 0 4px",border:"0"}} onClick={() => { changeSidebarTab('stories') }}>
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
                                         <span>Reslience</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{borderRadius:"4px 0 0 4px",border:"0"}} onClick={() => { changeSidebarTab('stories') }}>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
                                         <span>Reslience</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button>
@@ -131,11 +131,11 @@ export default function Sidebar() {
 
                             {
                                 sidebarState.currentTab == 'entities' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{borderRadius:"0 4px 4px 0",border:"0"}} onClick={() => { changeSidebarTab('entities') }}>
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
                                         <span>Impact</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{borderRadius:"0 4px 4px 0",border:"0"}} onClick={() => { changeSidebarTab('entities') }}>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
                                         <span>Impact</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button>
@@ -173,6 +173,70 @@ export default function Sidebar() {
                         }
 
                     </div>
+
+                    <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
+                        <div className="stories-heading">
+                            <h2 className="p-font-size-400">Entities <img src={info} /></h2>
+                            <p>SUBMIT STORY</p>
+                        </div>
+                        <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
+                            {
+                                sidebarState.currentTab == 'stories' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
+                                        <span>Reslience</span>
+                                        <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                    </button> :
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
+                                        <span>Reslience</span>
+                                        <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                    </button>
+                            }
+
+                            {
+                                sidebarState.currentTab == 'entities' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
+                                        <span>Impact</span>
+                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                    </button> :
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
+                                        <span>Impact</span>
+                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                    </button>
+
+                            }
+                        </div>
+
+
+                    </div>
+                    <div className="stories-container">
+                        {
+                            sidebarState.currentTab == 'stories' ? (<>
+                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
+                                    return (
+                                        <MediaCardVideo
+                                            title={e['title']}
+                                            district={district?.name}
+                                            country="Bangladesh"
+                                            thumbnailUrl={e['image']}
+                                            url={e['url']}></MediaCardVideo>
+                                    )
+                                }) :
+                                    <></>}
+                            </>) : (<>
+                                {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
+                                    return (
+                                        <EntityCard
+                                            title={e['name']}
+                                            address={e.address}
+                                            district={district?.name}
+                                            country={e.country}></EntityCard>
+                                    )
+                                }) : <></>}
+                            </>)
+                        }
+
+                    </div>
+
                 </div>
             </section>
         </>
