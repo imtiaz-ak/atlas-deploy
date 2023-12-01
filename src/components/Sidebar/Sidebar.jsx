@@ -10,6 +10,8 @@ import districtToDivision from '../../data/districts_to_division.json'
 import ngoList from '../../data/ngo_list.json'
 import EntityCard from "../Common/EntityCard/EntityCard";
 import info from "../../assets/info.svg";
+import Card from "../Common/Card";
+import Card2 from "../Common/Card2";
 
 export default function Sidebar() {
     const { sidebarState, changeSidebarTab, toggleSidebar } = useContext(SidebarContext);
@@ -57,6 +59,7 @@ export default function Sidebar() {
                     <div className="sidebar__container__heading">
                         <h4 className="p-font-size-75 font-color-2">DISTRICT</h4>
                         <h2 className="p-font-size-400">{district?.name}</h2>
+                        <p className="sidebar_container_para">Chittagong, in the southeastern part of Bangladesh, is the country's second-largest city and major seaport. The district boasts a diverse demographic mix and a growing industrial sector, contributing significantly to the national economy. Coastal erosion and rising sea levels threaten Chittagong's coastal areas, impacting livelihoods and infrastructure.</p>
                         <ul class="tags">
                             <li>Coastal</li>
                             <li>Urban</li>
@@ -148,25 +151,29 @@ export default function Sidebar() {
                     <div className="stories-container">
                         {
                             sidebarState.currentTab == 'stories' ? (<>
-                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
+                                {(stories[district?.name])?.length ? (stories[district?.name]).map((e,index) => {
+                                    console.log(e['image']);
                                     return (
-                                        <MediaCardVideo
-                                            title={e['title']}
-                                            district={district?.name}
-                                            country="Bangladesh"
-                                            thumbnailUrl={e['image']}
-                                            url={e['url']}></MediaCardVideo>
+                                        <Card 
+                                            // title={e['title']}
+                                            // district={district?.name}
+                                            // country="Bangladesh"
+                                            // thumbnailUrl={e['image']}
+                                            // url={e['url']}
+                                        />
                                     )
                                 }) :
                                     <></>}
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <EntityCard
-                                            title={e['name']}
-                                            address={e.address}
-                                            district={district?.name}
-                                            country={e.country}></EntityCard>
+                                        <Card 
+                                            // title={e['title']}
+                                            // district={district?.name}
+                                            // country="Bangladesh"
+                                            // thumbnailUrl={e['image']}
+                                            // url={e['url']}
+                                        />
                                     )
                                 }) : <></>}
                             </>)
@@ -213,23 +220,15 @@ export default function Sidebar() {
                             sidebarState.currentTab == 'stories' ? (<>
                                 {(stories[district?.name])?.length ? (stories[district?.name]).map((e) => {
                                     return (
-                                        <MediaCardVideo
-                                            title={e['title']}
-                                            district={district?.name}
-                                            country="Bangladesh"
-                                            thumbnailUrl={e['image']}
-                                            url={e['url']}></MediaCardVideo>
+                                        <Card2/>
+                                       
                                     )
-                                }) :
-                                    <></>}
+                                }) : <></>}
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <EntityCard
-                                            title={e['name']}
-                                            address={e.address}
-                                            district={district?.name}
-                                            country={e.country}></EntityCard>
+                                        <Card2/>
+                                        
                                     )
                                 }) : <></>}
                             </>)

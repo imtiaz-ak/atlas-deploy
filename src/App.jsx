@@ -18,6 +18,7 @@ import { DatasetProvider } from "./context/DatasetContext";
 import InvisibleOverlay from "./components/InvisibleOverlay";
 import Selectors from "./components/Selectors/Selectors";
 import Slider from "./components/Slider";
+import Modal from "./components/Common/Modal";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                                 <Selectors/>
                                 <Slider />
                                 <Map />
+                                {/* <Modal/> */}
                             </div>
                             <Sidebar/>
                         </div>
