@@ -21,7 +21,7 @@ export function HelpProvider({ children }) {
         setHelpState({
             active: !helpState['active'],
             helpText: helpState['helpText'],
-            helpTitle: helpTitle['helpTitle']
+            helpTitle: helpState['helpTitle']
         })
     }
 
@@ -43,7 +43,7 @@ export function HelpProvider({ children }) {
 
     return (
         <HelpContext.Provider
-            value={{ setHelpModalActive, toggleHelpModal, changeHelpText, changeHelpTitle }}>
+            value={{ helpState, setHelpModalActive, toggleHelpModal, changeHelpText, changeHelpTitle, setHelpState }}>
             {children}
         </HelpContext.Provider>
     );

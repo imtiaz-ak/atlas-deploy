@@ -34,23 +34,24 @@ function App() {
     return (
         <>
             <Header />
-
-            <DatasetProvider>
-                <SidebarProvider>
-                    <DistrictProvider>
-                        <div className="main-wrapper">
-                            <div className="map-container-outer">
-                                <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
-                                <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
-                                <Map />
-                                {/* <Modal/> */}
-                                <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+            <HelpProvider>
+                <DatasetProvider>
+                    <SidebarProvider>
+                        <DistrictProvider>
+                            <div className="main-wrapper">
+                                <div className="map-container-outer">
+                                    <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                    <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
+                                    <Map />
+                                    <Modal />
+                                    <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                </div>
+                                <Sidebar />
                             </div>
-                            <Sidebar />
-                        </div>
-                    </DistrictProvider>
-                </SidebarProvider>
-            </DatasetProvider>
+                        </DistrictProvider>
+                    </SidebarProvider>
+                </DatasetProvider>
+            </HelpProvider>
         </>
     );
 }

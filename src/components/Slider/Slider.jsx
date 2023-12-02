@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useRef } from "react";
 import DatasetContext from "../../context/DatasetContext";
+import HelpContext from "../../context/HelpContext";
 import info from "../../assets/info.svg";
 
 function Slider({ sliderOn, toggleSlider }) {
@@ -10,6 +11,7 @@ function Slider({ sliderOn, toggleSlider }) {
     // max value for the input range
     const MAX = 1800;
     const { datasetConfig, changeDatasetTimeline } = useContext(DatasetContext)
+    const { setHelpState } = useContext(HelpContext)
 
     const sliderBar = useRef("");
     const [sliderValue, setSliderValue] = useState(0);
@@ -69,7 +71,7 @@ function Slider({ sliderOn, toggleSlider }) {
                     <p className="weather-type">TEMPERATURE</p>
                     <p className="weather-variable">Time Period</p>
                 </div>
-                <img src={info} />
+                <img src={info} onClick={() => { setHelpState({ helpTitle: 'Time period', helpText: `Time Period' refers to a specific interval or span of time during which certain data, like temperature or precipitation, is collected or analyzed. It could be an annual analysis showing the average temperature of a whole year, or seasonal, focusing on particular parts of the year like summer or winter. This is crucial to understand trends, cycles and patterns in meteorological and climate data. In the case of Bangladesh, selecting different 'Time Periods' could help identify changes in climatic conditions and extremes over time, which can guide planning for climate-adaptive strategies in areas like agriculture, public health, and urban infrastructure.`, active: true }) }} />
             </div>
             <div className="slider-sections">
                 <button className={`btn intensity-btn ${'1995-2014' === timelineRange ? 'active' : ''}`} onClick={() => { changeDatasetTimeline('1995-2014'); setTimelineRange('1995-2014') }}>
