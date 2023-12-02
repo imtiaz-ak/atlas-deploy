@@ -164,11 +164,12 @@ export default function Sidebar() {
                                     console.log(e['image']);
                                     return (
                                         <Card
-                                        // title={e['title']}
-                                        // district={district?.name}
-                                        // country="Bangladesh"
-                                        // thumbnailUrl={e['image']}
-                                        // url={e['url']}
+                                            title={e['headline']}
+                                            district={district?.name}
+                                            descriptio={e['description']}
+                                            country="Bangladesh"
+                                            thumbnailUrl={e['image']}
+                                            url={e['url']}
                                         />
                                     )
                                 }) :
