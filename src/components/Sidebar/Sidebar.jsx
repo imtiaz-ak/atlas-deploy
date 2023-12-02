@@ -124,10 +124,12 @@ export default function Sidebar() {
                     </div>
                     <hr />
                     <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                        <div className="stories-heading">
-                            <h2 className="p-font-size-400">Stories <img src={info} /></h2>
-                            <p>SUBMIT STORY</p>
-                        </div>
+                        <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
+                            <div className="stories-heading">
+                                <h2 className="p-font-size-400">Stories <img src={info} /></h2>
+                                <p>SUBMIT STORY</p>
+                            </div>
+                        </a>
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
                                 storyTab == 'resilience' ?
@@ -145,11 +147,11 @@ export default function Sidebar() {
                                 storyTab == 'impact' ?
                                     <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                         <span>Impact</span>
-                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                        <span> {0}</span>
                                     </button> :
                                     <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                         <span>Impact</span>
-                                        <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
+                                        <span>{0}</span>
                                     </button>
 
                             }
@@ -166,7 +168,7 @@ export default function Sidebar() {
                                         <Card
                                             title={e['headline']}
                                             district={district?.name}
-                                            descriptio={e['description']}
+                                            description={e['description']}
                                             country="Bangladesh"
                                             thumbnailUrl={e['image']}
                                             url={e['url']}
@@ -177,13 +179,14 @@ export default function Sidebar() {
                             </>) : (<>
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
-                                        <Card
-                                        // title={e['title']}
-                                        // district={district?.name}
-                                        // country="Bangladesh"
-                                        // thumbnailUrl={e['image']}
-                                        // url={e['url']}
-                                        />
+                                        <></>
+                                        // <Card
+                                        // // title={e['title']}
+                                        // // district={district?.name}
+                                        // // country="Bangladesh"
+                                        // // thumbnailUrl={e['image']}
+                                        // // url={e['url']}
+                                        // />
                                     )
                                 }) : <></>}
                             </>)
@@ -192,10 +195,12 @@ export default function Sidebar() {
                     </div>
 
                     <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                        <div className="stories-heading">
-                            <h2 className="p-font-size-400">Entities <img src={info} /></h2>
-                            <p>SUBMIT STORY</p>
-                        </div>
+                        <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
+                            <div className="stories-heading">
+                                <h2 className="p-font-size-400">Entities <img src={info} /></h2>
+                                <p>SUBMIT ENTITIES</p>
+                            </div>
+                        </a>
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
                                 entityTab == 'organisations' ?
