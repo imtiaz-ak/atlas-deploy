@@ -163,19 +163,19 @@ export default function Map() {
 
         const variableLabelMap = {
             'cdd65': 'Cooling Degree Days (ref-18°C)',
-            'hd35': 'Number of Hot Days (Tmax > 35°C)',
-            'hd40': 'Number of Hot Days (Tmax > 40°C)',
-            'hd45': 'Number of Hot Days (Tmax > 45°C)',
-            'prpercnt': 'Precipitation Percent Change',
-            'r50mm': 'Number of Days with Precipitation >50mm',
-            'rx1day': 'Average Largest 1-Day Precipitation',
-            'rx5day': 'Average Largest 5-Day Cumulative Precipitation',
-            'sd': 'Number of Summer Days (Tmax > 25°C)',
-            'tasmax': 'Average Maximum Surface Air Temperature',
-            'tasmin': 'Average Minimum Surface Air Temperature',
-            'tr26': 'Number of Tropical Nights (T-min > 26°C)',
-            'tr29': 'Number of Tropical Nights (T-min > 29°C)',
-            'txx': 'Maximum of Daily Max-Temperature'
+            'hd35': 'No. of Hot Days (> 35°C)',
+            'hd40': 'No. of Hot Days (> 40°C)',
+            'hd45': 'No. of Hot Days (> 45°C)',
+            'prpercnt': 'Ppt % Change',
+            'r50mm': 'No. of Days w/ ppt.>50mm',
+            'rx1day': 'Avg. Largest 1-Day ppt.',
+            'rx5day': 'Average Largest 5-Day Cumul. ppt.',
+            'sd': 'No. of Summer Days (> 25°C)',
+            'tasmax': 'Avg. Max Temperature',
+            'tasmin': 'Avg. Min Temperature',
+            'tr26': 'No. of Tropical Nights (> 26°C)',
+            'tr29': 'No. of Tropical Nights (> 29°C)',
+            'txx': 'Max of Daily Max-Temp.'
         };
 
         const unitMap = {

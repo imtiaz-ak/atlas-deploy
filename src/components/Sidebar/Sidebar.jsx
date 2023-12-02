@@ -130,12 +130,12 @@ export default function Sidebar() {
                     </div>
                     <hr />
                     <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                        <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
-                            <div className="stories-heading">
-                                <h2 className="p-font-size-400">Stories <img src={info} /></h2>
-                                <p>SUBMIT STORY</p>
-                            </div>
-                        </a>
+
+                        <div className="stories-heading">
+                            <h2 className="p-font-size-400">Stories <img src={info} /></h2>
+                            <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
+                                <p>SUBMIT STORY</p></a>
+                        </div>
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
                                 storyTab == 'resilience' ?
@@ -201,12 +201,13 @@ export default function Sidebar() {
                     </div>
 
                     <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                        <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
-                            <div className="stories-heading">
-                                <h2 className="p-font-size-400">Entities <img src={info} /></h2>
-                                <p>SUBMIT ENTITIES</p>
-                            </div>
-                        </a>
+
+                        <div className="stories-heading">
+                            <h2 className="p-font-size-400">Entities <img src={info} /></h2>
+                            <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
+                                <p>SUBMIT ENTITIES</p></a>
+                        </div>
+
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
                                 entityTab == 'organisations' ?
@@ -265,7 +266,7 @@ export default function Sidebar() {
                     </div>
 
                 </div>
-            </section>
+            </section >
         </>
     );
 }
