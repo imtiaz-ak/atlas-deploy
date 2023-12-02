@@ -246,6 +246,7 @@ a {
     background: none;
     color: inherit;
     user-select: none;
+    display: none;
 }
 
 .header__right {
@@ -785,6 +786,9 @@ a {
 
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .close-sidebar{
+        display: block;
+    }
     .header{
         position: sticky;
     }
@@ -799,6 +803,9 @@ a {
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .close-sidebar{
+        display: block;
+    }
     .header{
         position: sticky;
     }
@@ -839,6 +846,9 @@ a {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .close-sidebar{
+        display: block;
+    }
     .header{
         position: sticky;
     }
@@ -887,6 +897,9 @@ a {
     }
 }
 @media only screen and (min-width: 481px) and (max-width: 575px) {
+    .close-sidebar{
+        display: block;
+    }
     .header{
         position: sticky;
     }
@@ -1026,6 +1039,9 @@ a {
     }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+    .close-sidebar{
+        display: block;
+    }
     .header{
         position: sticky;
     }
