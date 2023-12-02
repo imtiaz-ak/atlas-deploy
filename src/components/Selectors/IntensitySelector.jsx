@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import DatasetContext from "../../context/DatasetContext";
+import info from "../../assets/info.svg";
 
 function IntensitySelector({intensitySelectorOn, toggleintensitySelectorOn}) {
     const [isMore, setIsMore] = useState(false);
@@ -24,9 +25,12 @@ function IntensitySelector({intensitySelectorOn, toggleintensitySelectorOn}) {
                         onClick={()=>toggleintensitySelectorOn(false)}>
                         +
                     </button>
-            <div className="intensity-text selector-text" style={{marginBottom:"10px"}}>
-                <p className="emission-text">GHG EMISSION</p>
-                <p className="climate-change-text">Climate Change</p>
+            <div style={{display:"flex"}}>
+                <div className="intensity-text selector-text" style={{marginBottom:"10px"}}>
+                    <p className="emission-text">GHG EMISSION</p>
+                    <p className="climate-change-text">Climate Change</p>
+                </div>
+                <img src={info} style={{marginLeft:"10px"}} />
             </div>
             <div className="intensity-buttons">
                 <button
