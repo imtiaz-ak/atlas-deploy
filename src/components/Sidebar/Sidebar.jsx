@@ -54,7 +54,7 @@ export default function Sidebar() {
     const className = sidebarState.active ? "sidebar sidebar-active" : "sidebar";
     return (
         <>
-            <section className={className}>
+            <section className={className} style={sidebarState.active? {top:"80px"}:{top:"100%"}}>
                 <div className="sidebar__container">
                     <div className="sidebar__container__heading">
                         <h4 className="p-font-size-75 font-color-2">DISTRICT</h4>
