@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import DatasetContext from "../../context/DatasetContext";
 
-function IntensitySelector({intensitySelectorOn}) {
+function IntensitySelector({intensitySelectorOn, toggleintensitySelectorOn}) {
     const [isMore, setIsMore] = useState(false);
     const { datasetConfig, changeDatasetEmission } = useContext(DatasetContext)
 
@@ -18,6 +18,12 @@ function IntensitySelector({intensitySelectorOn}) {
 
     return (
         <div className={ intensitySelectorOn? "intensity-selector selector intensity-selector-on" : "intensity-selector selector"}>
+            <button
+                        tabIndex="-1"
+                        className="close-sidebar"
+                        onClick={()=>toggleintensitySelectorOn(false)}>
+                        +
+                    </button>
             <div className="intensity-text selector-text" style={{marginBottom:"10px"}}>
                 <p className="emission-text">GHG EMISSION</p>
                 <p className="climate-change-text">Climate Change</p>

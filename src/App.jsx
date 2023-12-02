@@ -40,8 +40,8 @@ function App() {
                     <DistrictProvider>
                         <div className="main-wrapper">
                             <div className="map-container-outer">
-                                <Selectors intensitySelectorOn={intensitySelectorOn} />
-                                <Slider sliderOn={sliderOn} />
+                                <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
                                 <Map />
                                 {/* <Modal/> */}
                                 <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />

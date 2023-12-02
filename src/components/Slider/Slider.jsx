@@ -3,7 +3,7 @@ import { useRef } from "react";
 import DatasetContext from "../../context/DatasetContext";
 import info from "../../assets/info.svg";
 
-function Slider({sliderOn}) {
+function Slider({sliderOn, toggleSlider}) {
 
     const [timelineRange, setTimelineRange] = useState('1995-2014')
 
@@ -40,6 +40,12 @@ function Slider({sliderOn}) {
 
     return (
         <div className={sliderOn? "slider-container slideron" : "slider-container"}>
+            <button
+                        tabIndex="-1"
+                        className="close-sidebar"
+                        onClick={()=>toggleSlider(false)}>
+                        +
+                    </button>
             {/* <div className="slider-input-container">
                 <div className="slider-bar" ref={sliderBar}></div>
                 <input
