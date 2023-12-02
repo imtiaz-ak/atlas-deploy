@@ -232,6 +232,8 @@ export default function Sidebar() {
                                         <Card2
                                             title={e['name']}
                                             district={district?.name}
+                                            description={e['description']}
+                                            tags={e['tags']}
                                             country={e['country']}
                                             address={e['address']}
                                         />
