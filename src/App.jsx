@@ -20,8 +20,17 @@ import InvisibleOverlay from "./components/InvisibleOverlay";
 import Selectors from "./components/Selectors/Selectors";
 import Slider from "./components/Slider";
 import Modal from "./components/Common/Modal";
+import ResponsiveCardMenu from "./components/Common/ResponsiveCardMenu";
 
 function App() {
+    const [sliderOn, setsliderOn] = useState(false)
+    const [intensitySelectorOn, setintensitySelectorOn] = useState(false)
+    const toggleSlider = (data) => {
+        setsliderOn(data)
+    }
+    const toggleintensitySelectorOn = (data) => {
+        setintensitySelectorOn(data)
+    }
     return (
         <>
             <Header />
@@ -31,10 +40,11 @@ function App() {
                     <DistrictProvider>
                         <div className="main-wrapper">
                             <div className="map-container-outer">
-                                <Selectors />
-                                <Slider />
+                                <Selectors intensitySelectorOn={intensitySelectorOn} />
+                                <Slider sliderOn={sliderOn} />
                                 <Map />
-                                {/* <Modal /> */}
+                                {/* <Modal/> */}
+                                <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
                             </div>
                             <Sidebar />
                         </div>

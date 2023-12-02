@@ -9,7 +9,7 @@ function Left() {
             </div>
             <div className="vertical-divider"></div>
             <div className="header__left__name">
-                <span>Climate Atlas</span>
+                <span>Climate Atlas BETA</span>
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import DatasetPicker from "./DatasetPicker";
 import { AnimatePresence } from "framer-motion";
 import DatasetContext from "../../context/DatasetContext";
 import info from "../../assets/info.svg";
+import Modal from "../Common/Modal";
 
 
 function DatasetSelector() {

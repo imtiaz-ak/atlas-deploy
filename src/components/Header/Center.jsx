@@ -13,27 +13,6 @@ function Center() {
     return (
         <div className="header__center">
             <AnimatePresence>{showNav && <Nav />}</AnimatePresence>
-            <div>
-                <button
-                    className="btn menu-btn"
-                    onClick={handleMenuClick}
-                    style={
-                        showNav
-                            ? {
-                                  boxShadow:
-                                      "inset rgb(0 0 0 / 20%) 0px 2px 3px 0px",
-                                  backgroundColor: "hsla(220, 6%, 87%)",
-                              }
-                            : {}
-                    }>
-                    <div className="hamburger">
-                        <div className="hamburger__line"></div>
-                        <div className="hamburger__line"></div>
-                        <div className="hamburger__line"></div>
-                    </div>
-                    <span>Menu</span>
-                </button>
-            </div>
             <div className="searchbar-container">
                 <div className="magnifying-glass-icon">
                     <svg
@@ -55,6 +34,27 @@ function Center() {
                     placeholder="Search stories, organizations and more"
                     className="searchbar"
                 />
+            </div>
+            <div>
+                <button
+                    className="btn menu-btn"
+                    onClick={handleMenuClick}
+                    style={
+                        showNav
+                            ? {
+                                  boxShadow:
+                                      "inset rgb(0 0 0 / 20%) 0px 2px 3px 0px",
+                                  backgroundColor: "hsla(220, 6%, 87%)",
+                              }
+                            : {}
+                    }>
+                    <div className="hamburger">
+                        <div className="hamburger__line"></div>
+                        <div className="hamburger__line"></div>
+                        <div className="hamburger__line"></div>
+                    </div>
+                    <span>Menu</span>
+                </button>
             </div>
         </div>
     );
