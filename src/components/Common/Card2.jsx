@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Card2({ title, district, country, thumbnailUrl, url }) {
+export default function Card2({ title, district, country, address }) {
+    console.log(title, '<---- THIS IS TITLE')
     return (
         <div className='custom-card'>
             <div className='card-body'>
@@ -12,25 +13,25 @@ export default function Card2({ title, district, country, thumbnailUrl, url }) {
                     <p>OPERATES IN <span>{district}</span></p><p>BASED IN <span>{country}</span></p>
                 </div>
                 <h6>The non profit CODEC is fighting against water salinity, women inequality, deforestation and more with their Nature and Life proj (150 Characters)</h6>
-                <ul className='card-tags'>
+                {/* <ul className='card-tags'>
                     <li>Urban</li>
                     <li>Pollution</li>
                     <li>Costal</li>
                     <li>Adoptation</li>
-                </ul>
+                </ul> */}
                 <ul className='address-info'>
                     <li>
-                        <p>WEBSITE</p>
-                        <p>shidhulaisanuwar.com</p>
+                        <p>Address</p>
+                        <p>{address}</p>
                     </li>
-                    <li>
+                    {/* <li>
                         <p>EMAIL</p>
                         <p>+8801737291734</p>
                     </li>
                     <li>
                         <p>PHONE</p>
                         <p>hello@shidhulaisanuwar.com</p>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

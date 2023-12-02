@@ -16,6 +16,7 @@ import Card2 from "../Common/Card2";
 
 export default function Sidebar() {
     const [entityTab, setEntityTab] = useState('organisations')
+    const [storyTab, setStoryTab] = useState('resilience')
 
     const { sidebarState, changeSidebarTab, toggleSidebar } = useContext(SidebarContext);
     const { district } = useContext(DistrictContext);
@@ -129,24 +130,24 @@ export default function Sidebar() {
                         </div>
                         <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                             {
-                                sidebarState.currentTab == 'stories' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
+                                storyTab == 'resilience' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setStoryTab('resilience') }}>
                                         <span>Reslience</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { changeSidebarTab('stories') }}>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setStoryTab('resilience') }}>
                                         <span>Reslience</span>
                                         <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
                                     </button>
                             }
 
                             {
-                                sidebarState.currentTab == 'entities' ?
-                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
+                                storyTab == 'impact' ?
+                                    <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                         <span>Impact</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button> :
-                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { changeSidebarTab('entities') }}>
+                                    <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                         <span>Impact</span>
                                         <span>{ngoDataByDistrict[district?.name]?.length ? ngoDataByDistrict[district?.name].length : 0}</span>
                                     </button>
@@ -229,11 +230,10 @@ export default function Sidebar() {
                                 {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
                                     return (
                                         <Card2
-                                            title={e['title']}
+                                            title={e['name']}
                                             district={district?.name}
-                                            country="Bangladesh"
-                                            thumbnailUrl={e['image']}
-                                            url={e['url']}
+                                            country={e['country']}
+                                            address={e['address']}
                                         />
 
                                     )
