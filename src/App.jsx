@@ -21,6 +21,7 @@ import Selectors from "./components/Selectors/Selectors";
 import Slider from "./components/Slider";
 import Modal from "./components/Common/Modal";
 import ResponsiveCardMenu from "./components/Common/ResponsiveCardMenu";
+import StoryModal from "./components/Common/StoryModal";
 
 function App() {
     const [sliderOn, setsliderOn] = useState(false)
@@ -44,6 +45,7 @@ function App() {
                                 <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
                                 <Map />
                                 {/* <Modal/> */}
+                                <StoryModal />
                                 <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
                             </div>
                             <Sidebar />
