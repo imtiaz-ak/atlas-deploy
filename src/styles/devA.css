@@ -890,6 +890,34 @@ a {
     width: 100%;
 }
 
+.instruction {}
+
+.instruction>span {}
+
+.instruction h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 30px;
+}
+
+.instruction h2 span {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.instruction p {
+    margin-bottom: 22px;
+}
+
+.instruction .composition {}
+
+.instruction .composition h4 {
+    font-weight: 700;
+}
+
+.instruction .composition p {}
+
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     .close-sidebar{

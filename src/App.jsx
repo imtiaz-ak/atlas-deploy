@@ -45,7 +45,7 @@ function App() {
                                 <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
                                 <Map />
                                 {/* <Modal/> */}
-                                <StoryModal />
+                                {/* <StoryModal /> */}
                                 <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
                             </div>
                             <Sidebar />
