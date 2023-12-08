@@ -46,7 +46,8 @@ export default function StoryModal() {
                     </div>
                 </div>
                 <div className='storyModalBodyImage'>
-                    <img src={content} />
+                    {/* <img src={content} /> */}
+                    <iframe src='https://today.thefinancialexpress.com.bd/metro-news/plight-of-gaibandha-climate-victims-knows-no-bounds-1680366511' width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
