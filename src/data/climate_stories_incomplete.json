@@ -1,0 +1,168 @@
+[
+    {
+        "url": "https://article.sciencepublishinggroup.com/pdf/10.11648.j.ijepp.20170501.12.pdf",
+        "district": "Rangpur",
+        "type": "impact",
+        "tags": [
+            "Flood",
+            "Soil Erosion"
+        ]
+    },
+    {
+        "url": "https://article.sciencepublishinggroup.com/pdf/10.11648.j.ijepp.20170501.12.pdf",
+        "district": "Rangpur",
+        "type": "impact",
+        "tags": [
+            "Soil Erosion",
+            "Flood"
+        ]
+    },
+    {
+        "url": "https://assets.researchsquare.com/files/rs-1001988/v1_covered.pdf?c=1636675430",
+        "district": "Joypurhat",
+        "type": "impact",
+        "tags": [
+            "Groundwater Fluctuation"
+        ]
+    },
+    {
+        "url": "https://assets.researchsquare.com/files/rs-1001988/v1_covered.pdf?c=1636675430",
+        "district": "Joypurhat",
+        "type": "impact",
+        "tags": [
+            "Groundwater Fluctuation"
+        ]
+    },
+    {
+        "url": "http://bnttp.net/wp-content/uploads/2021/06/33344712.pdf",
+        "district": "Kushtia",
+        "type": "impact",
+        "tags": [
+            "Air Pollution",
+            "Water Pollution"
+        ]
+    },
+    {
+        "url": "http://203.112.218.65:8008/WebTestApplication/userfiles/Image/Atlas/Gopalganj%20Disaster%20Prone%20Area%20Atlas.pdf",
+        "district": "Gopalganj",
+        "type": "impact",
+        "tags": [
+            "Excess Rainfall"
+        ]
+    },
+    {
+        "url": "https://en.prothomalo.com/bangladesh/salinity-affects-people-and-agriculture-in-barisall",
+        "district": "Barisal",
+        "type": "impact",
+        "tags": [
+            "Excess Salinity"
+        ]
+    },
+    {
+        "url": "https://core.ac.uk/download/pdf/234683072.pdf",
+        "district": "Barisal",
+        "type": "impact",
+        "tags": [
+            "Water Contamination",
+            "Pollution"
+        ]
+    },
+    {
+        "url": "https://bmdf.portal.gov.bd/sites/default/files/files/bmdf.portal.gov.bd/page/ecaca1f9_2608_4359_80d3_8ada0f89ce73/Environmental%20Assessment%20Report%20of%20%20Road%20and%20%20Drain%20Sub-Project%20%28Package-2%29%20of%20Manikgonj%20Municipality.pdf",
+        "district": "Manikganj",
+        "type": "impact",
+        "tags": [
+            "Urban",
+            "River"
+        ]
+    },
+    {
+        "url": "https://actascientific.com/ASMS/pdf/ASMS-06-1118.pdf",
+        "district": "Shariatpur",
+        "type": "impact",
+        "tags": [
+            "Flood",
+            "Soil Erosion"
+        ]
+    },
+    {
+        "url": "http://warpo.portal.gov.bd/sites/default/files/files/warpo.portal.gov.bd/page/aa04373f_0ca3_49a5_b77e_5108186638dc/living2.pdf",
+        "district": "Shariatpur",
+        "type": "impact",
+        "tags": [
+            "Weather Vulnerability"
+        ]
+    },
+    {
+        "url": "https://theindependentbd.com/printversion/details/237881",
+        "district": "Manikganj",
+        "type": "impact",
+        "tags": [
+            "Air Pollution",
+            "Water Pollution"
+        ]
+    },
+    {
+        "url": "http://jett.dormaj.com/docs/Volume1/issue2/Assessment%20of%20Water%20Quality%20in%20Chandpur%20District%20of%20Bangladesh.pdf",
+        "district": "Chandpur",
+        "type": "impact",
+        "tags": [
+            "Water Pollution"
+        ]
+    },
+    {
+        "url": "https://msdjournal.org/wp-content/uploads/vol12issue2-1.pdf",
+        "district": "Noakhali",
+        "type": "impact",
+        "tags": [
+            "Water Pollution"
+        ]
+    },
+    {
+        "url": "https://bholaschildren.org/about-bhola-island/#:~:text=Prior%20to%201960%20erosion%20was,flow%20more%20strongly%20past%20Bhola.",
+        "district": "Bhola",
+        "type": "impact",
+        "tags": [
+            "Submersion",
+            "Erosion",
+            "Cyclone"
+        ]
+    },
+    {
+        "url": "https://agris.fao.org/agris-search/search.do?recordID=PK2003000331",
+        "district": "Khagrachari",
+        "type": "impact",
+        "tags": [
+            "Water Pollution"
+        ]
+    },
+    {
+        "url": "http://www.manusherjonno.org/wp-content/uploads/2020/10/Climate%20Resilient%20Agriculture%20in%20Coastal%20and%20Flood-plain%20Regions%20of%20Bangladesh.pdf",
+        "district": "Khulna, Barisal, Chittagong, Rajshahi Divisions",
+        "type": "resilience",
+        "tags": [
+            "Human Rights",
+            "Democracy",
+            "Governance"
+        ]
+    },
+    {
+        "url": "http://www.icccad.net/wp-content/uploads/2019/02/B-CRVCA-report-2019.pdf",
+        "district": "Southern regions, CHT",
+        "type": "resilience",
+        "tags": [
+            "Climate Change",
+            "Sustainability"
+        ]
+    },
+    {
+        "url": "https://unfccc.int/climate-action/momentum-for-change/ict-solutions/solshare",
+        "district": "Country-wide",
+        "type": "resilience",
+        "tags": [
+            "Decentralized Energy Trading",
+            "Equitable",
+            "Sustainable Energy System"
+        ]
+    }
+]
