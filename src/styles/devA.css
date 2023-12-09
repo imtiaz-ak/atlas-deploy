@@ -602,6 +602,7 @@ a {
 .card-body .card-tags {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .card-body .card-tags li {
@@ -616,6 +617,7 @@ a {
     background: #FFF;
     padding: 6px 8px;
     margin-right: 10px;
+    margin-bottom: 8px;
 }
 
 .card-body h3 {
@@ -714,6 +716,7 @@ a {
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15), 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
     padding: 20px;
     position: relative;
+    width: -webkit-fill-available;
 }
 
 .modal-header {
@@ -736,6 +739,7 @@ a {
 .modal-header .close {
     position: absolute;
     right: 14px;
+    top: 16px;
 }
 
 .modal-body {}
@@ -783,6 +787,136 @@ a {
 .responsivecardmenu li {color: #6D7175;font-size: 12px;font-style: normal;font-weight: 400;line-height: 16px; /* 133.333% */text-transform: uppercase;border-radius: 131.479px;border: 1.315px solid var(--border-neutral-subdued, #BABFC3);background: rgba(255, 255, 255, 0.80);
 
 /* Background Blur */backdrop-filter: blur(16px);text-align: center;padding: 10.518px 18.407px 10.518px 15.778px;width: max-content;margin-bottom: 10px;}
+
+.storyModalTop {}
+
+.storyModalTop span {
+    color: #76B90E;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+    text-transform: uppercase;
+}
+
+.storyModalTop h2 {
+    color: #202223;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 21.6px */
+}
+
+.storyModalTop .tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.storyModalTop .tags li {
+    color: rgba(0, 0, 0, 0.48);
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    border-radius: 64px;
+    border: 1px solid rgba(252, 113, 74, 0.20);
+    background: #FFF;
+    padding: 5px 6px 5px 6px;
+    margin-right: 7px;
+}
+
+.storyModalBodyTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0;
+}
+
+.storyModalBodyTop .left {}
+
+.storyModalBodyTop .left h4 {
+    color: #202223;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 19.2px */
+}
+
+.storyModalBodyTop .left p {
+    display: inline-block;
+    color: #B3B3B3;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+.storyModalBodyTop .left p span {
+    color: #000;
+    
+     /* 10px */
+}
+
+.storyModalBodyTop .right {}
+
+.storyModalBodyTop .right a {
+    border-radius: 100px;
+    border: 1px solid #BABFC3;
+    background: #FFF;
+
+/* shadow-button */
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 8px 14px 8px 12px;
+}
+
+.storyModalBodyTop .right a svg {
+    margin-right: 4px;
+}
+
+.storyModalBodyImage {
+    height: 400px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.storyModalBodyImage img{
+    width: 100%;
+}
+
+.instruction {}
+
+.instruction>span {}
+
+.instruction h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 30px;
+}
+
+.instruction h2 span {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.instruction p {
+    margin-bottom: 22px;
+}
+
+.instruction .composition {}
+
+.instruction .composition h4 {
+    font-weight: 700;
+}
+
+.instruction .composition p {}
 
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
