@@ -19,16 +19,6 @@
             65.93
         ]
     },
-    "hd45": {
-        "climatology": [
-            0,
-            0.04
-        ],
-        "anomaly": [
-            0,
-            0.1
-        ]
-    },
     "hd40": {
         "climatology": [
             0,
@@ -37,6 +27,16 @@
         "anomaly": [
             0,
             9.32
+        ]
+    },
+    "hd45": {
+        "climatology": [
+            0,
+            0.04
+        ],
+        "anomaly": [
+            0,
+            0.1
         ]
     },
     "prpercnt": {
