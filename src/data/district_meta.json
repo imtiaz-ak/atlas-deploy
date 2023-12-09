@@ -82,9 +82,9 @@
       ""
     ]
   },
-  "Comilla": {
-    "name": "Comilla",
-    "description": "Comilla, in the southeastern region, is a historical and cultural center. The district's economy relies on agriculture, trade, and education. Increasing temperatures and water scarcity due to climate change can impact crop production and access to clean water.",
+  "Cumilla": {
+    "name": "Cumilla",
+    "description": "Cumilla, in the southeastern region, is a historical and cultural center. The district's economy relies on agriculture, trade, and education. Increasing temperatures and water scarcity due to climate change can impact crop production and access to clean water.",
     "tags": [
       "Educational-Agriculture",
       "Erosion-Prone"
@@ -267,9 +267,9 @@
       "Flood-Resistant"
     ]
   },
-  "Jessore": {
-    "name": "Jessore",
-    "description": "Jessore, in the southwestern part of the country, is known for its rice and jute production. The district has a mix of agricultural and small-scale industrial activities. Rising temperatures and changing rainfall patterns can affect crop yields, particularly for rice and jute, which are vital to the local economy.",
+  "Jashore": {
+    "name": "Jashore",
+    "description": "Jashore, in the southwestern part of the country, is known for its rice and jute production. The district has a mix of agricultural and small-scale industrial activities. Rising temperatures and changing rainfall patterns can affect crop yields, particularly for rice and jute, which are vital to the local economy.",
     "tags": [
       "Agricultural",
       "Erosion-Prone",
