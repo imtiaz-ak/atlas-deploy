@@ -7,9 +7,9 @@
       "Flood-Resistant"
     ]
   },
-  "Barisal": {
-    "name": "Barisal",
-    "description": "Barisal, situated in the southern part of Bangladesh, is a deltaic region with a focus on agriculture and fishing. Its population primarily resides in rural areas. Sea-level rise, salinity intrusion, and changing monsoon patterns threaten the district's agricultural productivity and freshwater resources.",
+  "Barishal": {
+    "name": "Barishal",
+    "description": "Barishal, situated in the southern part of Bangladesh, is a deltaic region with a focus on agriculture and fishing. Its population primarily resides in rural areas. Sea-level rise, salinity intrusion, and changing monsoon patterns threaten the district's agricultural productivity and freshwater resources.",
     "tags": [
       "Riverine-Agriculture",
       "Adaptive",
@@ -51,7 +51,7 @@
   },
   "Bandarban": {
     "name": "Bandarban",
-    "description": "Nestled in the southeastern Chittagong Hill Tracts, Bandarban is renowned for its scenic hills, lush forests, and diverse indigenous communities. The district's economy is largely based on agriculture, including hillside cultivation, and it faces challenges related to deforestation, landslides, and the preservation of indigenous cultures.",
+    "description": "Nestled in the southeastern Chattogram Hill Tracts, Bandarban is renowned for its scenic hills, lush forests, and diverse indigenous communities. The district's economy is largely based on agriculture, including hillside cultivation, and it faces challenges related to deforestation, landslides, and the preservation of indigenous cultures.",
     "tags": [
       "Hilly-Agriculture",
       "Biodiverse",
@@ -74,24 +74,24 @@
       "Cyclone-Resistant"
     ]
   },
-  "Chittagong": {
-    "name": "Chittagong",
-    "description": "Chittagong, in the southeastern part of Bangladesh, is the country's second-largest city and major seaport. The district boasts a diverse demographic mix and a growing industrial sector, contributing significantly to the national economy. Coastal erosion and rising sea levels threaten Chittagong's coastal areas, impacting livelihoods and infrastructure.",
+  "Chattogram": {
+    "name": "Chattogram",
+    "description": "Chattogram, in the southeastern part of Bangladesh, is the country's second-largest city and major seaport. The district boasts a diverse demographic mix and a growing industrial sector, contributing significantly to the national economy. Coastal erosion and rising sea levels threaten Chattogram's coastal areas, impacting livelihoods and infrastructure.",
     "tags": [
       "Coastal-Urban",
       ""
     ]
   },
-  "Comilla": {
-    "name": "Comilla",
-    "description": "Comilla, in the southeastern region, is a historical and cultural center. The district's economy relies on agriculture, trade, and education. Increasing temperatures and water scarcity due to climate change can impact crop production and access to clean water.",
+  "Cumilla": {
+    "name": "Cumilla",
+    "description": "Cumilla, in the southeastern region, is a historical and cultural center. The district's economy relies on agriculture, trade, and education. Increasing temperatures and water scarcity due to climate change can impact crop production and access to clean water.",
     "tags": [
       "Educational-Agriculture",
       "Erosion-Prone"
     ]
   },
-  "Cox\u2019s Bazar": {
-    "name": "Cox\u2019s Bazar",
+  "Cox's Bazar": {
+    "name": "Cox's Bazar",
     "description": "Located in the southeastern region, Cox's Bazar boasts the world's longest natural sea beach. It relies on tourism and fishing for its economy. Climate change poses a threat to this area through sea-level rise and extreme weather events, impacting tourism and livelihoods.",
     "tags": [
       "Coastal-Agriculture",
@@ -108,7 +108,7 @@
   },
   "Khagrachari": {
     "name": "Khagrachari",
-    "description": "Nestled in the Chittagong Hill Tracts of southeastern Bangladesh, Khagrachari is renowned for its picturesque landscapes, featuring hills, forests, and rivers. The district is home to diverse indigenous communities and is known for traditional agriculture, including hillside cultivation of crops such as ginger and turmeric. While the region boasts rich biodiversity, deforestation and land degradation pose environmental challenges.",
+    "description": "Nestled in the Chattogram Hill Tracts of southeastern Bangladesh, Khagrachari is renowned for its picturesque landscapes, featuring hills, forests, and rivers. The district is home to diverse indigenous communities and is known for traditional agriculture, including hillside cultivation of crops such as ginger and turmeric. While the region boasts rich biodiversity, deforestation and land degradation pose environmental challenges.",
     "tags": [
       "Hilly-Agriculture"
     ]
@@ -131,7 +131,7 @@
   },
   "Rangamati": {
     "name": "Rangamati",
-    "description": "Rangamati, in the Chittagong Hill Tracts, is characterized by its hilly terrain and diverse indigenous population. Agriculture and tourism are essential to the district's economy. Changing rainfall patterns can affect crop yields and lead to landslides in hilly areas.",
+    "description": "Rangamati, in the Chattogram Hill Tracts, is characterized by its hilly terrain and diverse indigenous population. Agriculture and tourism are essential to the district's economy. Changing rainfall patterns can affect crop yields and lead to landslides in hilly areas.",
     "tags": [
       "Hilly-Agriculture",
       "Eco-tourism"
@@ -267,9 +267,9 @@
       "Flood-Resistant"
     ]
   },
-  "Jessore": {
-    "name": "Jessore",
-    "description": "Jessore, in the southwestern part of the country, is known for its rice and jute production. The district has a mix of agricultural and small-scale industrial activities. Rising temperatures and changing rainfall patterns can affect crop yields, particularly for rice and jute, which are vital to the local economy.",
+  "Jashore": {
+    "name": "Jashore",
+    "description": "Jashore, in the southwestern part of the country, is known for its rice and jute production. The district has a mix of agricultural and small-scale industrial activities. Rising temperatures and changing rainfall patterns can affect crop yields, particularly for rice and jute, which are vital to the local economy.",
     "tags": [
       "Agricultural",
       "Erosion-Prone",
@@ -334,9 +334,9 @@
       "Cyclone-Resistant"
     ]
   },
-  "Bogra": {
-    "name": "Bogra",
-    "description": "Bogra, in the north-central region, is known for its archaeological sites and mango production. Agriculture, including rice and mango cultivation, drives the local economy. Changing weather patterns and temperature extremes can affect crop quality and yields, impacting the livelihoods of farmers.",
+  "Bogura": {
+    "name": "Bogura",
+    "description": "Bogura, in the north-central region, is known for its archaeological sites and mango production. Agriculture, including rice and mango cultivation, drives the local economy. Changing weather patterns and temperature extremes can affect crop quality and yields, impacting the livelihoods of farmers.",
     "tags": [
       "Agro-centric",
       "Erosion-Prone"

@@ -110,7 +110,6 @@ export default function Map() {
     })
 
     const ref = useD3((svg) => {
-        // const minMax = generateMinMax(generatedDistricts.districts);
 
         const variableDomain = {
             "cdd65": minMaxData["cdd65"][datasetType],
@@ -333,34 +332,35 @@ export default function Map() {
                     .select("#tooltip")
                     .style("display", "flex")
                     .style("left", event.pageX + 0 + "px")
-                    .style("top", event.pageY + 0 + "px").html(`
-                    <div class="tooltip-row">
-                        <span class="tooltip-title">${d.properties["NAME_3"]
-                        }</span>
-                        <ul class="tags">
-                            ${districtMetaData[d.properties["NAME_3"]]["tags"].map((i) => {
-                            return (`<li>${i}</li>`)
-                        }).join('')
-                        }
-                        </ul >
-        <div class="tooltip-temp-div">
-            <h4>${datasetConfig['name']}</h4>
-            <span class="tooltip-temp">${getClimateVariable(
-                            d.properties["NAME_3"],
-                            datasetNameMap[datasetName],
-                            datasetType,
-                            datasetTimeline,
-                            datasetEmission
-                        )} ${unitMap[datasetNameMap[datasetName]]}
-            </span>
-        </div>
-                    </div >
-        <div class="tooltip-row">
-            <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
-            <span class="tooltip-period">&#x2022;</span>
-            <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
-        </div>
-    `);
+                    .style("top", event.pageY + 0 + "px")
+                    .html(`
+                        <div class="tooltip-row">
+                            <span class="tooltip-title">${d.properties["NAME_3"]
+                            }</span>
+                            <ul class="tags">
+                                ${districtMetaData[d.properties["NAME_3"]]["tags"].map((i) => {
+                                return (`<li>${i}</li>`)
+                            }).join('')
+                            }
+                            </ul >
+                        <div class="tooltip-temp-div">
+                            <h4>${datasetConfig['name']}</h4>
+                            <span class="tooltip-temp">${getClimateVariable(
+                                            d.properties["NAME_3"],
+                                            datasetNameMap[datasetName],
+                                            datasetType,
+                                            datasetTimeline,
+                                            datasetEmission
+                                        )} ${unitMap[datasetNameMap[datasetName]]}
+                            </span>
+                        </div>
+                                    </div >
+                        <div class="tooltip-row">
+                            <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
+                            <span class="tooltip-period">&#x2022;</span>
+                            <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
+                        </div>
+                    `);
                 // On hover, increase the border width
                 d3.select(event.target).attr("stroke-width", "4")
                 //d3.select(event.target).attr("stroke", "#000")
