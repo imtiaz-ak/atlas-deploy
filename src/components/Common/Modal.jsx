@@ -49,6 +49,10 @@ export default function Modal() {
                                     <h4>FEEDBACKS AND UPDATES</h4>
                                     <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
                                 </div>
+                                <div className="composition">
+                                    <h4>Data Source:</h4>
+                                    <p>World Bank Group, Climate Change Knowledge Portal (2023). URL: <a href="https://climateknowledgeportal.worldbank.org/" target='_blank'>https://climateknowledgeportal.worldbank.org/</a> </p>
+                                </div>
                             </> :
                             <></>
                         }

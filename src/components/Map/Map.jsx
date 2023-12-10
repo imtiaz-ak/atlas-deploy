@@ -327,7 +327,8 @@ export default function Map({ storySelected }) {
                 let entities = ngoDataByDistrict[d.properties["NAME_3"]]
 
                 // TODO Ensure when these end up empty, it is for intended reasons (e.g no stories or entities)
-                let storiesLength = stories == "" || stories == undefined ? 0 : stories.length
+
+                let storiesLength = stories?.impact?.length + stories.resilience?.length
                 let entitiesLength = entities == "" || entities == undefined ? 0 : entities.length
                 d3
                     .select("#tooltip")
@@ -357,7 +358,7 @@ export default function Map({ storySelected }) {
                         </div>
                                     </div >
                         <div class="tooltip-row">
-                            <span class="tooltip-story-count">${stories?.length ? stories.length : 0} Stories</span>
+                            <span class="tooltip-story-count">${storiesLength} Stories</span>
                             <span class="tooltip-period">&#x2022;</span>
                             <span class="tooltip-entity-count">${entities?.length ? entities.length : 0} Entities</span>
                         </div>

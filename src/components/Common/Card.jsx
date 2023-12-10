@@ -1,7 +1,7 @@
 import React from 'react'
 import cardimg from '../../assets/card-img.png'
 
-export default function Card({ story, title, district, description, country, tags, thumbnailUrl, url, storySetter }) {
+export default function Card({ story, title, district, description, country, tags, thumbnailUrl, url, storySetter, type }) {
     return (
         <a href={url} target="_blank">
             <div className='custom-card' style={{ height: '97%' }}>
@@ -9,7 +9,7 @@ export default function Card({ story, title, district, description, country, tag
                     <img src={thumbnailUrl} />
                 </div>
                 <div className='card-body'>
-                    <span>Impact</span>
+                    <span>{type}</span>
                     <h2>{title}</h2>
                     <ul className='card-tags'>
                         {tags?.map((e) => {

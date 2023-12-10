@@ -203,6 +203,7 @@ export default function Sidebar({ setStorySelected }) {
                                                 tags={e['tags']}
                                                 url={e['url']}
                                                 storySetter={setStorySelected}
+                                                type='RESILIENCE'
                                             />
                                         )
                                     }) :
@@ -220,6 +221,7 @@ export default function Sidebar({ setStorySelected }) {
                                                 url={e['url']}
                                                 tags={e['tags']}
                                                 storySetter={setStorySelected}
+                                                type='IMPACT'
                                             />
                                         )
                                     }) : <></>}
@@ -316,6 +318,10 @@ export default function Sidebar({ setStorySelected }) {
                         <div className="composition">
                             <h4>FEEDBACKS AND UPDATES</h4>
                             <p>Share your thoughts and suggestions with us through the provided feedback channels.Stay tuned for regular updates as we continue to expand and enhance the Climate Atlas for Bangladesh. <br />Embark on a journey of discovery, education, and inspiration as you explore the Climate Atlas for Bangladesh. Together, let's contribute to a more sustainable and resilient future for our planet.</p>
+                        </div>
+                        <div className="composition">
+                            <h4>Data Source:</h4>
+                            <p>World Bank Group, Climate Change Knowledge Portal (2023). URL: <a href="https://climateknowledgeportal.worldbank.org/" target="_blank">https://climateknowledgeportal.worldbank.org/</a> </p>
                         </div>
                     </div>
                 }
