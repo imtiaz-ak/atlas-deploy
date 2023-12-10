@@ -37,11 +37,12 @@ function App() {
 
     return (
         <>
-            <Header />
+
             <HelpProvider>
                 <DatasetProvider>
                     <SidebarProvider>
                         <DistrictProvider>
+                            <Header />
                             <div className="main-wrapper">
                                 <div className="map-container-outer">
                                     <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />

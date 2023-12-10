@@ -3,7 +3,7 @@ import cardimg from '../../assets/card-img.png'
 
 export default function Card({ story, title, district, description, country, thumbnailUrl, url, storySetter }) {
     return (
-        <div onClick={() => { storySetter(story) }}>
+        <a href={url} target="_blank">
             <div className='custom-card'>
                 <div className='card-img'>
                     <img src={thumbnailUrl} />
@@ -21,6 +21,6 @@ export default function Card({ story, title, district, description, country, thu
                 </div> */}
                 </div>
             </div>
-        </div >
+        </a >
     )
 }

@@ -29,7 +29,30 @@ export default function Modal() {
                         </div>
                     </div>
                     <div className='modal-body'>
-                        <p>{helpState.helpText}</p>
+                        {helpState.helpText == 'guide' ?
+                            <>
+                                <h2>Climate Atlas for Bangladesh <span>BETA</span></h2>
+                                <p>The Climate Atlas is a comprehensive tool designed to provide users with valuable insights into the climate and environmental landscape of Bangladesh. Navigate through districts, explore climate stories, and learn about the incredible initiatives shaping the nation's response to climate change.</p>
+                                <div className="composition">
+                                    <h4>DISTRICT NAVIGATION</h4>
+                                    <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                                </div>
+                                <div className="composition">
+                                    <h4>INFORMATION CARDS</h4>
+                                    <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                                </div>
+                                <div className="composition">
+                                    <h4>SEARCH FUNCTION</h4>
+                                    <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                                </div>
+                                <div className="composition">
+                                    <h4>FEEDBACKS AND UPDATES</h4>
+                                    <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                                </div>
+                            </> :
+                            <p>{helpState.helpText}</p>
+                        }
+
                     </div>
                     <div className='modal-footer'>
                         <button onClick={toggleHelpModal} style={{ cursor: "pointer" }}>Collapse</button>

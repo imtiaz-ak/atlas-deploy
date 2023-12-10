@@ -13,10 +13,13 @@ import EntityCard from "../Common/EntityCard/EntityCard";
 import info from "../../assets/info.svg";
 import Card from "../Common/Card";
 import Card2 from "../Common/Card2";
+import HelpContext from "../../context/HelpContext";
 
 export default function Sidebar({ setStorySelected }) {
     const [entityTab, setEntityTab] = useState('organisations')
     const [storyTab, setStoryTab] = useState('resilience')
+
+    const { setHelpState } = useContext(HelpContext)
 
     const { sidebarState, changeSidebarTab, toggleSidebar } = useContext(SidebarContext);
     const { district } = useContext(DistrictContext);
@@ -40,19 +43,19 @@ export default function Sidebar({ setStorySelected }) {
     }
 
     const unitMap = {
-        'cdd65': 'days',
-        'hd35': 'days',
-        'hd40': 'days',
-        'hd45': 'days',
+        'cdd65': 'Days',
+        'hd35': 'Days',
+        'hd40': 'Days',
+        'hd45': 'Days',
         'prpercnt': '%',
-        'r50mm': 'days',
+        'r50mm': 'Days',
         'rx1day': 'mm',
         'rx5day': 'mm',
-        'sd': 'days',
+        'sd': 'Days',
         'tasmax': '°C',
         'tasmin': '°C',
-        'tr26': 'days',
-        'tr29': 'days',
+        'tr26': 'Days',
+        'tr29': 'Days',
         'txx': '°C'
     }
 
@@ -151,7 +154,7 @@ export default function Sidebar({ setStorySelected }) {
                         <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
 
                             <div className="stories-heading">
-                                <h2 className="p-font-size-400">Stories <img src={info} style={{ cursor: 'pointer' }} /></h2>
+                                <h2 className="p-font-size-400">Stories <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Stories', helpText: `stories text here`, active: true }) }} /></h2>
                                 <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
                                     <p>SUBMIT STORY</p>
                                 </a>
@@ -226,7 +229,7 @@ export default function Sidebar({ setStorySelected }) {
 
                             <div className="stories-heading">
 
-                                <h2 className="p-font-size-400">Entities <img src={info} style={{ cursor: 'pointer' }} /></h2>
+                                <h2 className="p-font-size-400">Entities <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Entities', helpText: `entities text here`, active: true }) }} /></h2>
                                 <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
                                     <p>SUBMIT ENTITIES</p>
                                 </a>

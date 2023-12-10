@@ -24,21 +24,9 @@ body,
     --pc-button-micro-min-height: var(--p-font-line-height-2);
     --pc-button-slim-min-height: var(--p-font-line-height-4);
     --pc-button-large-min-height: 2.75rem;
-    --pc-button-vertical-padding: calc(
-        (2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2
-    );
-    --pc-button-slim-vertical-padding: calc(
-        (
-                var(--pc-button-slim-min-height) - var(--p-font-line-height-2) -
-                    var(--p-space-05)
-            ) / 2
-    );
-    --pc-button-large-vertical-padding: calc(
-        (
-                var(--pc-button-large-min-height) - var(--p-font-line-height-2) -
-                    var(--p-space-05)
-            ) / 2
-    );
+    --pc-button-vertical-padding: calc((2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2);
+    --pc-button-slim-vertical-padding: calc((var(--pc-button-slim-min-height) - var(--p-font-line-height-2) - var(--p-space-05)) / 2);
+    --pc-button-large-vertical-padding: calc((var(--pc-button-large-min-height) - var(--p-font-line-height-2) - var(--p-space-05)) / 2);
     --pc-button-spinner-size: 1.25rem;
     --pc-button-segment: 10;
     --pc-button-focused: 20;
@@ -51,10 +39,7 @@ body,
     min-height: 2.25rem;
     min-width: 2.25rem;
     margin: 0;
-    padding: calc(
-            (2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2
-        )
-        var(--p-space-4);
+    padding: calc((2.25rem - var(--p-font-line-height-2) - var(--p-space-05)) / 2) var(--p-space-4);
     background: var(--p-color-bg);
     box-shadow: var(--p-shadow-sm);
     border-radius: var(--p-border-radius-1);
@@ -68,6 +53,11 @@ body,
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
+
 a {
     color: inherit;
+}
+
+.logo {
+    cursor: pointer;
 }
