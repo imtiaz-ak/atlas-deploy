@@ -1005,6 +1005,10 @@ a {
         display: none;
     }
 
+    #actual-sidebar {
+        display: block;
+    }
+
     .header {
         position: sticky;
     }
