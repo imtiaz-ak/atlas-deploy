@@ -4,7 +4,7 @@ import cardimg from '../../assets/card-img.png'
 export default function Card({ story, title, district, description, country, thumbnailUrl, url, storySetter }) {
     return (
         <a href={url} target="_blank">
-            <div className='custom-card'>
+            <div className='custom-card' style={{ height: '97%' }}>
                 <div className='card-img'>
                     <img src={thumbnailUrl} />
                 </div>
