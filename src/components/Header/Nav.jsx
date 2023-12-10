@@ -11,25 +11,25 @@ function Nav() {
             className="nav">
             <ul>
                 <li className="nav-item">
-                    <a href="#">HOME</a>
+                    <a href="https://storiesofchange.co/">HOME</a>
                 </li>
                 <li className="nav-item">
-                    <a href="#">CLIMATE ATLAS</a>
+                    <a href="/">CLIMATE ATLAS</a>
                 </li>
                 <li className="nav-item">
-                    <a href="#">DOCUMENTARY</a>
+                    <a href="https://storiesofchange.co/documentary.html" target="_blank">DOCUMENTARY</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <a href="#">INSIGHTS</a>
                 </li>
                 <li className="nav-item">
                     <a href="#">SUPPORTERS</a>
+                </li> */}
+                <li className="nav-item">
+                    <a href="https://storiesofchange.co/about.html" target="_blank">ABOUT US</a>
                 </li>
                 <li className="nav-item">
-                    <a href="#">ABOUT US</a>
-                </li>
-                <li className="nav-item">
-                    <a href="#">THE TEAM</a>
+                    <a href="https://storiesofchange.co/team.html" target="_blank">THE TEAM</a>
                 </li>
             </ul>
         </motion.nav>
