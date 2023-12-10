@@ -51,42 +51,37 @@ function Header() {
                 <Center searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSearchBarOpen={setSearchBarOpen} runSearch={runSearch} />
                 <Right />
             </div>
-            <div className="search-result" style={searchBarOpen ? { height: "608px", visibility: "visible", opacity: "1" } : {}}>
-                <h4>Impact Stories <img src={info} /></h4>
+            <div className="search-result" style={searchBarOpen ? { height: "1000vh", visibility: "visible", opacity: "1" } : {}}>
+                <button
+                    tabIndex="-1"
+                    className="close-sidebar"
+                    style={{ position: 'absolute', right: '20px', top: '100px' }}
+                >
+                    +
+                </button>
+                <h4>Stories </h4>
                 <div className="result-section">
-                    <a href="/" target="_blank">
-                        <div className='custom-card' style={{ height: '97%' }}>
-                            <div className='card-body'>
-                                <span>Impact</span>
-                                <h2>Building climate resilience into Bangladesh's coastal communities</h2>
-                                <ul className='card-tags'>
-                                    <li>Urban</li>
-                                    <li>Pollution</li>
-                                </ul>
-                                <h3>Shidhulai Sanivar Sangstha</h3>
-                                <div className='infos'>
-                                    <p>OPERATES IN <span>DHAKA</span></p><p>BASED IN <span>BANGLADESH</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </a >
 
                     {
                         searchResult?.impact?.map((e) => {
                             return (
-                                <a href="/" target="_blank">
+                                <a href={e.url} target="_blank" style={{ height: '100%' }}>
                                     <div className='custom-card' style={{ height: '97%' }}>
-                                        <div className='card-body'>
+                                        <div className='card-img'>
+                                            <img src={e.image} />
+                                        </div>
+                                        <div className='card-body' style={{ height: '100%' }}>
                                             <span>Impact</span>
-                                            <h2>Building climate resilience into Bangladesh's coastal communities</h2>
+                                            <h2>{e.title}</h2>
                                             <ul className='card-tags'>
-                                                <li>Urban</li>
-                                                <li>Pollution</li>
+                                                {
+                                                    e.tags.map((e) => {
+                                                        return (
+                                                            <li>{e}</li>
+                                                        )
+                                                    })
+                                                }
                                             </ul>
-                                            <h3>Shidhulai Sanivar Sangstha</h3>
-                                            <div className='infos'>
-                                                <p>OPERATES IN <span>DHAKA</span></p><p>BASED IN <span>BANGLADESH</span></p>
-                                            </div>
                                         </div>
                                     </div>
                                 </a >
@@ -96,31 +91,32 @@ function Header() {
 
 
                 </div>
-                <h4>Resilience Stories <img src={info} /></h4>
+                <h4>Resilience Stories</h4>
                 <div className="result-section">
                     {
                         searchResult?.resilience?.map((e) => {
                             return (
-                                <a href="/" target="_blank">
-                                    <div className='custom-card' style={{ height: '97%' }}>
-                                        <div className='card-body'>
-                                            <span>Impact</span>
-                                            <h2>Building climate resilience into Bangladesh's coastal communities</h2>
-                                            <ul className='card-tags'>
-                                                <li>Urban</li>
-                                                <li>Pollution</li>
-                                            </ul>
-                                            <h3>Shidhulai Sanivar Sangstha</h3>
-                                            <div className='infos'>
-                                                <p>OPERATES IN <span>DHAKA</span></p><p>BASED IN <span>BANGLADESH</span></p>
+                                <div style={{ height: '100%' }}>
+
+                                    <a href={e.url} target="_blank" style={{ height: '100%' }}>
+                                        <div className='custom-card' style={{ height: '97%' }}>
+                                            <div className='card-img'>
+                                                <img src={e.image} />
+                                            </div>
+                                            <div className='card-body' style={{ height: '100%' }}>
+                                                <span>Resilience</span>
+                                                <h2>{e.title}</h2>
+                                                <ul className='card-tags'>
+                                                    <li>Urban</li>
+                                                    <li>Pollution</li>
+                                                </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                </a >
+                                    </a >
+                                </div>
                             )
                         })
                     }
-
                 </div>
             </div>
         </header>
