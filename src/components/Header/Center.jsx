@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function Center() {
+function Center({ searchQuery, setSearchQuery, setSearchBarOpen, runSearch }) {
     const [showNav, setShowNav] = useState(false);
 
     const handleMenuClick = () => {
@@ -33,6 +33,9 @@ function Center() {
                     type="text"
                     placeholder="Search stories, organizations and more"
                     className="searchbar"
+                    value={searchQuery}
+                    onChange={(e) => { setSearchQuery(e.target.value) }}
+                    onKeyDown={(e) => { if (e.key == 'Enter') { runSearch(); setSearchBarOpen(true); } }}
                 />
             </div>
             <div>
@@ -42,10 +45,10 @@ function Center() {
                     style={
                         showNav
                             ? {
-                                  boxShadow:
-                                      "inset rgb(0 0 0 / 20%) 0px 2px 3px 0px",
-                                  backgroundColor: "hsla(220, 6%, 87%)",
-                              }
+                                boxShadow:
+                                    "inset rgb(0 0 0 / 20%) 0px 2px 3px 0px",
+                                backgroundColor: "hsla(220, 6%, 87%)",
+                            }
                             : {}
                     }>
                     <div className="hamburger">
