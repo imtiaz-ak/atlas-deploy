@@ -13,8 +13,8 @@ function Header() {
                 <Center />
                 <Right />
             </div>
-            <div className="search-result" style={searchbaropen? {height:"608px",visibility:"visible",opacity:"1"} : {}}>
-                <h4>Stories <img src={info}/></h4>
+            <div className="search-result" style={searchbaropen ? { height: "608px", visibility: "visible", opacity: "1" } : {}}>
+                <h4>Stories <img src={info} /></h4>
                 <div className="result-section">
                     <a href="/" target="_blank">
                         <div className='custom-card' style={{ height: '97%' }}>
@@ -129,7 +129,7 @@ function Header() {
                         </div>
                     </a >
                 </div>
-                <h4>Impacts <img src={info}/></h4>
+                <h4>Impacts <img src={info} /></h4>
                 <div className="result-section">
                     <a href="/" target="_blank">
                         <div className='custom-card' style={{ height: '97%' }}>
