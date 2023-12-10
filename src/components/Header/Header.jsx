@@ -5,12 +5,14 @@ import Right from "./Right";
 import info from "../../assets/info.svg";
 import { useState } from "react";
 import stories from "../../data/climate_stories.json";
+import ngoList from "../../data/ngo_list.json"
 
 const performSearch = (query) => {
     const result = {}
 
     result['impact'] = []
     result['resilience'] = []
+    result['initiatives'] = []
 
     const queryList = query.toLowerCase().split(/\s+/);
 
@@ -28,6 +30,11 @@ const performSearch = (query) => {
                 }
             }
 
+        }
+        for (const ngo of ngoList) {
+            if (ngo.keywords.includes(word)) {
+                result['initiatives'].push(ngo)
+            }
         }
     }
     console.log(result, '<---- SEARCH RESULTS')
@@ -62,6 +69,35 @@ function Header() {
                 </button>
                 <h4>Stories </h4>
                 <div className="result-section">
+                    {
+                        searchResult?.resilience?.map((e) => {
+                            return (
+                                <div style={{ height: '100%' }}>
+
+                                    <a href={e.url} target="_blank" style={{ height: '100%' }}>
+                                        <div className='custom-card' style={{ height: '97%' }}>
+                                            <div className='card-img'>
+                                                <img src={e.image} />
+                                            </div>
+                                            <div className='card-body' style={{ height: '100%' }}>
+                                                <span>Resilience</span>
+                                                <h2>{e.title}</h2>
+                                                <ul className='card-tags'>
+                                                    {
+                                                        e.tags.map((e) => {
+                                                            return (
+                                                                <li>{e}</li>
+                                                            )
+                                                        })
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </a >
+                                </div>
+                            )
+                        })
+                    }
 
                     {
                         searchResult?.impact?.map((e) => {
@@ -92,33 +128,25 @@ function Header() {
 
 
                 </div>
-                <h4>Resilience Stories</h4>
+                <h4>Initiatives</h4>
                 <div className="result-section">
                     {
-                        searchResult?.resilience?.map((e) => {
+                        searchResult?.initiatives?.map((e) => {
                             return (
-                                <div style={{ height: '100%' }}>
-
-                                    <a href={e.url} target="_blank" style={{ height: '100%' }}>
-                                        <div className='custom-card' style={{ height: '97%' }}>
-                                            <div className='card-img'>
-                                                <img src={e.image} />
-                                            </div>
-                                            <div className='card-body' style={{ height: '100%' }}>
-                                                <span>Resilience</span>
-                                                <h2>{e.title}</h2>
-                                                <ul className='card-tags'>
-                                                    {
-                                                        e.tags.map((e) => {
-                                                            return (
-                                                                <li>{e}</li>
-                                                            )
-                                                        })
-                                                    }
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </a >
+                                <div className='custom-card' style={{ height: '97%' }}>
+                                    <div className='card-body' style={{ height: '100%' }}>
+                                        <h2>{e.name}</h2>
+                                        <p>{e.description}</p>
+                                        <ul className='card-tags'>
+                                            {
+                                                e.tags.map((e) => {
+                                                    return (
+                                                        <li>{e}</li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
                             )
                         })
