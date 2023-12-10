@@ -85,6 +85,7 @@ export default function Sidebar({ setStorySelected }) {
                         <button
                             tabIndex="-1"
                             className="close-sidebar"
+                            id="actual-sidebar"
                             onClick={toggleSidebar}>
                             +
                         </button>
