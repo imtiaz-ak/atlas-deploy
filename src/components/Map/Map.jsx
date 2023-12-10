@@ -52,7 +52,7 @@ const getClimateVariable = (district, variable, dataType, timeRange, climateChan
     }
 };
 
-export default function Map() {
+export default function Map({ storySelected }) {
 
     const [selectedDistrict, setSelectedDistrict] = useState(null)
 
@@ -103,8 +103,8 @@ export default function Map() {
                 return e
             }
         })[0]
-        const districtLat = specificDistrict.lat
-        const districtLong = specificDistrict.long
+        const districtLat = specificDistrict?.lat
+        const districtLong = specificDistrict?.long
 
         circlesData.push({ district: d, lat: districtLat, lon: districtLong, radius: 15 })
     })
@@ -336,22 +336,22 @@ export default function Map() {
                     .html(`
                         <div class="tooltip-row">
                             <span class="tooltip-title">${d.properties["NAME_3"]
-                            }</span>
+                        }</span>
                             <ul class="tags">
                                 ${districtMetaData[d.properties["NAME_3"]]["tags"].map((i) => {
-                                return (`<li>${i}</li>`)
-                            }).join('')
-                            }
+                            return (`<li>${i}</li>`)
+                        }).join('')
+                        }
                             </ul >
                         <div class="tooltip-temp-div">
                             <h4>${datasetConfig['name']}</h4>
                             <span class="tooltip-temp">${getClimateVariable(
-                                            d.properties["NAME_3"],
-                                            datasetNameMap[datasetName],
-                                            datasetType,
-                                            datasetTimeline,
-                                            datasetEmission
-                                        )} ${unitMap[datasetNameMap[datasetName]]}
+                            d.properties["NAME_3"],
+                            datasetNameMap[datasetName],
+                            datasetType,
+                            datasetTimeline,
+                            datasetEmission
+                        )} ${unitMap[datasetNameMap[datasetName]]}
                             </span>
                         </div>
                                     </div >
@@ -400,10 +400,17 @@ export default function Map() {
     return (
         <>
             <div className="map-container">
-                <div id="tooltip"></div>
-                <div id="legend">
-                    <svg id="legend-svg" width="240" height="100" style={{ "float": "right" }}></svg>
-                </div>
+                {
+                    storySelected ?
+                        <></> :
+                        <>
+                            <div id="tooltip"></div>
+                            <div id="legend">
+                                <svg id="legend-svg" width="240" height="100" style={{ "float": "right" }}></svg>
+                            </div>
+                        </>
+                }
+
                 <svg
                     id="map-vis"
                     className="map"

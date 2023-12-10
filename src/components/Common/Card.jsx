@@ -1,9 +1,9 @@
 import React from 'react'
 import cardimg from '../../assets/card-img.png'
 
-export default function Card({ title, district, description, country, thumbnailUrl, url }) {
+export default function Card({ story, title, district, description, country, thumbnailUrl, url, storySetter }) {
     return (
-        <a href={url}>
+        <div onClick={() => { storySetter(story) }}>
             <div className='custom-card'>
                 <div className='card-img'>
                     <img src={thumbnailUrl} />
@@ -21,6 +21,6 @@ export default function Card({ title, district, description, country, thumbnailU
                 </div> */}
                 </div>
             </div>
-        </a>
+        </div >
     )
 }

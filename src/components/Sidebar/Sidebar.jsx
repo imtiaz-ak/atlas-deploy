@@ -14,7 +14,7 @@ import info from "../../assets/info.svg";
 import Card from "../Common/Card";
 import Card2 from "../Common/Card2";
 
-export default function Sidebar() {
+export default function Sidebar({ setStorySelected }) {
     const [entityTab, setEntityTab] = useState('organisations')
     const [storyTab, setStoryTab] = useState('resilience')
 
@@ -170,15 +170,17 @@ export default function Sidebar() {
                             {
                                 sidebarState.currentTab == 'stories' ? (<>
                                     {(stories[district?.name])?.length ? (stories[district?.name]).map((e, index) => {
-                                        console.log(e['image']);
+                                        console.log(e);
                                         return (
                                             <Card
-                                                title={e['headline']}
+                                                story={e}
+                                                title={e['title']}
                                                 district={district?.name}
                                                 description={e['description']}
                                                 country="Bangladesh"
                                                 thumbnailUrl={e['image']}
                                                 url={e['url']}
+                                                storySetter={setStorySelected}
                                             />
                                         )
                                     }) :
