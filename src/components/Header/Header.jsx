@@ -5,7 +5,7 @@ import Right from "./Right";
 import info from "../../assets/info.svg";
 
 function Header() {
-    const searchbaropen = true;
+    const searchbaropen = false;
     return (
         <header className="header">
             <div className="header__container">

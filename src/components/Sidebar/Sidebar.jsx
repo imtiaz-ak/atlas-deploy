@@ -304,15 +304,15 @@ export default function Sidebar({ setStorySelected }) {
                         </div>
                         <div className="composition">
                             <h4>INFORMATION CARDS</h4>
-                            <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                            <p>Utilize information cards (i cards) to understand key terms and concepts related to navigate the website better. </p>
                         </div>
                         <div className="composition">
                             <h4>SEARCH FUNCTION</h4>
-                            <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                            <p>Locate specific districts, NGOs, or initiatives using the search bar.Streamline your exploration based on your interests and research objectives. </p>
                         </div>
                         <div className="composition">
                             <h4>FEEDBACKS AND UPDATES</h4>
-                            <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
+                            <p>Share your thoughts and suggestions with us through the provided feedback channels.Stay tuned for regular updates as we continue to expand and enhance the Climate Atlas for Bangladesh. <br/>Embark on a journey of discovery, education, and inspiration as you explore the Climate Atlas for Bangladesh. Together, let's contribute to a more sustainable and resilient future for our planet.</p>
                         </div>
                     </div>
                 }

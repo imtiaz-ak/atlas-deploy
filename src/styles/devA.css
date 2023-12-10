@@ -715,6 +715,7 @@ a {
     display: flex;
     align-items: center;
     padding: 20px;
+    z-index: 1;
 }
 
 .modal-inner {
