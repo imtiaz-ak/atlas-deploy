@@ -163,12 +163,12 @@ export default function Sidebar({ setStorySelected }) {
                                 {
                                     storyTab == 'resilience' ?
                                         <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setStoryTab('resilience') }}>
-                                            <span>Reslience</span>
-                                            <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                            <span>Resilience</span>
+                                            <span>{stories[district?.name]?.resilience?.length ? stories[district.name].resilience.length : 0}</span>
                                         </button> :
                                         <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "4px 0 0 4px", border: "0" }} onClick={() => { setStoryTab('resilience') }}>
-                                            <span>Reslience</span>
-                                            <span>{stories[district?.name]?.length ? stories[district.name].length : 0}</span>
+                                            <span>Resilience</span>
+                                            <span>{stories[district?.name]?.resilience?.length ? stories[district.name].resilience.length : 0}</span>
                                         </button>
                                 }
 
@@ -176,11 +176,10 @@ export default function Sidebar({ setStorySelected }) {
                                     storyTab == 'impact' ?
                                         <button className="customBtn sidebar__container__active_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                             <span>Impact</span>
-                                            <span> {0}</span>
                                         </button> :
                                         <button className="customBtn sidebar__container__inactive_btn" style={{ borderRadius: "0 4px 4px 0", border: "0" }} onClick={() => { setStoryTab('impact') }}>
                                             <span>Impact</span>
-                                            <span>{0}</span>
+                                            <span>{stories[district?.name]?.impact?.length ? stories[district.name].impact.length : 0}</span>
                                         </button>
 
                                 }
@@ -190,8 +189,8 @@ export default function Sidebar({ setStorySelected }) {
                         </div>
                         <div className="stories-container">
                             {
-                                sidebarState.currentTab == 'stories' ? (<>
-                                    {(stories[district?.name])?.length ? (stories[district?.name]).map((e, index) => {
+                                storyTab == 'resilience' ? (<>
+                                    {(stories[district?.name]?.resilience)?.length ? (stories[district?.name]['resilience']).map((e, index) => {
                                         console.log(e);
                                         return (
                                             <Card
@@ -201,6 +200,7 @@ export default function Sidebar({ setStorySelected }) {
                                                 description={e['description']}
                                                 country="Bangladesh"
                                                 thumbnailUrl={e['image']}
+                                                tags={e['tags']}
                                                 url={e['url']}
                                                 storySetter={setStorySelected}
                                             />
@@ -208,16 +208,19 @@ export default function Sidebar({ setStorySelected }) {
                                     }) :
                                         <></>}
                                 </>) : (<>
-                                    {(ngoDataByDistrict[district?.name])?.length ? (ngoDataByDistrict[district?.name]).map((e) => {
+                                    {(stories[district?.name]?.impact)?.length ? (stories[district?.name]['impact']).map((e, index) => {
                                         return (
-                                            <></>
-                                            // <Card
-                                            // // title={e['title']}
-                                            // // district={district?.name}
-                                            // // country="Bangladesh"
-                                            // // thumbnailUrl={e['image']}
-                                            // // url={e['url']}
-                                            // />
+                                            <Card
+                                                story={e}
+                                                title={e['title']}
+                                                district={district?.name}
+                                                description={e['description']}
+                                                country="Bangladesh"
+                                                thumbnailUrl={e['image']}
+                                                url={e['url']}
+                                                tags={e['tags']}
+                                                storySetter={setStorySelected}
+                                            />
                                         )
                                     }) : <></>}
                                 </>)
