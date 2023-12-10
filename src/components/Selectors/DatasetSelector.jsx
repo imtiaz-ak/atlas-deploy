@@ -54,7 +54,7 @@ function DatasetSelector() {
                         {datasetName}
                     </p>
                 </div>
-                <img src={info} onClick={() => {
+                <img src={info} style={{ cursor: "pointer" }} onClick={() => {
                     setHelpState({
                         active: true,
                         helpText: helpTextMap[datasetName],

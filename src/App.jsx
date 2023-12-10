@@ -44,13 +44,8 @@ function App() {
                         <DistrictProvider>
                             <div className="main-wrapper">
                                 <div className="map-container-outer">
-                                    {storySelected ?
-                                        <StoryModal storySelected={storySelected} setStorySelected={setStorySelected} /> :
-                                        <>
-                                            <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
-                                            <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
-                                        </>
-                                    }
+                                    <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                    <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
 
                                     <Map storySelected={storySelected} />
                                     <Modal />

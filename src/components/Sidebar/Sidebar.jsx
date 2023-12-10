@@ -38,7 +38,25 @@ export default function Sidebar({ setStorySelected }) {
         'Maximum Over 29°C': 'tr29',
         'Single Day Maximum': 'txx'
     }
-    console.log(stories)
+
+    const unitMap = {
+        'cdd65': 'days',
+        'hd35': 'days',
+        'hd40': 'days',
+        'hd45': 'days',
+        'prpercnt': '%',
+        'r50mm': 'days',
+        'rx1day': 'mm',
+        'rx5day': 'mm',
+        'sd': 'days',
+        'tasmax': '°C',
+        'tasmin': '°C',
+        'tr26': 'days',
+        'tr29': 'days',
+        'txx': '°C'
+    }
+
+    const currentUnit = unitMap[datasetNameMap[datasetConfig?.name]]
 
     const ngoDataByDistrict = {};
 
@@ -111,7 +129,7 @@ export default function Sidebar({ setStorySelected }) {
                                         1995-2014
                                     </h4>
                                     <h2 className="p-font-size-400">
-                                        {worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]}
+                                        {worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]} {currentUnit}
                                     </h2>
                                 </div>
                                 <span className="sidebar__arrow" style={{ fontSize: "38px" }}>&rarr;</span>
@@ -120,23 +138,24 @@ export default function Sidebar({ setStorySelected }) {
                                         {datasetConfig.timeline}
                                     </h4>
                                     <h2 className="p-font-size-400">
-                                        {worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]]}
+                                        {worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]]} {currentUnit}
                                     </h2>
                                 </div>
                             </div>
                             <div>
                                 <h4 className="p-font-size-75 font-color-2">{(worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]] - worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]) >= 0 ? 'Increase' : 'Decrease'}</h4>
-                                <h2 className="p-font-size-400">{(worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]] - worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]).toFixed(2)}</h2>
+                                <h2 className="p-font-size-400">{(worldBankData[datasetNameMap[datasetConfig.name]]['climatology'][datasetConfig.timeline][datasetConfig.timeline == '1995-2014' ? 'historical' : datasetConfig.emission][districtToDivision[district?.name]] - worldBankData[datasetNameMap[datasetConfig.name]]['climatology']['1995-2014']['historical'][districtToDivision[district?.name]]).toFixed(2)} {currentUnit}</h2>
                             </div>
                         </div>
                         <hr />
                         <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                            <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
-                                <div className="stories-heading">
-                                    <h2 className="p-font-size-400">Stories <img src={info} /></h2>
+
+                            <div className="stories-heading">
+                                <h2 className="p-font-size-400">Stories <img src={info} style={{ cursor: 'pointer' }} /></h2>
+                                <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
                                     <p>SUBMIT STORY</p>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                             <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                                 {
                                     storyTab == 'resilience' ?
@@ -204,12 +223,15 @@ export default function Sidebar({ setStorySelected }) {
                         </div>
 
                         <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
-                            <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
-                                <div className="stories-heading">
-                                    <h2 className="p-font-size-400">Entities <img src={info} /></h2>
+
+                            <div className="stories-heading">
+
+                                <h2 className="p-font-size-400">Entities <img src={info} style={{ cursor: 'pointer' }} /></h2>
+                                <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
                                     <p>SUBMIT ENTITIES</p>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+
                             <div className="btn-group-inner" style={{ border: "1px solid rgb(0 0 0 / 12%)", borderRadius: "4px" }}>
                                 {
                                     entityTab == 'organisations' ?
@@ -291,7 +313,7 @@ export default function Sidebar({ setStorySelected }) {
                         </div>
                     </div>
                 }
-            </section>
+            </section >
         </>
     );
 }

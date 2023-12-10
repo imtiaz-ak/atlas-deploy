@@ -216,9 +216,10 @@ export default function Map({ storySelected }) {
             .select("#legend-svg")
             .append("g")
             .attr("id", "legend")
-            .attr("transform", `translate(${20}, 50)`)
+            .attr("transform", `translate(${20}, 32)`)
             .attr("width", 800)
-            .attr("height", 100);
+            .attr("height", 80)
+            .attr("font", "12px")
 
         let legendScale = d3
             .scaleLinear()
@@ -299,7 +300,7 @@ export default function Map({ storySelected }) {
                 if (d.properties["NAME_3"] === selectedDistrict) {
                     return "#000"; // Set the desired stroke color
                 } else {
-                    return "#fff"; // Default stroke color for other districts
+                    return "#000"; // Default stroke color for other districts
                 }
             })
             .attr("stroke-width", (d) => {
@@ -362,7 +363,7 @@ export default function Map({ storySelected }) {
                         </div>
                     `);
                 // On hover, increase the border width
-                d3.select(event.target).attr("stroke-width", "4")
+                d3.select(event.target).attr("stroke-width", "3")
                 //d3.select(event.target).attr("stroke", "#000")
             })
             .on("mouseout", (event, d) => {
@@ -400,16 +401,10 @@ export default function Map({ storySelected }) {
     return (
         <>
             <div className="map-container">
-                {
-                    storySelected ?
-                        <></> :
-                        <>
-                            <div id="tooltip"></div>
-                            <div id="legend">
-                                <svg id="legend-svg" width="240" height="100" style={{ "float": "right" }}></svg>
-                            </div>
-                        </>
-                }
+                <div id="tooltip"></div>
+                <div id="legend">
+                    <svg id="legend-svg" width="240" height="80" style={{ "float": "right" }}></svg>
+                </div>
 
                 <svg
                     id="map-vis"
