@@ -154,7 +154,7 @@ export default function Sidebar({ setStorySelected }) {
                         <div className="sidebar__container__buttonGroup" style={{ marginTop: "28px" }}>
 
                             <div className="stories-heading">
-                                <h2 className="p-font-size-400">Stories <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Stories', helpText: `stories text here`, active: true }) }} /></h2>
+                                <h2 className="p-font-size-400">Stories <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Stories', helpText: `stories`, active: true }) }} /></h2>
                                 <a href="https://forms.gle/WGtL6AawiSqt8CKa6">
                                     <p>SUBMIT STORY</p>
                                 </a>
@@ -232,7 +232,7 @@ export default function Sidebar({ setStorySelected }) {
 
                             <div className="stories-heading">
 
-                                <h2 className="p-font-size-400">Entities <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Entities', helpText: `entities text here`, active: true }) }} /></h2>
+                                <h2 className="p-font-size-400">Entities <img src={info} style={{ cursor: 'pointer' }} onClick={() => { setHelpState({ helpTitle: 'Entities', helpText: `entities`, active: true }) }} /></h2>
                                 <a href="https://forms.gle/aXQmMQnAUKGzQcbG8">
                                     <p>SUBMIT ENTITIES</p>
                                 </a>
@@ -315,7 +315,7 @@ export default function Sidebar({ setStorySelected }) {
                         </div>
                         <div className="composition">
                             <h4>FEEDBACKS AND UPDATES</h4>
-                            <p>Share your thoughts and suggestions with us through the provided feedback channels.Stay tuned for regular updates as we continue to expand and enhance the Climate Atlas for Bangladesh. <br/>Embark on a journey of discovery, education, and inspiration as you explore the Climate Atlas for Bangladesh. Together, let's contribute to a more sustainable and resilient future for our planet.</p>
+                            <p>Share your thoughts and suggestions with us through the provided feedback channels.Stay tuned for regular updates as we continue to expand and enhance the Climate Atlas for Bangladesh. <br />Embark on a journey of discovery, education, and inspiration as you explore the Climate Atlas for Bangladesh. Together, let's contribute to a more sustainable and resilient future for our planet.</p>
                         </div>
                     </div>
                 }

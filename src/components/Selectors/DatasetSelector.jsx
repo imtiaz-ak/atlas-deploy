@@ -27,6 +27,25 @@ const helpTextMap = {
     "Largest 5-Day Precipitation": "Largest 5-day Precipitation' refers to the maximum amount of rainfall recorded over a contiguous five-day period at a given location. It is a crucial measure in identifying significant multi-day rainfall occurrences, which can lead to prolonged and severe flooding situations. For Bangladesh, a country particularly vulnerable to heavy monsoon rains and cyclones, keeping track of instances of 'Largest 5-day Precipitation' can help in assessing and preparing for flood risks. Furthermore, it can aid in understanding the patterns of heavy rainfall events under the influence of climate change, assisting in decisions for robust flood management strategies and infrastructure resilience.",
 }
 
+const categoryMap = {
+    "Cooling Degree Days": "Hot Weather",
+    "Hot Days Over 35°C": "Hot Weather",
+    "Hot Days Over 40°C": "Hot Weather",
+    "Hot Days Over 45°C": "Hot Weather",
+    "Summer Days": "Hot Weather",
+
+    "Surface Air Maximum": "Temperature",
+    "Surface Air Minimum": "Temperature",
+    "Maximum Over 26°C": "Temperature",
+    "Maximum Over 29°C": "Temperature",
+    "Single Day Maximum": "Temperature",
+
+    "Precipitation Percent Change": "Precipitation",
+    "Above 50mm": "Precipitation",
+    "Largest 1-Day Precipitation": "Precipitation",
+    "Largest 5-Day Precipitation": "Precipitation"
+}
+
 function DatasetSelector() {
     const [showPicker, setShowPicker] = useState(false);
 
@@ -49,7 +68,7 @@ function DatasetSelector() {
                 </button>
 
                 <div className="dataset-selector-text selector-text">
-                    <p className="weather-type"><span>DATASET</span>TEMPERATURE</p>
+                    <p className="weather-type"><span>DATASET</span><span style={{ fontWeight: 'bold', color: "black" }}>{categoryMap[datasetName]}</span></p>
                     <p className="weather-variable">
                         {datasetName}
                     </p>
@@ -62,7 +81,7 @@ function DatasetSelector() {
                     })
                 }} />
             </div>
-        </div>
+        </div >
     );
 }
 

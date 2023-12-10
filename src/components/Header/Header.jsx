@@ -55,7 +55,8 @@ function Header() {
                 <button
                     tabIndex="-1"
                     className="close-sidebar"
-                    style={{ position: 'absolute', right: '20px', top: '100px' }}
+                    style={{ position: 'absolute', right: '40px', top: '20px', display: 'block' }}
+                    onClick={() => { setSearchBarOpen(false) }}
                 >
                     +
                 </button>
@@ -106,10 +107,13 @@ function Header() {
                                             <div className='card-body' style={{ height: '100%' }}>
                                                 <span>Resilience</span>
                                                 <h2>{e.title}</h2>
-                                                <ul className='card-tags'>
-                                                    <li>Urban</li>
-                                                    <li>Pollution</li>
-                                                </ul>
+                                                {
+                                                    e.tags.map((e) => {
+                                                        return (
+                                                            <li>{e}</li>
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </div>
                                     </a >

@@ -50,7 +50,64 @@ export default function Modal() {
                                     <p>Hover over any district on the map to see a brief description of that region. Click on the districts to get more specific information on GHG emissions, Stories we have from that region, and listed entities currently working in that region. </p>
                                 </div>
                             </> :
-                            <p>{helpState.helpText}</p>
+                            <></>
+                        }
+
+                        {
+                            helpState.helpText == 'stories' ?
+                                <>
+                                    <div className="composition">
+                                        <h4>Description</h4>
+                                        <p>We believe that every story has the power to inspire, educate, and drive positive action. Whether you've witnessed the impacts of climate change or have a story of resilience to tell, we want to hear from you. </p>
+                                    </div>
+                                    <div className="composition">
+                                        <h4>Why Share Your Story:</h4>
+                                        <p>Climate change affects us all, and your story can make a difference. By sharing your experiences, you contribute to a collective narrative that highlights the urgency of addressing climate change and the strength of communities in the face of adversity </p>
+                                    </div>
+                                    <div className="composition">
+                                        <h4>Categories:</h4>
+                                        <p> Resilience Stories: These stories focus on how individuals, communities, or organizations have demonstrated resilience and adaptability in the face of climate change challenges. Share your strategies, innovations, and success stories in mitigating or adapting to climate change.
+                                            <br />
+                                            Impact Stories: Impact stories shed light on the real consequences of climate change. Whether it's extreme weather events, sea-level rise, biodiversity loss, or other climate-related issues, your story can help us understand the human and environmental impacts of this global crisis.
+                                        </p>
+                                    </div>
+                                    <div className="composition">
+                                        <h4>How It Works:</h4>
+                                        <p> Submission Form: To contribute your story, simply fill out our submission form. You'll be prompted to choose between the "Resilience" and "Impact" categories.
+                                            <br />
+                                            Review and Publication: Our team will review your submission, and if it aligns with our mission, we will feature it on our platform. Your story has the potential to inspire others and drive action against climate change.
+                                        </p>
+                                    </div>
+                                    <div className="composition">
+                                        <h4>Get Started:</h4>
+                                        <p>
+                                            Ready to share your story? Click the link below to access our submission form and be a part of the Stories of Change movement. Together, we can make a difference and create a more sustainable future for all.
+                                        </p>
+                                    </div>
+
+                                </> : <></>
+                        }
+                        {
+                            helpState.helpText == 'entities' ?
+                                <>
+                                    <p>At Stories of Change, we believe that addressing climate change requires a collective effort from various entities. Our platform recognizes two main types of entities—Organizations and Initiatives—each playing a vital role in the fight against climate change. Here, we clarify what these entities are and distinguish between their types to eliminate any confusion.</p>
+                                    <div className="composition">
+                                        <h4>Organizations:</h4>
+                                        <h4>Registered Non-Governmental Organizations (NGOs)</h4>
+                                        <p>Description: Organizations are formal entities that are officially registered as Non-Governmental Organizations (NGOs). They are often structured and have a specific mission, governance, and operational framework in place. NGOs dedicated to climate action are crucial for driving impactful change at local, national, and international levels. </p>
+                                    </div>
+                                    <div className="composition">
+                                        <h4>Initiatives:</h4>
+                                        <h4>All Other Climate Action Efforts</h4>
+                                        <p>Description: Initiatives encompass a wide range of climate action efforts that may or may not be formally registered as NGOs. These include grassroots movements, community projects, volunteer-led initiatives, educational programs, awareness campaigns, and innovative solutions aimed at addressing climate change challenges. </p>
+                                    </div>
+                                </> : <></>
+                        }
+                        {
+                            (helpState.helpText != 'guide') && (helpState.helpText != 'stories') && (helpState.helpText != 'entities') ?
+                                <>
+                                    <p>{helpState.helpText}</p>
+                                </> : <></>
                         }
 
                     </div>
