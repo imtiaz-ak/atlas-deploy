@@ -107,13 +107,15 @@ function Header() {
                                             <div className='card-body' style={{ height: '100%' }}>
                                                 <span>Resilience</span>
                                                 <h2>{e.title}</h2>
-                                                {
-                                                    e.tags.map((e) => {
-                                                        return (
-                                                            <li>{e}</li>
-                                                        )
-                                                    })
-                                                }
+                                                <ul className='card-tags'>
+                                                    {
+                                                        e.tags.map((e) => {
+                                                            return (
+                                                                <li>{e}</li>
+                                                            )
+                                                        })
+                                                    }
+                                                </ul>
                                             </div>
                                         </div>
                                     </a >
