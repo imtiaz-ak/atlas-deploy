@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import { useContext, useState } from "react";
 import { useD3 } from "../../hooks/useD3";
 
+import riversGeoData from "../../data/bd_rivers.geo.json";
 import "./Map.css";
 
 import * as districtGeoData from "../../data/bd_districts.geo.json";
@@ -291,9 +292,24 @@ export default function Map({ storySelected }) {
             .text(variableLabelMap[datasetNameMap[datasetName]]);
 
         // svg.attr("width", 1280).attr("height", 1280);
-        svg.selectAll("path")
+
+        let districtGroup = svg.select("#districts");
+        // Add districts group element if it doesn't already exist
+        if (districtGroup.empty()) {
+            districtGroup = svg.append("g").attr("id", "districts");
+        }
+        
+        let riversGroup = svg.select("#rivers");
+        // Add rivers group element if it doesn't already exist
+        if (riversGroup.empty()) {
+            riversGroup = svg.append("g").attr("id", "rivers");
+        }
+
+        // Draw districts
+        districtGroup.selectAll("path")
             .data(districtGeoData.features)
             .join("path")
+            .attr("class", "district")
             .attr("d", path)
             .attr("stroke", (d) => {
                 // Set a specific stroke color for a specific district
@@ -389,9 +405,22 @@ export default function Map({ storySelected }) {
                 setSidebarActive(true);
             });
 
-        // 
+        // Draw rivers
+        riversGroup.selectAll("path")
+            .data(riversGeoData.features)
+            .join("path")
+            .attr("class", "river")
+            .attr("d", path)
+            // .attr("stroke", "#ffff")
+            .attr("stroke-width", "0.5")
+            .attr("fill", "#d5dff4")
+
+        // Enable zoom and pan functionality for map
         d3.select("#map-vis").call(
-            d3.zoom().on("zoom", (e) => {
+            d3.zoom()
+            .scaleExtent([0.22, 1.2]) // Set the minimum and maximum zoom levels
+            // .translateExtent([[-100, 100], [-100, 100]]) // Set the allowed panning extent
+            .on("zoom", (e) => {
                 // NOTE: We select the parent #map-vis element as a reference point for the mouse
                 // The transform is applied to the child #map-vis-group element
                 svg.attr("transform", e.transform);
