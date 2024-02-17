@@ -663,6 +663,30 @@
             }
         ]
     },
+    "Bogura" : {
+        "impact": [],
+        "resilience": []
+    },
+    "Rajbari" : {
+        "impact": [],
+        "resilience": []
+    },
+    "Jhalokati" : {
+        "impact": [],
+        "resilience": []
+    },
+    "Netrokona" : {
+        "impact": [],
+        "resilience": []
+    },
+    "Narsingdi" : {
+        "impact": [],
+        "resilience": []
+    },
+    "Jashore" : {
+        "impact": [],
+        "resilience": []
+    },
     "Natore": {
         "impact": [
             {
@@ -1248,11 +1272,11 @@
         ],
         "resilience": []
     },
-    "Barisal": {
+    "Barishal": {
         "impact": [
             {
                 "url": "https://www.thedailystar.net/news/bangladesh/news/antimicrobial-api-kirtankhola-worst-affected-the-world-2962931",
-                "district": "Barisal",
+                "district": "Barishal",
                 "type": "impact",
                 "tags": [
                     "Chemical Contamination",
@@ -1273,12 +1297,12 @@
                     "in",
                     "the",
                     "world",
-                    "barisal"
+                    "Barishal"
                 ]
             },
             {
                 "url": "https://bangladeshpost.net/posts/river-erosion-threatens-villages-in-barishal-92930",
-                "district": "Barisal",
+                "district": "Barishal",
                 "type": "impact",
                 "tags": [
                     "Erosion"
@@ -1294,7 +1318,7 @@
                     "villages",
                     "in",
                     "barishal",
-                    "barisal"
+                    "Barishal"
                 ]
             }
         ],
@@ -3494,11 +3518,11 @@
         ],
         "resilience": []
     },
-    "Comilla": {
+    "Cumilla": {
         "impact": [
             {
                 "url": "https://www.newagebd.net/article/46532/environment-pollution-takes-serious-turn-in-comilla",
-                "district": "Comilla",
+                "district": "cumilla",
                 "type": "impact",
                 "tags": [
                     "Soil Pollution",
@@ -3518,13 +3542,13 @@
                     "serious",
                     "turn",
                     "in",
-                    "comilla",
-                    "comilla"
+                    "cumilla",
+                    "cumilla"
                 ]
             },
             {
                 "url": "https://www.banglajol.info/index.php/BJSIR/article/view/5184",
-                "district": "Comilla",
+                "district": "cumilla",
                 "type": "impact",
                 "tags": [
                     "Water And Soil Pollution"
@@ -3543,7 +3567,7 @@
                     "major",
                     "ponds",
                     "of",
-                    "comilla",
+                    "cumilla",
                     "town",
                     "|",
                     "bangladesh",
@@ -3553,7 +3577,7 @@
                     "and",
                     "industrial",
                     "research",
-                    "comilla"
+                    "cumilla"
                 ]
             }
         ],
@@ -3725,11 +3749,11 @@
         ],
         "resilience": []
     },
-    "Chittagong": {
+    "Chattogram": {
         "impact": [
             {
                 "url": "https://www.researchgate.net/publication/347901288_Vulnerabilities_to_landslides_in_Chittagong_Metropolitan_Area_Bangladesh",
-                "district": "Chittagong",
+                "district": "Chattogram",
                 "type": "impact",
                 "tags": [
                     "Landslides",
@@ -3747,16 +3771,16 @@
                     "to",
                     "landslides",
                     "in",
-                    "chittagong",
+                    "Chattogram",
                     "metropolitan",
                     "area,",
                     "bangladesh",
-                    "chittagong"
+                    "Chattogram"
                 ]
             },
             {
                 "url": "https://www.researchgate.net/publication/272416420_Microbiological_Water_Pollution_in_Chittagong_Hill_Tracts_in_Bangladesh",
-                "district": "Chittagong",
+                "district": "Chattogram",
                 "type": "impact",
                 "tags": [
                     "Lack Of Drinking Water"
@@ -3774,12 +3798,12 @@
                     "water",
                     "pollution",
                     "in",
-                    "chittagong",
+                    "Chattogram",
                     "hill",
                     "tracts",
                     "in",
                     "bangladesh",
-                    "chittagong"
+                    "Chattogram"
                 ]
             }
         ],
@@ -4215,7 +4239,7 @@
                     "erosion",
                     "saving",
                     "the",
-                    "chittagong",
+                    "Chattogram",
                     "hill",
                     "tracts",
                     "is",
@@ -4848,12 +4872,12 @@
             }
         ]
     },
-    "Chittagong ": {
+    "Chattogram ": {
         "impact": [],
         "resilience": [
             {
                 "url": "https://www.dhakatribune.com/bangladesh/2022/07/29/climate-resilient-technology-delights-fish-farmers-in-rajshahi",
-                "district": "Chittagong ",
+                "district": "Chattogram ",
                 "type": "resilience",
                 "tags": [
                     "Climate Change",
@@ -4876,12 +4900,12 @@
                     "farmers",
                     "in",
                     "rajshahi",
-                    "chittagong "
+                    "Chattogram "
                 ]
             },
             {
                 "url": "https://worldfishcenter.org/blog/building-climate-resilience-bangladeshs-coastal-communities",
-                "district": "Chittagong ",
+                "district": "Chattogram ",
                 "type": "resilience",
                 "tags": [
                     "Climate Change",
@@ -4903,7 +4927,7 @@
                     "bangladesh's",
                     "coastal",
                     "communities",
-                    "chittagong "
+                    "Chattogram "
                 ]
             }
         ]
