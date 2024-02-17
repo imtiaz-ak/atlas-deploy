@@ -76,6 +76,7 @@ export default function Sidebar({ setStorySelected }) {
         ngoDataByDistrict[district].push(item);
     });
 
+
     const className = sidebarState.active ? "sidebar sidebar-active" : "sidebar";
     return (
         <>

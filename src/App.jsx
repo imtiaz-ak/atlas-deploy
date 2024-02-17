@@ -22,6 +22,10 @@ import Slider from "./components/Slider";
 import Modal from "./components/Common/Modal";
 import ResponsiveCardMenu from "./components/Common/ResponsiveCardMenu";
 import StoryModal from "./components/Common/StoryModal";
+import {
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
 
 function App() {
     const [sliderOn, setsliderOn] = useState(false)
@@ -34,30 +38,32 @@ function App() {
     }
 
     const [storySelected, setStorySelected] = useState(false)
+    const queryClient = new QueryClient()
 
     return (
         <>
+            <QueryClientProvider client={queryClient}>
+                <HelpProvider>
+                    <DatasetProvider>
+                        <SidebarProvider>
+                            <DistrictProvider>
+                                <Header />
+                                <div className="main-wrapper">
+                                    <div className="map-container-outer">
+                                        <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                        <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
 
-            <HelpProvider>
-                <DatasetProvider>
-                    <SidebarProvider>
-                        <DistrictProvider>
-                            <Header />
-                            <div className="main-wrapper">
-                                <div className="map-container-outer">
-                                    <Selectors intensitySelectorOn={intensitySelectorOn} toggleintensitySelectorOn={toggleintensitySelectorOn} />
-                                    <Slider sliderOn={sliderOn} toggleSlider={toggleSlider} />
-
-                                    <Map storySelected={storySelected} />
-                                    <Modal />
-                                    <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                        <Map storySelected={storySelected} />
+                                        <Modal />
+                                        <ResponsiveCardMenu toggleSlider={toggleSlider} toggleintensitySelectorOn={toggleintensitySelectorOn} />
+                                    </div>
+                                    <Sidebar setStorySelected={setStorySelected} />
                                 </div>
-                                <Sidebar setStorySelected={setStorySelected} />
-                            </div>
-                        </DistrictProvider>
-                    </SidebarProvider>
-                </DatasetProvider>
-            </HelpProvider>
+                            </DistrictProvider>
+                        </SidebarProvider>
+                    </DatasetProvider>
+                </HelpProvider>
+            </QueryClientProvider>
         </>
     );
 }
